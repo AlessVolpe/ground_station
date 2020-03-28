@@ -22,7 +22,7 @@
 * CSS
 * PHP
 * Python (eventuale)
-* Angular (?)
+* Angular (in futuro)
 
 ## Link utili:
 * Google Drive: https://drive.google.com/drive/folders/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing
