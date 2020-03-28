@@ -34,3 +34,26 @@
 * Guida PHP: https://www.html.it/guide/guida-php-di-base/
 * Guida Node: https://www.w3schools.com/nodejs/
 * Sintassi JSON: http://json.com/
+
+## Teams
+* ### Ground Station
+    * **Giovanni Roma**
+    * Alessandro Volpe
+    * Irene Doria
+    * Marcello Ruggeri
+    * Alessio Parmeggiani
+
+* ### Communication System
+    * **Samuele Quinzi**
+    * Adriano Ceccotti
+    * Alessio Sfregola
+    * Camilla Molinari
+    * Serban Rotaru
+
+* ### Unnamed Ground Vehicle
+    * **Gabriele Boccacci**
+    * Luca Maurici
+    * Daniela Dornescu
+    * Alessandro Melis  
+    * Francesca De Falco
+    * Lorenzo Mattia 
