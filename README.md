@@ -1,4 +1,4 @@
-# ground_station
+# Ground_Station
 
 ## Obiettivi:
 * Comprensione dell'attuale funzionamento
