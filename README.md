@@ -25,7 +25,7 @@
 * Angular (in futuro)
 
 ## Link utili:
-* Google Drive: https://drive.google.com/drive/folders/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing
+* Google Drive: https://drive.google.com/drive/folder/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing
 * Gruppo Telegram: https://t.me/joinchat/CQmP3k_3_pCB3ROPgERu3g
 * Guida HTML: https://www.html.it/guide/guida-html/
 * Guida CCS: https://www.html.it/guide/guida-css-di-base/
