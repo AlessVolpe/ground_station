@@ -1,15 +1,47 @@
 :root {
     font-size: 16px;
     font-family: 'Open Sans';
+    background-color: #212121 /*https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=212121&secondary.color=80D8FF*/
 }
-
-.rover_selector {
-    padding-top: 10%;
+h1 {
+    color: #ffffff
+}
+.rover-selector {
+    display: flex;
+    border-collapse: separate;
+    border-spacing: 48px;
+    justify-content: center;
 }
 .info {
-    color: black;
+    color: #ffffff;
 }
 
+.navbar-button{
+    display: inline-block;
+    cursor: pointer;
+    padding: 10px 25px;
+    border: 1px solid #018dc4;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    color: rgba(255,255,255,0.9);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: #000000;
+  }
+
+.dot {
+    height: 25px;
+    width: 25px;
+    background-color: rgb(170, 19, 19);
+    display: inline-block;
+    position: relative;
+    border-radius: 50%;
+    top: 92%;
+    left: 50%;
+    padding: 5px;
+    margin-left: -22px;
+    margin-top: 0.5%;
+}
 .unnamed {
     width: 300px;
     height: 300px;
@@ -30,3 +62,22 @@
     border-radius: 10px;
     background: url("Assets/robot.jpg");
 }
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/*
+    Baseline colors for matherial theme dark:
+
+    Primary #bb86fc
+    Primary variant #3700b3
+    Secondary #03dac6
+    Background and surface #121212
+    Error #cf6679
+    Text over primary and secundary #000000
+    Text over Background and surface #ffffff
+    text over Error: #000000
+*/

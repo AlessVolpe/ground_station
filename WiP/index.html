@@ -2,7 +2,15 @@
 <html>
 <meta charset="utf-8" />
 <link rel="stylesheet" href="stylesheet.css" />
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap" rel="stylesheet" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+img {
+    object-fit: cover;
+    }
+</style>
 
 <head>
     <title>Ground Station - Home</title>
@@ -10,83 +18,63 @@
 
 <body>
     <header>
+        <div>
+            <div class="w3-bar w3-black">
+                <a href="#" class=".navbar-button"><img src="Assets/menu.png" alt="Menu" width="20" height="20"></a>
+                <a href="#" class="w3-bar-item w3-button">London</a>
+                <a href="#" class="w3-bar-item w3-button">Paris</a>
+                <a href="#" class="w3-bar-item w3-button">Tokyo</a>
+              </div>
+              <br>
+        </div>
         <h1 align="center">Ground Station - Home</h1>
         <br>
     </header>
-    <style>
-        /*.rover_selector {
-                display: grid;
-                grid-template-columns: auto auto auto;
-                grid-gap: 10px;
-                background-color: rgb(255, 255, 255);
-                padding: 10px;
-            }
 
-            .rover_selector>div {
-                background-color: rgba(255, 255, 255);
-                text-align: center;
-                font-size: 20px;
-            }
-
-            .unnamed {
-                start on row 1 and span for 2 rows 
-                grid-row: 1 / span 1;
-            }
-
-            .hector {
-                grid-row: 1 / span 1;
-            }
-
-            .aenea {
-                grid-row: 1 / span 1;
-            }*/
-    </style>  
-
-    <style type="text/css">
-        .tg  {border-collapse:collapse;border-spacing:0;}
-        .tg .tg-baqh{text-align:center;vertical-align:top}
-        .tg .tg-0lax{text-align:left;vertical-align:top}
-    </style>
-
-    <table class="tg">
+    <table class="rover-selector">
     <tr>
-        <th class="tg-0lax">
-
+        <th>
+            <a href="unnamed.html">
+                <div class="unnamed", class="img">
+                 <span class="dot"></span>
+                </div>
+            </a>
+            <p class="info">Info rover: unnamed</p>
         </th>
-        <th class="tg-baqh">
-
+        <th>
+            <a href="aenea.html">
+                <div class="aenea">
+                    <span class="dot"></span>
+                </div>
+            </a>
+            <p class="info">Info rover: aeneas</p>
         </th>
-        <th class="tg-baqh">
-            
+        <th>
+            <a href="hector.html">
+                <div class="hector">
+                    <span class="dot"></span>
+                </div>
+            </a>
+            <p class="info">Info rover: hector</p>
         </th>
     </tr>
     </table>
-    <article class="rover_selector">
-        <!--ogni div va messo in riga-->  
-        <a href="unnamed.html">
-            <div class="unnamed">
-                <p class="info">Info rover: unnamed</p>
-            </div>
-        </a>
-        
-        <a href="aenea.html">
-            <div class="aenea">
-                
-                <p class="info">Info rover: aenea</p>
-            </div>
-        </a>
-       
-        <a href="hector.html">
-            <div class="hector">
-            <p class="info">Info rover: hector</p>
-            </div>              
-        </a>
-    </article>
     <footer>
-
+        <div>
+            <div class="w3-bar w3-black">
+                <a href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" class="w3-bar-item w3-button">
+                    Facebook 
+                </a>
+                <a href="https://www.instagram.com/sapienza_technology_team/" class="w3-bar-item w3-button">
+                    Instagram
+                </a>
+                <a href="#" class="w3-bar-item w3-button">
+                    GitHub
+                </a>
+              </div>
+        </div>
     </footer>
 </body>
-
 </html>
 
 <!--https://enjoycss.com/   https://angrytools.com/css-generator/-->
