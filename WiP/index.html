@@ -1,81 +1,73 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8" />
-<link rel="stylesheet" href="stylesheet.css">
-<link rel="stylesheet" href="nav-menu.css">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="nav-menu.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>
-    var today = new Date(), minutes = d.getMinutes().toString().length == 1 ? '0'+d.getMinutes() : d.getMinutes(),
-    hours = d.getHours().toString().length == 1 ? '0'+d.getHours() : d.getHours(),
-    ampm = d.getHours() >= 12 ? 'pm' : 'am',
-    document.getElementById('time').innerHTML=today;
-</script>
+    <head>
+        <title>Ground Station - Home</title>
+    </head>
 
-<head>
-    <title>Ground Station - Home</title>
-</head>
-
-<body>
-    <header>
-        <div class="topnav">
-            <a href="#" class="material-icons">menu</a>
-            <a href="#">London</a>
-            <a href="#">Paris</a>
-            <a href="#">Tokyo</a>
-            <span class="time" id="time"></span>
-        </div>
-        <br>
-        <div class="title">Ground Station - Home</div> 
-        <br>
-    </header>
-
-    <table class="rover-selector">
-    <tr>
-        <th>
-            <a href="unnamed.html">
-                <div class="unnamed", class="img">
-                 <span class="dot blinking"></span>
-                </div>
-            </a>
-            <p class="info">Info rover: unnamed</p>
-        </th>
-        <th>
-            <a href="aenea.html">
-                <div class="aenea">
-                    <span class="dot blinking"></span>
-                </div>
-            </a>
-            <p class="info">Info rover: aeneas</p>
-        </th>
-        <th>
-            <a href="hector.html">
-                <div class="hector">
-                    <span class="dot blinking"></span>
-                </div>
-            </a>
-            <p class="info">Info rover: hector</p>
-        </th>
-    </tr>
-    </table>
-    <footer>
-        <div>
+    <body>
+        <header>
             <div class="topnav">
-                <a href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" class="w3-bar-item w3-button">
-                    Facebook 
+                <a href="#" class="material-icons">menu</a>
+                <a href="#">London</a>
+                <a href="#">Paris</a>
+                <a href="#">Tokyo</a>
+            </div>
+            <br>
+            <div class="title">Ground Station - Home</div> 
+            <br>
+        </header>
+
+        <table class="rover-selector">
+        <tr>
+            <th>
+                <a href="unnamed.html">
+                    <div class="unnamed", class="img">
+                    <span class="dot blinking"></span>
+                    </div>
                 </a>
-                <a href="https://www.instagram.com/sapienza_technology_team/" class="w3-bar-item w3-button">
-                    Instagram
+                <p class="info">Info rover: unnamed</p>
+            </th>
+            <th>
+                <a href="aenea.html">
+                    <div class="aenea">
+                        <span class="dot blinking"></span>
+                    </div>
                 </a>
-                <a href="https://github.com/Syro98/ground_station" class="w3-bar-item w3-button">
-                    GitHub
+                <p class="info">Info rover: aeneas</p>
+            </th>
+            <th>
+                <a href="hector.html">
+                    <div class="hector">
+                        <span class="dot blinking"></span>
+                    </div>
                 </a>
-              </div>
-        </div>
-    </footer>
-</body>
+                <p class="info">Info rover: hector</p>
+            </th>
+        </tr>
+        </table>
+        <footer>
+            <div>
+                <div class="topnav">
+                    <a href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" class="w3-bar-item w3-button">
+                        Facebook 
+                    </a>
+                    <a href="https://www.instagram.com/sapienza_technology_team/" class="w3-bar-item w3-button">
+                        Instagram
+                    </a>
+                    <a href="https://github.com/Syro98/ground_station" class="w3-bar-item w3-button">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </body>
 </html>
 
 <!--https://enjoycss.com/   https://angrytools.com/css-generator/-->
