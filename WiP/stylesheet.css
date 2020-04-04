@@ -1,29 +1,32 @@
-.rover_selector {
-    padding-top: 10%;
-}
-.info {
-    align-self: center;
-    color: black;
-}
 :root {
     font-size: 16px;
     font-family: 'Open Sans';
 }
+
+.rover_selector {
+    padding-top: 10%;
+}
+.info {
+    color: black;
+}
+
 .unnamed {
-    -webkit-box-sizing: content-box;
-    -moz-box-sizing: content-box;
-    box-sizing: content-box;
     width: 300px;
     height: 300px;
-    border: 2px solid rgba(0,150,255,0.91);
-    -webkit-border-radius: 10px;
     border-radius: 10px;
-    background: url("https://enjoycss.com/bg-img/default/1_2.png");
-    background-position: 100% 100%;
-    -webkit-background-origin: padding-box;
-    background-origin: padding-box;
-    -webkit-background-clip: border-box;
-    background-clip: border-box;
-    -webkit-background-size: auto auto;
-    background-size: auto auto;
+    background: url("Assets/robot.jpg");
   }
+
+.aenea {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background: url("Assets/robot.jpg");
+}
+
+.hector {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    background: url("Assets/robot.jpg");
+}
