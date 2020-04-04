@@ -13,17 +13,23 @@
 
 <body>
     <header>
-        <div class="topnav" style="margin-left:-20px;margin-right:-20px;margin-top:-20px;">
+        <div class="topnav" style="margin-left:-10px;margin-right:-10px;margin-top:-10px;">
             <a href="#" class="material-icons">menu</a>
             <a href="#">London</a>
             <a href="#">Paris</a>
             <a href="#">Tokyo</a>
+            <p id="datetime"></p>
 
         </div>
         <br>
         <div class="title">Ground Station - Home</div>
         <br>
     </header>
+
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+    </script>
 
     <table class="rover-selector">
         <tr>
@@ -55,7 +61,7 @@
     </table>
     <footer>
         <div>
-            <div class="topnav" style="margin-left:-20px; margin-right:-20px; margin-top:-20px;">
+            <div class="topnav" style="margin-left:-10px; margin-right:-10px; margin-top:-10px;">
                 <a href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" class="w3-bar-item w3-button">
                         Facebook 
                     </a>
