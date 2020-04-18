@@ -1,6 +1,5 @@
 /*
     Baseline colors for matherial theme dark:
-
     Primary #bb86fc
     Primary variant #3700b3
     Secondary #03dac6
@@ -9,23 +8,24 @@
     Text over primary and secundary #000000
     Text over Background and surface #ffffff
     text over Error: #000000
-
     https://codepen.io/evawythien/pen/jegRxN - progress bar code
     https://glitch.com/~material-theme-builder - material design snippets
     https://material.io/resources/icons/?style=baseline - material design icons
     https://material.io/resources/color/#!/?view.left=0&view.right=0&primary.color=212121&secondary.color=80D8FF
-
 */
 
 :root {
     font-size: 17px;
     font-family: 'Roboto';
     font-weight: 200;
-    background-color: #212121
+    background-color: #212121;
 }
 
-html {
-    overflow-x: hidden
+html, body {
+    overflow-x: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 .title {
@@ -62,6 +62,10 @@ footer {
     -moz-osx-font-smoothing: grayscale;
     /* Support for IE. */
     font-feature-settings: 'liga';
+}
+
+.datetime {
+    position: relative;
 }
 
 .rover-selector {
@@ -119,14 +123,14 @@ footer {
     width: 300px;
     height: 300px;
     border-radius: 10px;
-    background: url("Assets/robot.jpg");
+    background: url("Assets/hector.jpg");
 }
 
 .hector {
     width: 300px;
     height: 300px;
     border-radius: 10px;
-    background: url("Assets/robot.jpg");
+    background: url("Assets/hector2.jpg");
 }
 
 footer {

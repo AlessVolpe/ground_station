@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <link rel="stylesheet" href="nav-menu.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <style>
+      #map {
+        height: 400px; /* The height is 400 pixels */
+        width: 540px; /*The width is the width of the web page */
+      }
+      #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+        <div class="topnav" style="margin-left:-10px;margin-right:-10px;margin-top:-10px;">
+            <a href="index.html" class="material-icons">menu</a>
+            <p id="datetime"></p>
+        </div>
+    </header>
+    <script>
+        var dt = new Date();
+        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+    </script>
+    <script>
+    function initMap() {
+        var coords = { lat: 41.8933181, lng: 12.4932009 };
+        var infoWindow;
+        var map = new google.maps.Map(document.getElementById("map"), {
+          zoom: 17,
+          center: coords,
+          mapTypeControl: false,
+          streetViewControl: false,
+          styles: [
+            {
+              featureType: "administrative.land_parcel",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "administrative.neighborhood",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "poi",
+              elementType: "labels.text",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "poi.business",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "road",
+              elementType: "labels",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "road",
+              elementType: "labels.icon",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "road.local",
+              stylers: [
+                {
+                  visibility: "on",
+                },
+              ],
+            },
+            {
+              featureType: "transit",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+            {
+              featureType: "water",
+              elementType: "labels.text",
+              stylers: [
+                {
+                  visibility: "off",
+                },
+              ],
+            },
+          ],
+        });
+        infoWindow = new google.maps.InfoWindow();
+        // The marker, positioned at coords
+        var marker = new google.maps.Marker({
+          position: coords,
+          map: map,
+          icon: "Assets/rover_icon.png",
+        });
+        /*center map on target listener*/
+        map.addListener("center_changed", function () {
+          window.setTimeout(function () {
+            map.panTo(marker.getPosition());
+          }, 1000);
+        });
+        /*click on marker listener*/
+        marker.addListener("click", function () {
+          infoWindow.setPosition(coords);
+          infoWindow.setContent("Current weather in Rome");
+          infoWindow.open(map);
+          map.setCenter(pos);
+          map.setCenter(marker.getPosition());
+        });
+        var markers = [];
+      }
+    </script>
+    <script
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0&libraries=places&callback=initMap"
+      AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0
+    ></script>
+    
+    <div class="container">
+      <div class="jumbotron">
+        <div class="container">
+          <h2>Info about hector</h2>
+          <div class="row">
+            <div class="col-md-4">
+                <h4>For short...</h4>
+                An exawheeled beast of rover with a tiny arm, like a T-Rex.
+                It has a full 10k camera and some JUICY sensors that will make you feel like you are a stupid human.
+                
+            </div>
+            <div class="col-md-6">
+                <h4>... but now you have the long ones.</h4>
+                <small>
+                    
+                </small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <h1 data-welcome></h1>
+        <div class="row">
+          <div class="col-md-6">
+            <h3>The data is from <span data-time></span></h3>
+            <ul>
+              <li data-ip></li>
+              <li data-city></li>
+              <li data-region></li>
+              <li>
+                <span data-country></span
+                ><span data-country data-if-country="value=='DK'"
+                  >You are in same country as me</span
+                >
+              </li>
+              <li data-loc></li>
+              <li data-org></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div id="map"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
