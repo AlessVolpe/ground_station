@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="stylesheet.css">
+  <link rel="stylesheet" href="nav-menu.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <head>
-    <meta charset="UTF-8" />
     <title>Unnamed Ground Vehicle</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="nav-menu.css">
-    <link rel="stylesheet" href="stylesheet.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
     <style>
       #map {
         height: 400px; /* The height is 400 pixels */
@@ -22,10 +23,12 @@
   </head>
   <body>
     <header>
-        <div class="topnav" style="margin-left:-10px;margin-right:-10px;margin-top:-10px;">
-            <a href="index.html" class="material-icons">menu</a>
-            <p id="datetime"></p>
-        </div>
+      <div class="topnav" style="margin-left:0px;margin-right:50px;margin-top:-10px;">
+          <a href="index.html" class="material-icons">menu</a>
+          <a data-ip></a>
+          <a id="datetime"></a>
+          <a> 18° · Cloudy <i class='fas fa-cloud-sun'></i></a> 
+      </div>
     </header>
     <script>
         var dt = new Date();
@@ -149,41 +152,49 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0&libraries=places&callback=initMap"
       AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0
     ></script>
-    
+    <br>
     <div class="container">
       <div class="jumbotron">
         <div class="container">
           <h2>Info about Unnamed</h2>
           <div class="row">
-            <div class="col-md-4">
-                <h4>For short...</h4>
-                An exawheeled beast of rover with a tiny arm, like a T-Rex.
-                It has a full 10k camera and some JUICY sensors that will make you feel like you are a stupid human.
-                
+            <div class="col-md-6">
+                <h4>Specifications</h4>
+                <small>
+                <ul>
+                  <li>Weight: Some Elephants</li>
+                  <li>Max Speed: More than 3</li>
+                  <li>Autonomy: Less than Graham's Number</li>
+                </ul>
+                </small>
             </div>
             <div class="col-md-6">
-                <h4>... but now you have the long ones.</h4>
+                <h4>Components</h4>
                 <small>
-                    
+                    <ul>
+                      <li>Motors: 065 Evo 2</li>
+                      <li>GPS: TomTom Start 52 Lite</li>
+                      <li>IMU: sulla seconda casa</li>
+                      <li>Camera: RED Digital Cinema MONSTRO 8K VV</li>
+                      <li>PSU: Černobyl'</li>
+                    </ul>
                 </small>
             </div>
           </div>
         </div>
       </div>
-      <div class="container">
-        <h1 data-welcome></h1>
+      <div class="container2">
+        <h1>Real-time info</h1>
         <div class="row">
           <div class="col-md-6">
-            <h3>The data is from <span data-time></span></h3>
+            <h3>Live Data<span data-time></span></h3>
             <ul>
               <li data-ip></li>
               <li data-city></li>
               <li data-region></li>
               <li>
-                <span data-country></span
-                ><span data-country data-if-country="value=='DK'"
-                  >You are in same country as me</span
-                >
+                <span data-country></span>
+                <span data-country data-if-country="value=='DK'">You are in same country as me</span>
               </li>
               <li data-loc></li>
               <li data-org></li>
@@ -192,6 +203,12 @@
           <div class="col-md-6">
             <div id="map"></div>
           </div>
+        </div>
+        <br><br>
+        <div class="row">
+          <iframe class "stream" width="1142" height="642,375" src="https://www.youtube.com/embed/WQ6Vdv_fyYc" frameborder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+        </iframe>
         </div>
       </div>
     </div>

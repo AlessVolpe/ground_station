@@ -89,3 +89,4 @@ if (!!!("time" in userInfo)) {
   setClassFromObjectProperties(userInfo.userinfo, bStorePropAndValue);
   showMore();
 }
+

@@ -4,33 +4,27 @@
     color: #ffffff;
     padding: 0;
     margin: 0;
+    width: 100%;
+    text-decoration: none;
     /*border-radius: 10px;*/
   }
-  
   .topnav a {
     float: left;
     display: block;
     color: #ffffff;
     text-align: center;
-    padding: 14px 16px;
+    padding: 25px 50px 16px;
     text-decoration: none;
     font-size: 17px;
   }
-  
   .topnav a:hover {
-    background-color: #ffffff;
-    color: black;
+    background-color: #ffffff2a;
+    color: #fff;
   }
-  
-  .topnav a.active {
-    background-color: #000000;
-    color: white;
-  }
-  
+
   .topnav .search-container {
     float: right;
   }
-  
   .topnav input[type=text] {
     padding: 6px;
     margin-top: 8px;

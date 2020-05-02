@@ -1,20 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <meta charset="utf-8" />
     <link rel="stylesheet" href="stylesheet.css">
     <link rel="stylesheet" href="nav-menu.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <head>
         <title>Ground Station</title>
     </head>
     <body>
         <header>
-            <div class="topnav" style="margin-left:-10px;margin-right:-10px;margin-top:-10px;">
-                <!--<a href="#" class="material-icons">menu</a>-->
-                <p id="datetime"></p>
+            <div class="topnav" style="margin-left:0px;margin-right:50px;margin-top:-10px;">
+                <a data-ip></a>
+                <a id="datetime"></a>
+                <a> 18° · Cloudy <i class='fas fa-cloud-sun'></i></a> 
             </div>
+            <script src="./script.js"></script>
             <br>
             <div class="title">Ground Station - Home</div>
             <br>
@@ -27,10 +30,11 @@
             <tr>
                 <th>
                     <a href="unnamed.html">
-                        <div class="unnamed" , class="img">
+                        <div class="unnamed" , class="img">      
                             <span class="dot blinking"></span>
                         </div>
                     </a>
+                    <br>
                     <p class="info">Info rover: unnamed</p>
                 </th>
                 <th>
@@ -39,6 +43,7 @@
                             <span class="dot blinking"></span>
                         </div>
                     </a>
+                    <br>
                     <p class="info">Info rover: aeneas</p>
                 </th>
                 <th>
@@ -47,23 +52,16 @@
                             <span class="dot blinking"></span>
                         </div>
                     </a>
+                    <br>
                     <p class="info">Info rover: hector</p>
                 </th>
             </tr>
         </table>
         <footer>
-            <div>
-                <div class="topnav" style="margin-left:-10px; margin-right:-10px; margin-top:-10px;">
-                    <a href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" class="w3-bar-item w3-button">
-                            Facebook 
-                        </a>
-                    <a href="https://www.instagram.com/sapienza_technology_team/" class="w3-bar-item w3-button">
-                            Instagram
-                        </a>
-                    <a href="https://github.com/Syro98/ground_station" class="w3-bar-item w3-button">
-                            GitHub
-                        </a>
-                </div>
+            <div class="topnav" style="margin-left:0px;margin-right:50px;margin-top:-10px;">
+                <a href="https://www.facebook.com/SapienzaAerospaceStudentAssociation"> Facebook </a>
+                <a href="https://www.instagram.com/sapienza_technology_team/"> Instagram</a>
+                <a href="https://github.com/Syro98/ground_station"> GitHub</a>
             </div>
         </footer>
     </body>
