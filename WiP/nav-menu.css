@@ -17,11 +17,7 @@
     text-decoration: none;
     font-size: 17px;
   }
-  .topnav a:hover {
-    background-color: #ffffff2a;
-    color: #fff;
-  }
-
+  
   .topnav .search-container {
     float: right;
   }

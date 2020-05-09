@@ -66,7 +66,7 @@ footer {
   /* Support for IE. */
   font-feature-settings: "liga";
 }
-.datetime {
+.digital-clock {
   position: relative;
 }
 .rover-selector {
