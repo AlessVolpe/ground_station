@@ -6,7 +6,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-    <script  src="./script.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
     <head>
@@ -21,13 +20,16 @@
                 </div> 
                 <a href="https://www.google.com/search?client=firefox-b-d&q=meteo+roma"> 18° · Cloudy <i class='fas fa-cloud-sun'></i></a> 
             </div>
-            <script  src="./script.js"></script>
+            <script src="./script.js"></script>
+            <script src="./weather.js"></script>
+            <script>
+                //usare JSON.parse(json in stringa) per parsare il json
+            </script>
             <script>
                 $(document).ready(function() {
                     clockUpdate();
                     setInterval(clockUpdate, 1000);
                 })
-
                 function clockUpdate() {
                 var date = new Date();
                 function addZero(x) {
@@ -46,8 +48,8 @@
 
                 var month = d.getMonth()+1;
                 var day = d.getDate();
-
-                $('.digital-clock').text(day + '/' + month + '/' + d.getFullYear() 
+                var year= d.getFullYear();
+                $('.digital-clock').text(day + '/' + month + '/' + year
                     + ' ' + h + ':' + m + ':' + s)
                 }
             </script>
@@ -55,10 +57,6 @@
             <div class="title">Ground Station - Home</div>
             <br>
         </header>
-        <script>
-            var dt = new Date();
-            document.getElementById("datetime").innerHTML = dt.toLocaleString();
-        </script>
         <table class="rover-selector">
             <tr>
                 <th>
