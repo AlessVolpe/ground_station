@@ -1,4 +1,8 @@
 .topnav {
+    top: 0;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     overflow: hidden;
     background-color: #000000;
     color: #ffffff;
@@ -6,18 +10,49 @@
     margin: 0;
     width: 100%;
     text-decoration: none;
-    /*border-radius: 10px;*/
+    text-align: center;
   }
   .topnav a {
-    float: left;
-    display: block;
+    display: inline-block;
     color: #ffffff;
     text-align: center;
-    padding: 25px 50px 16px;
+    padding: 16px 50px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0;
+  }
+  .topnav a:hover {
+    display: inline-block;
+    background-color: #222;
+    color: #ffffff;
+    text-align: center;
     text-decoration: none;
     font-size: 17px;
   }
-  
+  .topnav h5 {
+    display: inline-block;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px 50px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0;
+  }
+  .topnav i {
+    display: inline-block;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    left: 0px;
+  }
+  .topnav i:hover {
+    display: inline-block;
+    background-color: #222;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+  }
   .topnav .search-container {
     float: right;
   }

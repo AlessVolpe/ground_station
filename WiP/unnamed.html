@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="stylesheet.css">
   <link rel="stylesheet" href="nav-menu.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet">
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
@@ -12,8 +12,8 @@
     <title>Unnamed Ground Vehicle</title>
     <style>
       #map {
-        height: 400px; /* The height is 400 pixels */
-        width: 540px; /*The width is the width of the web page */
+        height: 400px;
+        width: 540px;
       }
       #description {
         font-family: Roboto;
@@ -23,43 +23,42 @@
     </style>
   </head>
   <body>
+    <div class="topnav">
+      <a href="index.html"><i class="mdi mdi-home"></i></a>
+      <h5 data-ip></h5>
+      <h5 class="digital-clock"> 00:00:00 </h5>
+      <a href="https://www.google.com/search?client=firefox-b-d&q=meteo+roma"> 18° · Cloudy <i class='fas fa-cloud-sun'></i></a> 
+    </div>
     <header>
-      <div class="topnav" style="margin-left:0px;margin-right:50px;margin-top:-10px;">
-          <a href="index.html" class="material-icons">menu</a>
-          <a data-ip></a>
-          <a class="digital-clock"> 00:00:00 </a>
-          <a> 18° · Cloudy <i class='fas fa-cloud-sun'></i></a> 
-          <script  src="./script.js"></script>
-          <script>
-              $(document).ready(function() {
-                  clockUpdate();
-                  setInterval(clockUpdate, 1000);
-              })
-
-              function clockUpdate() {
-              var date = new Date();
-              function addZero(x) {
-                  if (x < 10) {
-                  return x = '0' + x;
-                  } else {
-                  return x;
-                  }
+      <script  src="./script.js"></script>
+      <script>
+          $(document).ready(function() {
+              clockUpdate();
+              setInterval(clockUpdate, 1000);
+          })
+          function clockUpdate() {
+          var date = new Date();
+          function addZero(x) {
+              if (x < 10) {
+              return x = '0' + x;
+              } else {
+              return x;
               }
+          }
 
-              var h = addZero(date.getHours());
-              var m = addZero(date.getMinutes());
-              var s = addZero(date.getSeconds());
-              
-              var d = new Date();
+          var h = addZero(date.getHours());
+          var m = addZero(date.getMinutes());
+          var s = addZero(date.getSeconds());
+          
+          var d = new Date();
 
-              var month = d.getMonth()+1;
-              var day = d.getDate();
+          var month = d.getMonth()+1;
+          var day = d.getDate();
 
-              $('.digital-clock').text(day + '/' + month + '/' + d.getFullYear() 
-                  + ' ' + h + ':' + m + ':' + s)
-              }
-          </script>
-      </div>
+          $('.digital-clock').text(day + '/' + month + '/' + d.getFullYear() 
+              + ' ' + h + ':' + m + ':' + s)
+          }
+      </script>
     </header>
     <script>
         var dt = new Date();
