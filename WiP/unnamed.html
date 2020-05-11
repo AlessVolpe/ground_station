@@ -5,8 +5,10 @@
   <link rel="stylesheet" href="nav-menu.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
   <link href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <head>
     <title>Unnamed Ground Vehicle</title>
@@ -23,6 +25,36 @@
     </style>
   </head>
   <body>
+    <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start">
+      <a class="navbar-brand d-md-none d-inline" href="">Brand</a>
+      <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      <a class="nav-link" href="#_"><i class="fa fa-search mr-1"></i></a> 
+      <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+          <ul class="navbar-nav mx-auto text-md-center text-left">
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a> 
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item my-auto">
+                  <a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="">Brand</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a> 
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a> 
+              </li>
+          </ul>
+          <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+              <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-facebook mr-1"></i></a> </li>
+              <li class="nav-item"><a class="nav-link" href=""><i class="fa fa-twitter"></i></a> </li>
+          </ul>
+      </div>
+    </nav>
     <div class="topnav">
       <a href="index.html"><i class="mdi mdi-home"></i></a>
       <h5 data-ip></h5>
