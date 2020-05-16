@@ -38,12 +38,11 @@
     font-size: 17px;
     margin: 0;
   }
-  .topnav i {
+  .topnav a img {
     display: inline-block;
-    color: #ffffff;
-    text-align: center;
-    text-decoration: none;
-    left: 0px;
+    padding: 0px 0px 0px;
+    height: 32px;
+    width: auto;
   }
   .topnav i:hover {
     display: inline-block;

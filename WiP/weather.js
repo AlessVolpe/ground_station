@@ -1,33 +1,16 @@
-//before running the code, be sure to execute the following tasks:
-//1. commands on terminal (in the project root folder):
-//   npm init --yes
-//   npm install request --save
-//   npm install dotenv --save
-//   npm install fs --save
-//2. create a .env file with openWeatherAPI={yourAPIkey}
+var theUrl = "http://api.openweathermap.org/data/2.5/weather?q=Rome,IT&units=metric&appid=4149ce2d7232486f803ca6a89957b638";
 
-require("dotenv").config();
-
-var request = require("request");
-
-var options = {
-  url:
-    "http://api.openweathermap.org/data/2.5/weather?q=Rome,IT&units=metric&appid=" +process.env.openWeatherAPI,
-};
-
-var fs = require("fs");
-function callback(error, response, body) {
-  if (!error && response.statusCode == 200) {
-    var info = JSON.parse(body);
-    console.log("##############################");
-    console.log(info);
-    console.log("##############################");
-    fs.writeFile("weather.json", JSON.stringify(info), function (err) {
-      if (err) throw err;
-      console.log("Saved!");
-      console.log("##############################");
-    });
-  } else console.log("Error. Code " + response.statusCode);
+function httpGet()
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+    xmlHttp.send( null );
+    var info = xmlHttp.responseText;
+    var weather = document.getElementById("weather");
+    const j = JSON.parse(info);
+    var temp = parseInt(j.main.temp);
+    weather.innerHTML = j.weather[0].main + " · " + temp.toString() + " C°";
+    document.getElementById("weather_icon").src = "http://openweathermap.org/img/wn/"+j.weather[0].icon+".png";
 }
 
-request.get(options, callback);
+httpGet();
