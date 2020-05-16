@@ -1,3 +1,23 @@
+.bg-dark {
+  background-color: #000 !important;
+}
+.nav-item {
+  display: block;
+  padding-left: 3rem;
+}
+.nav-item2 {
+  display: block;
+  padding-left: 0rem;
+  margin-top: -5px;
+}
+.nav-social {
+  display: block;
+  padding-left: 0.5rem;
+}
+.nav-link {
+  color: #fff;
+}
+
 .topnav {
     top: 0;
     width: 100%;
