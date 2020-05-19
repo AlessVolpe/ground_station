@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="nav-menu.css">
   <link rel="stylesheet" href="stylesheet.css">
   <script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
   <head>
@@ -264,8 +265,7 @@
         </div>
         <br><br>
         <div class="row">
-          <iframe class="stream" width="1142" height="642,375" src="https://www.youtube.com/embed/WQ6Vdv_fyYc" frameborder="0" 
-          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
+          <iframe class="stream" width="1142" height="642,375" src="https://www.youtube.com/embed/WQ6Vdv_fyYc" frameborder="0">
         </iframe>
         </div>
         <br><br>
@@ -274,7 +274,7 @@
           <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
           <div class="col-md-6">
           <section class="content">
-            <form class="content__form contact-form">
+            <form class="content__form contact-form" action="esempio.php" method="post">
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Insert Velocity</label>
                 <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity" type="text"/>
@@ -337,15 +337,6 @@
                 const data = formToJSON(form.elements);
                 const dataContainer = document.getElementsByClassName('results__display')[0];
                 dataContainer.textContent = JSON.stringify(data, null, " ");
-                $.ajax({
-                  url: "myurl.php",
-                  type: "POST",
-                  data: dataContainer.textContent,
-                  complete: function(response){
-                    var test = $.parseHTML(response)
-                    console.log(test);
-                  }
-                });
               };
               const form = document.getElementsByClassName('content__form contact-form')[0];
               form.addEventListener('submit', handleFormSubmit);
