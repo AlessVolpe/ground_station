@@ -269,6 +269,7 @@
         </iframe>
         </div>
         <br><br>
+
         <div class="row">
           <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
           <div class="col-md-6">
@@ -289,10 +290,11 @@
                   <option>Performance</option>
                 </select>
               </div>
-              <button class="contact-form__button" type="submit" onclick="handleSubmit()">Send It!</button>
+              <button class="contact-form__button" type="submit" id="submit" onclick="handleSubmit()">Send It!</button>
             </form>
           </section>
         </div>
+
         <div class="col-md-6">
           <div class="results">
             <h2 class="results__heading">Command Data</h2>
@@ -335,6 +337,15 @@
                 const data = formToJSON(form.elements);
                 const dataContainer = document.getElementsByClassName('results__display')[0];
                 dataContainer.textContent = JSON.stringify(data, null, " ");
+                $.ajax({
+                  url: "myurl.php",
+                  type: "POST",
+                  data: dataContainer.textContent,
+                  complete: function(response){
+                    var test = $.parseHTML(response)
+                    console.log(test);
+                  }
+                });
               };
               const form = document.getElementsByClassName('content__form contact-form')[0];
               form.addEventListener('submit', handleFormSubmit);
