@@ -267,8 +267,79 @@
           <iframe class="stream" width="1142" height="642,375" src="https://www.youtube.com/embed/WQ6Vdv_fyYc" frameborder="0" 
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture">
         </iframe>
-        <br>
-        <br>
+        </div>
+        <br><br>
+        <div class="row">
+          <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
+          <div class="col-md-6">
+          <section class="content">
+            <form class="content__form contact-form">
+              <div class="contact-form__input-group">
+                <label class="contact-form__label" for="velocity">Insert Velocity</label>
+                <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity" type="text"/>
+              </div>
+              <div class="contact-form__input-group">
+                <label class="contact-form__label" for="coords">Choose coordinates</label>
+                <input class="contact-form__input contact-form__input--text" id="coords" name="coords" type="text"/>
+              </div>
+              <div class="contact-form__input-group">
+                <label class="contact-form__label" for="mode">Rover Mode</label>
+                <select class="contact-form__input contact-form__input--select" id="mode" name="mode">
+                  <option>Eco-mode</option>
+                  <option>Performance</option>
+                </select>
+              </div>
+              <button class="contact-form__button" type="submit" onclick="handleSubmit()">Send It!</button>
+            </form>
+          </section>
+        </div>
+        <div class="col-md-6">
+          <div class="results">
+            <h2 class="results__heading">Command Data</h2>
+            <pre class="results__display-wrapper"><code class="results__display"></code></pre>
+          </div>
+        </div>
+          <script type="text/javascript">
+            function handleSubmit() {
+              /**
+              * A Handler function to prevent default submission and run our custom script
+              * @param {Event} event the submit event triggered by the user
+              * @return {void}
+              */
+              const getSelectValues = options => [].reduce.call(options, (values, option) => {
+                return option.selected ? values.concat(option.value) : values;
+              }, []);
+
+              const isMultiSelect = element => element.options && element.multiple;
+              const isCheckbox = element => element.type === 'checkbox';
+              
+              const isValidElement = element => {
+                return element.name && element.value;
+              }
+
+              const formToJSON = elements => [].reduce.call(elements, (data, element) => {
+                if (isValidElement(element)) {
+                  if (isCheckbox(element)) {
+                    data[element.name] = (data[element.name] || []).concat(element.value);
+                  } else if (isMultiSelect(element)) {
+                    data[element.name] = getSelectValues(element);
+                  } else {
+                    data[element.name] = element.value;
+                  }
+                }
+                return data;
+              }, {});
+
+              const handleFormSubmit = event => {
+                event.preventDefault();
+                const data = formToJSON(form.elements);
+                const dataContainer = document.getElementsByClassName('results__display')[0];
+                dataContainer.textContent = JSON.stringify(data, null, " ");
+              };
+              const form = document.getElementsByClassName('content__form contact-form')[0];
+              form.addEventListener('submit', handleFormSubmit);
+            }
+          </script>
         </div>
       </div>
     </div>

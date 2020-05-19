@@ -571,3 +571,22 @@ address {
 .stream {
   border-radius: 2%;
 }
+
+.results__heading {
+  font-size: 110%;
+}
+.results__display-wrapper {
+  margin-top: 16px;
+  margin-top: 16px;
+  margin-top: 1rem;
+  padding: 8px 16px;
+  padding: 8px 16px;
+  padding: 0.5rem 1rem;
+  background: #121212;
+  border: 1px solid #bb86fc;
+  overflow-x: scroll;
+}
+
+.results__display {
+  color: #ffffff;
+}
