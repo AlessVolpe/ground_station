@@ -1,8 +1,8 @@
 <?php
 if(isset($_POST['submit'])) {
-    $velocity = $_GET ['velocity'];
-    $coords = $_GET ['coords'];
-    $mode = $_GET ['mode'];
+    $velocity = $_POST ['velocity'];
+    $coords = $_POST ['coords'];
+    $mode = $_POST ['mode'];
     
     $connetion = mysqli_connect("localhost","root","");
     mysqli_select_db($connetion, 'ground_station');
