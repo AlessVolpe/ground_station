@@ -281,9 +281,9 @@
                   <option>Performance</option>
                 </select>
               </div>
-              <button class="contact-form__button" type="submit" name="subtodb">Send Them!</button>
-              <button class="contact-form__button" type="submit" name="submit" onclick="handleSubmit()">Screen
+              <button class="contact-form__button" type="submit" name="submit" onclick="handleSubmit()">1. Screen
                 Them!</button>
+              <button class="contact-form__button" type="submit" name="subtodb">2. Send Them!</button>
             </form>
           </section>
         </div>
@@ -323,7 +323,6 @@
               }
               return data;
             }, {});
-
             const handleFormSubmit = event => {
               event.preventDefault();
               const data = formToJSON(form.elements);
@@ -331,9 +330,11 @@
               const dataContainer = document.getElementsByClassName('results__display')[0];
               dataContainer.textContent = JSON.stringify(data, null, " ");
             };;
-
+            const options = {
+              once: true
+            }
             const form = document.getElementsByClassName('content__form contact-form')[0];
-            form.addEventListener('submit', handleFormSubmit);
+            form.addEventListener('submit', handleFormSubmit, options);
           }
         </script>
       </div>
