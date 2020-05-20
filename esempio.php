@@ -11,7 +11,7 @@ if(isset($_POST['submit'])) {
     $result = mysqli_query($connetion, $query);
     
     if($result) {
-        echo "Dati inseriti";
+        echo "Dati inseriti $velocity, $coords, $mode";
     }
     else {
         echo "Invalid";
