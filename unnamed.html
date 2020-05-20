@@ -338,9 +338,9 @@
                 console.log(data);
                 var xhttp = new XMLHttpRequest();
                 var url = "esempio.php";
-                xhttp.open("POST", url, true);
+                xhttp.open("POST", url, false);
                 xhttp.setRequestHeader("Content-Type", "application/json");
-                xhttp.send(data);
+                xhttp.send(JSON.stringify(data));
                 /* $.ajax({
                   url: "http://127.0.0.1:5500/esempio.php", 
                   type: 'POST',
