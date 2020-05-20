@@ -273,7 +273,7 @@
           <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
           <div class="col-md-6">
           <section class="content">
-            <form class="content__form contact-form" action="esempio.php" method="POST">
+            <form class="content__form contact-form" action="http://127.0.0.1:5500/esempio.php" method="POST">
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Insert Velocity</label>
                 <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity" type="text"/>
@@ -336,7 +336,7 @@
                 const data = formToJSON(form.elements);
                 console.log(data);
                 $.ajax({
-                  url: "esempio.php", 
+                  url: "http://127.0.0.1:5500/esempio.php", 
                   type: 'POST',
                   contenttype:'application/json; charset=utf-8',
                   data: JSON.stringify(data),
