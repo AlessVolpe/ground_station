@@ -20,9 +20,9 @@ function setClassFromObjectProperties(obj, bStorePropAndValue) {
       document.querySelectorAll("[" + sAttributeName + "]")
     );
     if (elements.length === 0) {
-      console.log(sAttributeName+' is not used');
+      console.log(sAttributeName + ' is not used');
     } else {
-      elements.map(function(element, i) {
+      elements.map(function (element, i) {
         var attributeTarget = element.getAttribute(sAttributeName);
         if (attributeTarget !== "") {
           // If the user want the value to be set to a given attribute
@@ -41,8 +41,8 @@ function setClassFromObjectProperties(obj, bStorePropAndValue) {
             let value = valueOfProp;
             element.style.display = (eval(showIf)) ? 'block' : 'none';
             console.log(element.style.display)
-          } catch(e) {
-            console.log('Could not eval "'+sAttributeNameIf+'"');
+          } catch (e) {
+            console.log('Could not eval "' + sAttributeNameIf + '"');
           }
         }
       });
@@ -89,4 +89,3 @@ if (!!!("time" in userInfo)) {
   setClassFromObjectProperties(userInfo.userinfo, bStorePropAndValue);
   showMore();
 }
-

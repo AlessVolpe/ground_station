@@ -1,115 +1,130 @@
 .bg-dark {
   background-color: #000 !important;
 }
+
 .nav-item {
   display: block;
   padding-left: 3rem;
 }
+
 .nav-item2 {
   display: block;
   padding-left: 0rem;
   margin-top: -5px;
 }
+
 .nav-social {
   display: block;
   padding-left: 0.5rem;
 }
+
 .nav-link {
   color: #fff;
 }
 
 .topnav {
-    top: 0;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow: hidden;
-    background-color: #000000;
-    color: #ffffff;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    text-decoration: none;
-    text-align: center;
-  }
-  .topnav a {
-    display: inline-block;
-    color: #ffffff;
-    text-align: center;
-    padding: 16px 50px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    margin: 0;
-  }
-  .topnav a:hover {
-    display: inline-block;
-    background-color: #222;
-    color: #ffffff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 17px;
-  }
-  .topnav h5 {
-    display: inline-block;
-    color: #ffffff;
-    text-align: center;
-    padding: 10px 50px 10px;
-    text-decoration: none;
-    font-size: 17px;
-    margin: 0;
-  }
-  .topnav a img {
-    display: inline-block;
-    padding: 0px 0px 0px;
-    height: 32px;
-    width: auto;
-  }
-  .topnav i:hover {
-    display: inline-block;
-    background-color: #222;
-    color: #ffffff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 17px;
-  }
+  top: 0;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+}
+
+.topnav a {
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  padding: 16px 50px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  margin: 0;
+}
+
+.topnav a:hover {
+  display: inline-block;
+  background-color: #222;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav h5 {
+  display: inline-block;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 50px 10px;
+  text-decoration: none;
+  font-size: 17px;
+  margin: 0;
+}
+
+.topnav a img {
+  display: inline-block;
+  padding: 0px 0px 0px;
+  height: 32px;
+  width: auto;
+}
+
+.topnav i:hover {
+  display: inline-block;
+  background-color: #222;
+  color: #ffffff;
+  text-align: center;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav .search-container {
+  float: right;
+}
+
+.topnav input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.topnav .search-container button {
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.topnav .search-container button:hover {
+  background: #ccc;
+}
+
+@media screen and (max-width: 600px) {
   .topnav .search-container {
-    float: right;
+    float: none;
   }
-  .topnav input[type=text] {
-    padding: 6px;
-    margin-top: 8px;
-    font-size: 17px;
-    border: none;
-  }
-  
+
+  .topnav a,
+  .topnav input[type=text],
   .topnav .search-container button {
-    float: right;
-    padding: 6px;
-    margin-top: 8px;
-    margin-right: 16px;
-    background: #ddd;
-    font-size: 17px;
-    border: none;
-    cursor: pointer;
+    float: none;
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
   }
-  
-  .topnav .search-container button:hover {
-    background: #ccc;
+
+  .topnav input[type=text] {
+    border: 1px solid #ccc;
   }
-  
-  @media screen and (max-width: 600px) {
-    .topnav .search-container {
-      float: none;
-    }
-    .topnav a, .topnav input[type=text], .topnav .search-container button {
-      float: none;
-      display: block;
-      text-align: left;
-      width: 100%;
-      margin: 0;
-      padding: 14px;
-    }
-    .topnav input[type=text] {
-      border: 1px solid #ccc;  
-    }
-  }
+}
