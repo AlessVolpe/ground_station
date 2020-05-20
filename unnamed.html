@@ -273,6 +273,7 @@
           <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
           <div class="col-md-6">
           <section class="content">
+            <h2 class="results__heading">Commands:</h2>
             <form class="content__form contact-form" action="http://127.0.0.1:5500/esempio.php" method="POST">
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Insert Velocity</label>
@@ -296,7 +297,7 @@
 
         <div class="col-md-6">
           <div class="results">
-            <h2 class="results__heading">Command Data</h2>
+            <h2 class="results__heading">Command Data:</h2>
             <pre class="results__display-wrapper"><code class="results__display"></code></pre>
           </div>
         </div>
@@ -335,7 +336,7 @@
                 event.preventDefault();
                 const data = formToJSON(form.elements);
                 console.log(data);
-                $.ajax({
+                /*$.ajax({
                   url: "http://127.0.0.1:5500/esempio.php", 
                   type: 'POST',
                   contenttype:'application/json; charset=utf-8',
@@ -344,7 +345,7 @@
                   success: function(data){
                     console.log(data);
                   },
-                });
+                }); */
                 const dataContainer = document.getElementsByClassName('results__display')[0];
                 dataContainer.textContent = JSON.stringify(data, null, " ");
               };;
