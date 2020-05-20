@@ -274,7 +274,7 @@
           <div class="col-md-6">
           <section class="content">
             <h2 class="results__heading">Commands:</h2>
-            <form class="content__form contact-form" method="post" action="esempio.php">
+            <form class="content__form contact-form">
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Insert Velocity</label>
                 <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity" type="text"/>
@@ -290,7 +290,7 @@
                   <option>Performance</option>
                 </select>
               </div>
-              <button class="contact-form__button" type="submit" id="submit" name="submit" onclick="handleSubmit()">Send It!</button>
+              <button class="contact-form__button" type="submit" id="submit" name="submit" onclick="handleSubmit()" onclick="">Send It!</button>
             </form>
           </section>
         </div>
@@ -336,6 +336,11 @@
                 event.preventDefault();
                 const data = formToJSON(form.elements);
                 console.log(data);
+                var xhttp = new XMLHttpRequest();
+                var url = "esempio.php";
+                xhttp.open("POST", url, true);
+                xhttp.setRequestHeader("Content-Type", "application/json");
+                xhttp.send(data);
                 /* $.ajax({
                   url: "http://127.0.0.1:5500/esempio.php", 
                   type: 'POST',
