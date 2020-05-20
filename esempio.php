@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['submit'])) {
+if(isset($_POST['subtodb'])) {
     $velocity = $_POST ['velocity'];
     $coords = $_POST ['coords'];
     $mode = $_POST ['mode'];
