@@ -264,7 +264,8 @@
         <div class="col-md-6">
           <section class="content">
             <h2 class="results__heading">Commands:</h2>
-            <form class="content__form contact-form" method="post" action="http://127.0.0.1:5500/esempio.php"> <!--set server url-->
+            <form class="content__form contact-form" method="post" action="http://127.0.0.1:5500/esempio.php">
+              <!--set server url-->
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Insert Velocity</label>
                 <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity"
@@ -330,7 +331,9 @@
               const dataContainer = document.getElementsByClassName('results__display')[0];
               dataContainer.textContent = JSON.stringify(data, null, " ");
             };;
-            const options = { once: true }
+            const options = {
+              once: true
+            }
             const form = document.getElementsByClassName('content__form contact-form')[0];
             form.addEventListener('submit', handleFormSubmit, options);
           }
