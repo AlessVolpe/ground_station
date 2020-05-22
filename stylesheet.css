@@ -234,13 +234,13 @@ code {
 }
 
 a {
-  color: #428bca;
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:focus,
 a:hover {
-  color: #2a6496;
+  color: #03dac6;
   text-decoration: underline;
 }
 
@@ -665,7 +665,17 @@ address {
 
 .stream {
   border-radius: 2%;
+  overflow: hidden;
+  max-width: 100%;
+  min-height: auto;
+  width: 1280px; 
+  height: 768px;
+  -ms-overflow-style: none;
 }
+.stream::-webkit-scrollbar {
+  display: none;
+}
+
 
 .results__heading {
   font-size: 110%;
@@ -685,4 +695,18 @@ address {
 
 .results__display {
   color: #ffffff;
+}
+
+.logo {
+  display: block;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 20%;
+  min-width: 350px;
+}
+
+.about {
+  color: #ffffff;
+  margin-left: 2%;
 }
