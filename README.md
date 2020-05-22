@@ -42,6 +42,7 @@
     * Irene Doria
     * Marcello Ruggeri
     * Alessio Parmeggiani
+    * Deborah Farruggio
 
 * ### Communication System
     * **Samuele Quinzi**
