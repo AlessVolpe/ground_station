@@ -13,9 +13,8 @@
 html,
 body {
   height: 100%;
-  background: #14111f;
+  background-color: #121212;
   font-family: 'Roboto';
-
 }
 
 a {
@@ -30,7 +29,7 @@ a:hover {
 }
 
 .form {
-  background: rgba(19, 35, 47, 0.9);
+  background-color: #111;
   padding: 40px;
   max-width: 600px;
   margin: 40px auto;
@@ -464,4 +463,12 @@ body {
   .main {
     padding: 2.5em;
   }
+}
+
+.img-small {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  width: 350px;
 }

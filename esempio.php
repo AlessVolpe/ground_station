@@ -1,9 +1,11 @@
 <?php
 if(isset($_POST['subtodb'])) {
     $velocity = $_POST ['velocity'];
-    $coords = $_POST ['coords'];
+    $coordsx = $_POST ['coordsx'];
+    $coordsy = $_POST ['coordsy'];
     $mode = $_POST ['mode'];
-    
+    $coords = $coordsy . " " . $coordsx;
+
     $connetion = mysqli_connect("localhost","root","");
     mysqli_select_db($connetion, 'ground_station');
 

@@ -2,14 +2,12 @@
 <html lang="en" >
 <head>
   <meta charset="UTF-8">
-  <title>Log in - VGDB</title>
+  <title>Log in</title>
   <link rel="icon" href="res/favicon.png">
   <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel="stylesheet" href="./style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- partial:index.partial.html -->
 <div class="form">   
 	  <?php
 		if(!(isset($_POST['invia']))) {
@@ -17,7 +15,8 @@
       
       <div class="tab-content">
         <div id="login">   
-          <h1>Welcome Back!</h1>
+          <img class="img-small" src="/Assets/STT_logo.png" />
+          <h1>Welcome, please Log in</h1>
 	<form action="" method="POST">
 	<div class="field-wrap">
             <label>

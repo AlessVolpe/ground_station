@@ -18,7 +18,7 @@
   font-size: 17px;
   font-family: "Roboto";
   font-weight: 200;
-  background-color: #212121;
+  background-color: #121212;
 }
 
 html,
@@ -30,7 +30,7 @@ body {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
-  background-color: #212121;
+  background-color: #121212;
 }
 
 .title {
@@ -683,14 +683,10 @@ address {
 
 .results__display-wrapper {
   margin-top: 16px;
-  margin-top: 16px;
-  margin-top: 1rem;
   padding: 8px 16px;
-  padding: 8px 16px;
-  padding: 0.5rem 1rem;
   background: #121212;
   border: 1px solid #bb86fc;
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 
 .results__display {
@@ -709,4 +705,9 @@ address {
 .about {
   color: #ffffff;
   margin-left: 2%;
+}
+
+.contact-form__input-group {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
