@@ -789,3 +789,10 @@ address {
   float: right;
   margin-top: -220px;
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+}
