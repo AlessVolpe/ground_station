@@ -3,8 +3,8 @@
 <meta charset="utf-8" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="nav-menu.css">
-<link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" href="css/nav-menu.css">
+<link rel="stylesheet" href="css/stylesheet.css">
 <link rel="stylesheet" type="text/css" href="css/flightindicators.css" />
 <script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -63,8 +63,8 @@
         <a class="nav-link" href="https://github.com/Syro98/ground_station" target="_blank"><i
             class="fa fa-github mr-1"></i></a>
       </ul>
-      <script src="weather.js"></script>
-      <script src="./script.js"></script>
+      <script src="js/weather.js"></script>
+      <script src="js/script.js"></script>
       <script>
         $(document).ready(function () {
           clockUpdate();
@@ -179,7 +179,7 @@
       var marker = new google.maps.Marker({
         position: coords,
         map: map,
-        icon: "Assets/rover_icon.png",
+        icon: "img/rover_icon.png",
       });
       /*center map on target listener*/
       map.addListener("center_changed", function () {
@@ -282,13 +282,13 @@
         <iframe class="stream" src="http://192.168.86.25:8080/video" frameborder="0" scrolling="no">
         </iframe>
       </div>
-      <br><br>
+      <br>
       <div class="row">
         <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
         <div class="col-md-6">
           <section class="content">
             <h1 class="results__heading">Commands:</h1>
-            <form class="content__form contact-form" method="post" action="http://localhost/ground_station/query.php">
+            <form class="content__form contact-form" method="post" action="php/query.php">
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Speed</label>
                 <input class="contact-form__input contact-form__input--text" id="speed" name="speed"

@@ -13,7 +13,7 @@ if(isset($_POST['subtodb'])) {
     $result = mysqli_query($connetion, $query);
     
     if($result) {
-        header("Location: unnamed.html");
+        header("Location: ../unnamed.html");
     }
     else {
         echo "Error";
