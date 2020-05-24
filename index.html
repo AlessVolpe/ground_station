@@ -27,7 +27,7 @@
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-md-center text-left">
                 <li class="nav-item">
-                    <a data-ip class="nav-link"></a>
+                    <a class="nav-link" id="dataIP" target="_blank"> ip address not available</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link digital-clock"> 00:00:00</a>
@@ -43,7 +43,7 @@
                     <img id="weather_icon"></img>
                 </li>
                 <li class="nav-item">
-                    <a href="about.html" class="nav-link" target="_blank"> About </a>
+                    <a href="about.html" class="nav-link"> About </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
@@ -55,44 +55,11 @@
                         class="fa fa-github mr-1"></i></a>
             </ul>
             <script src="js/weather.js"></script>
-            <script src="js/script.js"></script>
-            <script>
-                $(document).ready(function () {
-                    clockUpdate();
-                    setInterval(clockUpdate, 1000);
-                })
-
-                function clockUpdate() {
-                    var date = new Date();
-
-                    function addZero(x) {
-                        if (x < 10) {
-                            return x = '0' + x;
-                        } else {
-                            return x;
-                        }
-                    }
-
-                    var h = addZero(date.getHours());
-                    var m = addZero(date.getMinutes());
-                    var s = addZero(date.getSeconds());
-
-                    var d = new Date();
-
-                    var month = d.getMonth() + 1;
-                    var day = d.getDate();
-
-                    $('.digital-clock').text(day + '/' + month + '/' + d.getFullYear() +
-                        ' · ' + h + ':' + m + ':' + s)
-                }
-            </script>
-            <script>
-                var dt = new Date();
-                document.getElementById("datetime").innerHTML = dt.toLocaleString();
-            </script>
+            <script src="js/clock.js"></script>
+            <script src="js/ip-address.js"></script>
         </div>
     </nav>
-    <br>
+    <br><br><br>
     <div class="title">Ground Station - Home</div>
     <br>
     <table class="rover-selector">

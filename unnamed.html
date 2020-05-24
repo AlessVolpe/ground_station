@@ -40,9 +40,6 @@
     <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
       <ul class="navbar-nav mx-auto text-md-center text-left">
         <li class="nav-item">
-          <a data-ip class="nav-link" target="_blank"></a>
-        </li>
-        <li class="nav-item">
           <a class="nav-link digital-clock"> 00:00:00</a>
         </li>
         <li class="nav-item">
@@ -64,143 +61,13 @@
             class="fa fa-github mr-1"></i></a>
       </ul>
       <script src="js/weather.js"></script>
-      <script src="js/script.js"></script>
-      <script>
-        $(document).ready(function () {
-          clockUpdate();
-          setInterval(clockUpdate, 1000);
-        })
-
-        function clockUpdate() {
-          var date = new Date();
-
-          function addZero(x) {
-            if (x < 10) {
-              return x = '0' + x;
-            } else {
-              return x;
-            }
-          }
-
-          var h = addZero(date.getHours());
-          var m = addZero(date.getMinutes());
-          var s = addZero(date.getSeconds());
-
-          var d = new Date();
-
-          var month = d.getMonth() + 1;
-          var day = d.getDate();
-
-          $('.digital-clock').text(day + '/' + month + '/' + d.getFullYear() +
-            ' · ' + h + ':' + m + ':' + s)
-        }
-      </script>
-      <script>
-        var dt = new Date();
-        document.getElementById("datetime").innerHTML = dt.toLocaleString();
+      <script src="js/clock.js"></script>
+      <script src="js/map.js"></script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0&libraries=places&callback=initMap">
       </script>
     </div>
   </nav>
-
-  <script>
-    function initMap() {
-      var coords = {
-        lat: 41.8933181,
-        lng: 12.4932009
-      };
-      var infoWindow;
-      var map = new google.maps.Map(document.getElementById("map"), {
-        zoom: 17,
-        center: coords,
-        mapTypeControl: false,
-        streetViewControl: false,
-        styles: [{
-            featureType: "administrative.land_parcel",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "administrative.neighborhood",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "poi",
-            elementType: "labels.text",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "poi.business",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "road",
-            elementType: "labels",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "road",
-            elementType: "labels.icon",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "road.local",
-            stylers: [{
-              visibility: "on",
-            }, ],
-          },
-          {
-            featureType: "transit",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-          {
-            featureType: "water",
-            elementType: "labels.text",
-            stylers: [{
-              visibility: "off",
-            }, ],
-          },
-        ],
-      });
-      infoWindow = new google.maps.InfoWindow();
-      // The marker, positioned at coords
-      var marker = new google.maps.Marker({
-        position: coords,
-        map: map,
-        icon: "img/rover_icon.png",
-      });
-      /*center map on target listener*/
-      map.addListener("center_changed", function () {
-        window.setTimeout(function () {
-          map.panTo(marker.getPosition());
-        }, 1000);
-      });
-      /*click on marker listener*/
-      marker.addListener("click", function () {
-        infoWindow.setPosition(coords);
-        infoWindow.setContent("Current weather in Rome");
-        infoWindow.open(map);
-        map.setCenter(pos);
-        map.setCenter(marker.getPosition());
-      });
-      var markers = [];
-    }
-  </script>
-  <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0&libraries=places&callback=initMap">
-  </script>
   <br><br><br><br>
   <div class="container">
     <div class="jumbotron">

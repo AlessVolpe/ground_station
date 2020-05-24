@@ -35,7 +35,6 @@
     <nav
       class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start"
     >
-      <a class="navbar-brand d-md-none d-inline" href="">Brand</a>
       <button
         class="navbar-toggler ml-1"
         type="button"
@@ -50,54 +49,11 @@
         id="collapsingNavbar2"
       >
         <ul class="navbar-nav mx-auto text-md-center text-left">
-          <li class="nav-item">
-            <a data-ip class="nav-link"></a>
-          </li>
           <li>
             <a class="nav-link digital-clock"> 00:00:00</a>
           </li>
         </ul>
-        <script>
-          $(document).ready(function () {
-            clockUpdate();
-            setInterval(clockUpdate, 1000);
-          });
-
-          function clockUpdate() {
-            var date = new Date();
-
-            function addZero(x) {
-              if (x < 10) {
-                return (x = "0" + x);
-              } else {
-                return x;
-              }
-            }
-
-            var h = addZero(date.getHours());
-            var m = addZero(date.getMinutes());
-            var s = addZero(date.getSeconds());
-
-            var d = new Date();
-
-            var month = d.getMonth() + 1;
-            var day = d.getDate();
-
-            $(".digital-clock").text(
-              day +
-                "/" +
-                month +
-                "/" +
-                d.getFullYear() +
-                " " +
-                h +
-                ":" +
-                m +
-                ":" +
-                s
-            );
-          }
-        </script>
+        <script src="js/clock.js"></script>
         <ul
           class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap"
         >
@@ -122,19 +78,28 @@
         </ul>
       </div>
     </nav>
-    <br />
+    <br><br><br><br><br><br><br><br>
     <div class="title">About us</div>
     <img class="logo" src="img/STT_logo.png" />
     <div class="about">
       <h3>Our Contacts:</h3>
-      Alessandro Volpe · <a href="mailto:volpe.1794197@studenti.uniroma1.it">University e-mail</a> - <a href="https://github.com/Syro98"><i class="fa fa-github mr-1"></i
-        ></a><br>
-      Giovanni Roma · <a href="mailto:roma.1808340@studenti.uniroma1.it">University e-mail</a> - <a href="https://github.com/JoGist"><i class="fa fa-github mr-1"></i
-        ></a><br>
-      Deborah Farruggio · <a href="mailto:farruggio.42069@studenti.uniroma1.it">University e-mail</a> - <a href="https://github.com/DebFarruggio"><i class="fa fa-github mr-1"></i
-        ></a><br><br>
+      Alessandro Volpe ·
+      <a href="mailto:volpe.1794197@studenti.uniroma1.it">University e-mail</a>
+      - <a href="https://github.com/Syro98"><i class="fa fa-github mr-1"></i></a
+      ><br />
+      Giovanni Roma ·
+      <a href="mailto:roma.1808340@studenti.uniroma1.it">University e-mail</a> -
+      <a href="https://github.com/JoGist"><i class="fa fa-github mr-1"></i></a
+      ><br />
+      Deborah Farruggio ·
+      <a href="mailto:farruggio.42069@studenti.uniroma1.it"
+        >University e-mail</a
+      >
+      -
+      <a href="https://github.com/DebFarruggio"
+        ><i class="fa fa-github mr-1"></i></a
+      ><br /><br />
       <h3>Our Project:</h3>
-
     </div>
   </body>
 </html>
