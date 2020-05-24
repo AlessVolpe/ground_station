@@ -7,7 +7,7 @@
   <link rel="icon" href="res/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -24,27 +24,27 @@
         <img class="img-small" src="/Assets/STT_logo.png" />
         <h1 style="text-align: center; margin-top: -10px; margin-bottom: 30px;">Welcome, please Log In</h1>
 
-        <form action="/" method="post">
+        <form action="login.php" method="post">
 
           <div class="field-wrap">
             <label>
-              Email Address<span class="req">*</span>
+              Username <span class="req">*</span>
             </label>
-            <input type="email" required autocomplete="off" />
+            <input type="text" required autocomplete="off" name="username"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input type="password" required autocomplete="off" />
+            <input type="password" required autocomplete="off" name="password"/>
           </div>
 
           <p class="forgot"><a href="#">Forgot Password?</a></p>
 
           <br>
 
-          <button class="button button-block">Log In</button>
+          <input type="submit" name="invia" value="Log In" class="button button-block">
 
         </form>
 
@@ -54,7 +54,7 @@
         <h1>Registration</h1>
         <h3>Trust us, you won't regret anything ;)</h3>
 
-        <form action="/" method="post">
+        <!---<form action="/" method="post">-->
 
           <div class="field-wrap">
             <label>
@@ -84,7 +84,7 @@
             <input type="password" required autocomplete="off" />
           </div>
           <button type="submit" class="button button-block">REGISTER</button>
-        </form>
+        <!--- </form> --->
       </div>
     </div>
   </div>
