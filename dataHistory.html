@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/nav-menu.css">
+<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="css/flightindicators.css" />
+<script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery.flightindicators.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+<head>
+  <title>Unnamed Ground Vehicle</title>
+  <style>
+    #map {
+      height: 400px;
+      width: 540px;
+      margin: 0;
+      margin-top: -40px;
+      border-radius: 2%;
+      border: 2px solid #812535;
+    }
+
+    #description {
+      font-family: Roboto;
+      font-size: 15px;
+      font-weight: 300;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start">
+    <a class="navbar-brand d-md-none d-inline" href=""></a>
+    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="nav-link" href="index.html"><i class="fa fa-home mr-1"></i></a>
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+      <ul class="navbar-nav mx-auto text-md-center text-left">
+        <li class="nav-item">
+          <a class="nav-link digital-clock"> 00:00:00</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="weather" target="_blank"> weather not available </a>
+        </li>
+        <li class="nav-item2">
+          <img id="weather_icon"></img>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="dataHistory.html"> Data history </a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+        <a class="nav-link" href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" target="_blank"><i
+            class="fa fa-facebook-square mr-1"></i></a>
+        <a class="nav-link" href="https://www.instagram.com/sapienza_technology_team/" target="_blank"><i
+            class="fa fa-instagram mr-1"></i></a>
+        <a class="nav-link" href="https://github.com/Syro98/ground_station" target="_blank"><i
+            class="fa fa-github mr-1"></i></a>
+      </ul>
+      <script src="js/weather.js"></script>
+      <script src="js/clock.js"></script>
+      <script src="js/map.js"></script>
+      <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0&libraries=places&callback=initMap">
+      </script>
+    </div>
+  </nav>
+  <br><br>
+  <!--add other content here-->
+</body>
+</html>
