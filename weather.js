@@ -8,7 +8,7 @@ function httpGet() {
     var weather = document.getElementById("weather");
     const j = JSON.parse(info);
     var temp = parseInt(j.main.temp);
-    weather.innerHTML = j.weather[0].main + " · " + temp.toString() + " C °";
+    weather.innerHTML = j.weather[0].main + " · " + temp.toString() + " C°";
     document.getElementById("weather_icon").src = "http://openweathermap.org/img/wn/" + j.weather[0].icon + ".png";
     document.getElementById("weather").href = "https://openweathermap.org/city/" + j.id;
 }

@@ -5,10 +5,11 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="nav-menu.css">
 <link rel="stylesheet" href="stylesheet.css">
+<link rel="stylesheet" type="text/css" href="css/flightindicators.css" />
 <script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery.flightindicators.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-
 <head>
   <title>Unnamed Ground Vehicle</title>
   <style>
@@ -18,6 +19,7 @@
       margin: 0;
       margin-top: -40px;
       border-radius: 2%;
+      border: 2px solid #812535;
     }
 
     #description {
@@ -30,7 +32,7 @@
 
 <body>
   <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start">
-    <a class="navbar-brand d-md-none d-inline" href="">Brand</a>
+    <a class="navbar-brand d-md-none d-inline" href=""></a>
     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -45,10 +47,12 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" id="weather" target="_blank"> weather not available </a>
-
         </li>
         <li class="nav-item2">
           <img id="weather_icon"></img>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="hystory.html" id="weather" target="_blank"> Data history </a>
         </li>
       </ul>
       <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
@@ -88,7 +92,7 @@
           var day = d.getDate();
 
           $('.digital-clock').text(day + '/' + month + '/' + d.getFullYear() +
-            ' ' + h + ':' + m + ':' + s)
+            ' · ' + h + ':' + m + ':' + s)
         }
       </script>
       <script>
@@ -200,28 +204,36 @@
   <br>
   <div class="container">
     <div class="jumbotron">
-      <div class="container">
+      <div class="infoRover">
         <h2>Info about Unnamed</h2>
         <div class="row">
-          <div class="col-md-6">
-            <h4>Specifications</h4>
-            <small>
-              <ul>
-                <li>Weight: Some Elephants</li>
-                <li>Max Speed: More than 3</li>
-                <li>Autonomy: Less than Graham's Number</li>
-              </ul>
-            </small>
-          </div>
           <div class="col-md-6">
             <h4>Components</h4>
             <small>
               <ul>
-                <li>Motors: 065 Evo 2</li>
-                <li>GPS: TomTom Start 52 Lite</li>
-                <li>IMU: sulla seconda casa</li>
-                <li>Camera: RED Digital Cinema MONSTRO 8K VV</li>
-                <li>PSU: Černobyl'</li>
+                <li>Adafruit 10-DOF IMU</li>
+                <li>NA219 High Side DC Current Sensor</li>
+                <li>Adafruit 0.56; 4-Digit 7-Segment Display w/I2C</li>
+                <li>Raspberry Pi Zero W Kit (MZ2)</li>
+                <li>Lithium polimers battery 3,7V 5000 MAH</li>
+                <li>USB / DC / Solar Lithium Ion/Polymer charger - v2</li>
+                <li>2W Solar Panel 80X180</li>
+                <li>SHARP - GP2Y0A41SK0F</li>
+              </ul>
+            </small>
+          </div>
+          <div class="col-md-6">
+            <h4 class="hidden">Components</h4>
+            <small>
+              <ul>
+                <li>Pololu 5V Step-Up/Step-Down Voltage Regulator S18V20F5</li>
+                <li>Adafruit 16-Channel 12-bit PWM/Servo Driver - I2C</li>
+                <li>Adafruit DC Stepper Motor HAT for Raspberry Pi</li>
+                <li>Raspberry Pi Camera Module V2</li>
+                <li>Raspberry Pi Model 3B</li>
+                <li>FEETECH FS90R Micro Continuous Rotation Servo</li>
+                <li>UBEC DC/DC Step-Down (Buck) Converter - 5V 3°</li>
+                <li>Dagu - Rover 5 Robot Platform</li>
               </ul>
             </small>
           </div>
@@ -232,18 +244,34 @@
       <h1>Real-time info</h1>
       <div class="row">
         <div class="col-md-6">
-          <h3>Live Data<span data-time></span></h3>
           <ul>
-            <li data-ip></li>
-            <li data-city></li>
-            <li data-region></li>
-            <li>
-              <span data-country></span>
-              <span data-country data-if-country="value=='DK'">You are in same country as me</span>
-            </li>
-            <li data-loc></li>
-            <li data-org></li>
+            <br>
+            <i style="margin-left: 4px;" class="fa fa-power-off mr-1"></i> <!--if speed >0 Running else Stopped or if not online Power Off-->
+            <label class="contact-form__label" for="velocity">Rover status: </label>
+            <span style="margin-left: 10px;" name="roverStatus">Stopped</span>
+            <br>
+            <i class="fa fa-battery-three-quarters mr-1"></i>
+            <label class="contact-form__label" for="velocity">Battery level: </label>
+            <span style="margin-left: 10px;" name="batteryData">0%</span>
+            <br>
+            <i style="margin-left: 7px;" class="fa fa-angle-double-right mr-1"></i>
+            <label class="contact-form__label" for="velocity"> Speed: </label>
+            <span style="margin-left: 10px;" name="speedData">0.00</span>
+            <br>
+            <i style="margin-left: 9px;" class="fa fa-map-marker-alt mr-1"></i>
+            <label class="contact-form__label" for="velocity">X-coords:</label>
+            <span style="margin-left: 10px;" name="xData">0.000000</span>
+            <br>
+            <i style="margin-left: 9px; visibility: hidden;" class="fa fa-map-marker-alt mr-1"></i>
+            <label class="contact-form__label" for="velocity">Y-coords:</label>
+            <span style="margin-left: 10px;" name="yData">0.000000</span>
+            <br>
+            <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
+            <label class="contact-form__label" for="velocity">Rover mode: </label>
+            <span style="margin-left: 10px;" name="modeData">Standard</span>
+            <br>
           </ul>
+          <div><span class="attitute" id="attitude"></span></div>
         </div>
         <div class="col-md-6">
           <div id="map"></div>
@@ -259,22 +287,28 @@
         <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
         <div class="col-md-6">
           <section class="content">
-            <h2 class="results__heading">Commands:</h2>
-            <form class="content__form contact-form" method="post" action="http://localhost/ground_station/esempio.php">
+            <h1 class="results__heading">Commands:</h1>
+            <form class="content__form contact-form" method="post" action="http://localhost/ground_station/query.php">
               <div class="contact-form__input-group">
-                <label class="contact-form__label" for="velocity">Insert Velocity</label>
-                <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity"
-                  placeholder="in m/s" type="text" />
+                <label class="contact-form__label" for="velocity">Speed</label>
+                <input class="contact-form__input contact-form__input--text" id="speed" name="speed"
+                  placeholder=" 20" type="text" />
+                <label class="contact-form__label" for="velocity">km/h</label>
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="coords">X-Coordinates</label>
                 <input class="contact-form__input contact-form__input--text" id="coordsx" name="coordsx" type="text"
-                  placeholder="2°10'26.5" />
+                  placeholder=" 41.324563" />
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="coords">Y-Coordinates</label>
                 <input class="contact-form__input contact-form__input--text" id="coordsy" name="coordsy" type="text"
-                  placeholder="41°24'12.2" />
+                  placeholder=" 12.764536" />
+              </div>
+              <div class="contact-form__input-group">
+                <label class="contact-form__label" for="velocity">Camera tilt</label>
+                <input class="contact-form__input contact-form__input--text" id="cameraTilt" name="cameraTilt"
+                  placeholder=" 40°" type="text" />
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="mode">Rover Mode</label>
@@ -284,18 +318,38 @@
                   <option>Performance</option>
                 </select>
               </div>
+              <button class="contact-form__button" type="button" name="startRover"> Start </button>
               <button class="contact-form__button" type="submit" name="subtodb"> Send data </button>
+              <button class="contact-form__button" type="button" name="stopRover"> Stop </button>
             </form>
+            <br>
+            <br>
           </section>
         </div>
         <div class="col-md-6">
           <div class="results">
-            <h2 class="results__heading">Command Data:</h2>
+            <h2 class="results__heading">Result:</h2>
             <pre class="results__display-wrapper"><code id="command" class="results__display"></code></pre>
             <span id="command" class="results__display"></span>
           </div>
         </div>
       </div>
+      <script type="text/javascript">
+        var attitude = $.flightIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:200, showBox : true});
+        var altimeter = $.flightIndicator('#altimeter', 'altimeter');
+
+        var increment = 0;
+        setInterval(function() {
+            // Attitude update
+            attitude.setRoll(10*Math.sin(increment/10));
+            attitude.setPitch(10*Math.sin(increment/20));
+
+            // Altimeter update
+            altimeter.setAltitude(10*increment);
+            altimeter.setPressure(1000+3*Math.sin(increment/50));
+            increment++;
+        }, 50);  
+      </script>
       <script>
         $(document).ready(function () {
           commandUpdate();
@@ -304,14 +358,13 @@
 
         function commandUpdate() {
           var command = document.getElementById("command");
-          command.innerHTML = "Velocity: " + document.getElementById("velocity").value + "\nX coords: " + document
-            .getElementById("coordsx").value + "\nY coords: " + document.getElementById("coordsy").value +
-            "\nRover Mode: " + document.getElementById("mode").value;
+          command.innerHTML = "Velocity: " + document.getElementById("speed").value + "\nX coords: " + document
+            .getElementById("coordsx").value + "\nY coords: " + document.getElementById("coordsy").value + "\nCamera tilt: " + 
+            document.getElementById("cameraTilt").value + "\nRover Mode: " + document.getElementById("mode").value;
           $('.command').text(command.innerHTML);
         }
       </script>
     </div>
   </div>
 </body>
-
 </html>
