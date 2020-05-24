@@ -251,8 +251,7 @@
       </div>
       <br><br>
       <div class="row">
-        <iframe class="stream"  src="http://192.168.86.25:8080/video"
-          frameborder="0" scrolling="no">
+        <iframe class="stream" src="http://192.168.86.25:8080/video" frameborder="0" scrolling="no">
         </iframe>
       </div>
       <br><br>
@@ -264,21 +263,23 @@
             <form class="content__form contact-form" method="post" action="http://localhost/ground_station/esempio.php">
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Insert Velocity</label>
-                <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity" placeholder="in m/s"
-                  type="text" />
+                <input class="contact-form__input contact-form__input--text" id="velocity" name="velocity"
+                  placeholder="in m/s" type="text" />
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="coords">X-Coordinates</label>
-                <input class="contact-form__input contact-form__input--text" id="coordsx" name="coordsx" type="text" placeholder="2°10'26.5"/>
+                <input class="contact-form__input contact-form__input--text" id="coordsx" name="coordsx" type="text"
+                  placeholder="2°10'26.5" />
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="coords">Y-Coordinates</label>
-                <input class="contact-form__input contact-form__input--text" id="coordsy" name="coordsy" type="text" placeholder="41°24'12.2"/>
+                <input class="contact-form__input contact-form__input--text" id="coordsy" name="coordsy" type="text"
+                  placeholder="41°24'12.2" />
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="mode">Rover Mode</label>
                 <select class="contact-form__input contact-form__input--select" id="mode" name="mode">
-                  <option>Standard</option>  
+                  <option>Standard</option>
                   <option>Eco-mode</option>
                   <option>Performance</option>
                 </select>
@@ -300,13 +301,17 @@
           commandUpdate();
           setInterval(commandUpdate, 1000);
         })
+
         function commandUpdate() {
           var command = document.getElementById("command");
-          command.innerHTML ="Velocity: "+document.getElementById("velocity").value+"\nX coords: "+document.getElementById("coordsx").value+"\nY coords: "+document.getElementById("coordsy").value+"\nRover Mode: "+document.getElementById("mode").value; 
+          command.innerHTML = "Velocity: " + document.getElementById("velocity").value + "\nX coords: " + document
+            .getElementById("coordsx").value + "\nY coords: " + document.getElementById("coordsy").value +
+            "\nRover Mode: " + document.getElementById("mode").value;
           $('.command').text(command.innerHTML);
         }
       </script>
     </div>
   </div>
 </body>
+
 </html>
