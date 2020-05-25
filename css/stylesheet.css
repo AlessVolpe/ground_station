@@ -162,7 +162,6 @@ footer {
 }
 
 header,
-
 [hidden] {
   display: none;
 }
@@ -483,7 +482,6 @@ address {
 }
 
 @media (min-width: 992px) {
-
   .col-md-1,
   .col-md-10,
   .col-md-11,
@@ -548,7 +546,7 @@ address {
   }
 }
 
-.open>a {
+.open > a {
   outline: 0;
 }
 
@@ -558,25 +556,25 @@ address {
   list-style: none;
 }
 
-.nav>li {
+.nav > li {
   position: relative;
   display: block;
 }
 
-.nav>li>a {
+.nav > li > a {
   position: relative;
   display: block;
   padding: 10px 15px;
 }
 
-.nav>li>a:focus,
-.nav>li>a:hover {
+.nav > li > a:focus,
+.nav > li > a:hover {
   text-decoration: none;
 }
 
-.nav .open>a,
-.nav .open>a:focus,
-.nav .open>a:hover {
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
   background-color: #eee;
   border-color: #812535;
 }
@@ -660,12 +658,11 @@ address {
   overflow: hidden;
   max-width: 100%;
   min-height: auto;
-  width: 1280px; 
+  width: 1280px;
   height: 768px;
   -ms-overflow-style: none;
   border: 2px solid #812535;
 }
-
 
 .results__heading {
   font-size: 150%;
@@ -707,7 +704,7 @@ address {
   text-decoration: none;
 }
 
-.aboutStudent{
+.aboutStudent {
   font-weight: 400;
   font-size: 120%;
 }
@@ -719,7 +716,8 @@ address {
   margin-right: auto;
 }
 
-.contact-form__input--text, .contact-form__input--select{
+.contact-form__input--text,
+.contact-form__input--select {
   margin-left: 10px;
   margin-right: 10px;
 }
@@ -767,7 +765,7 @@ address {
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: .1em;
+  letter-spacing: 0.1em;
   background: #812535;
   color: #ffffff;
   -webkit-transition: all 0.5s ease;

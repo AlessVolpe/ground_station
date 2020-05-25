@@ -44,6 +44,13 @@
   </head>
 
   <body>
+    <?php
+    $connetion = mysqli_connect("localhost", "root", "");
+    mysqli_select_db($connetion, 'sasa');
+    
+    $query = mysqli_query($connetion, "SELECT * FROM ground_station ORDER BY id DESC LIMIT 1;");
+    $row = mysqli_fetch_array($query)
+    ?>
     <div class="container2">
       <h1>Commands from Ground Station</h1>
       <div class="row">
@@ -61,28 +68,28 @@
             class="fa fa-angle-double-right mr-1"
           ></i>
           <label class="contact-form__label" for="velocity"> Speed: </label>
-          <span style="margin-left: 10px;" name="speedData">0.00</span>
+          <span style="margin-left: 10px;" name="speedData"><?php echo $row['speed']; ?></span>
           <label class="contact-form__label" for="velocity">km/h</label>
           <br />
           <i style="margin-left: 9px;" class="fa fa-map-marker-alt mr-1"></i>
           <label class="contact-form__label" for="velocity">X-coords:</label>
-          <span style="margin-left: 10px;" name="xData">0.000000</span>
+          <span style="margin-left: 10px;" name="xData"><?php echo $row['coordsx']; ?></span>
           <br />
           <i
             style="margin-left: 9px; visibility: hidden;"
             class="fa fa-map-marker-alt mr-1"
           ></i>
           <label class="contact-form__label" for="velocity">Y-coords:</label>
-          <span style="margin-left: 10px;" name="yData">0.000000</span>
+          <span style="margin-left: 10px;" name="yData"><?php echo $row['coordsy']; ?></span>
           <br />
           <i style="margin-left: 7px;" class="fa fa-crop-alt mr-1"></i>
         <label class="contact-form__label" for="velocity">Camera tilt:</label>
-        <span style="margin-left: 10px;" name="yData">0</span>
+        <span style="margin-left: 10px;" name="yData"><?php echo $row['cameraTilt']; ?></span>
         <label class="contact-form__label" for="velocity">°</label>
         <br />
           <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
           <label class="contact-form__label" for="velocity">Rover mode: </label>
-          <span style="margin-left: 10px;" name="modeData">Standard</span>
+          <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
           <br />
         </div>
     </div>
@@ -132,6 +139,8 @@
                   class="contact-form__button"
                   type="button"
                   name="startRover"
+                  id="loop" 
+                  value="startRover"
                 >
                   Start
                 </button>
@@ -139,6 +148,8 @@
                   class="contact-form__button"
                   type="button"
                   name="stopRover"
+                  id="loop" 
+                  value="stopRover"
                 >
                   Stop
                 </button>
