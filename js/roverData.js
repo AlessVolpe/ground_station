@@ -1,0 +1,1 @@
+//https://stackoverflow.com/questions/26509475/button-required-to-start-stop-javascript
