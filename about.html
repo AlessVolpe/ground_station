@@ -43,12 +43,19 @@
         class="navbar-collapse collapse justify-content-between align-items-center w-100"
         id="collapsingNavbar2"
       >
-        <ul class="navbar-nav mx-auto text-md-center text-left">
+        <ul class="navbar-nav mx-auto text-md-center text-center">
           <li>
             <a class="nav-link digital-clock"> 00:00:00</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" id="weather" target="_blank"> weather not available </a>
+          </li>
+          <li class="nav-item2">
+            <img id="weather_icon"></img>
+          </li>
         </ul>
         <script src="js/clock.js"></script>
+        <script src="js/weather.js"></script>
         <ul
           class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap"
         >
@@ -83,9 +90,8 @@
       <span class="aboutStudent">Alessandro Volpe</span>
       <br />
       <ul>
-        <i class="fa fa-envelope mr-1"></i>
         <a class="aboutInfo" href="mailto:volpe.1794197@studenti.uniroma1.it"
-          >volpe.1794197@studenti.uniroma1.it</a
+          ><i class="fa fa-envelope mr-1"></i> volpe.1794197@studenti.uniroma1.it</a
         >
       </ul>
       <ul>
@@ -97,11 +103,10 @@
       <span class="aboutStudent">Deborah Farruggio</span>
       <br />
       <ul>
-        <i class="fa fa-envelope mr-1"></i>
         <a
           class="aboutInfo"
           href="mailto:farruggio.1801595@studenti.uniroma1.it"
-          >farruggio.1801595@studenti.uniroma1.it</a
+          ><i class="fa fa-envelope mr-1"></i> farruggio.1801595@studenti.uniroma1.it</a
         >
       </ul>
       <ul>
@@ -113,9 +118,8 @@
       <span class="aboutStudent">Giovanni Roma</span>
       <br />
       <ul>
-        <i class="fa fa-envelope mr-1"></i>
         <a class="aboutInfo" href="mailto:roma.1808340@studenti.uniroma1.it"
-          >roma.1808340@studenti.uniroma1.it</a
+          ><i class="fa fa-envelope mr-1"></i> roma.1808340@studenti.uniroma1.it </a
         >
       </ul>
       <ul>
@@ -123,6 +127,7 @@
           ><i class="fa fa-github mr-1"></i> JoGist </a
         ><br />
       </ul>
+
       <br /><br />
       <div class="title">The project</div>
       <br />
@@ -144,8 +149,47 @@
         capable of detecting nearby obstacles also useful to the system
         autonomous driving that is developing and much more.
       </p>
-      <br />
-      <br />
     </div>
+    <br />
+    <div class="about">
+      <h3>Useful links:</h3>
+      <br />
+      <a
+        class="aboutInfo"
+        href="https://www.sasa-aerospace.it/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><i class="fa fa-link mr-1"></i>SASA Aerospace website</a
+      >
+      <br /><br />
+      <a
+        class="aboutInfo"
+        href="http://www.ingaero.uniroma1.it/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><i class="fa fa-link mr-1"></i>Sapienza Aerospace Engineering Area Council</a
+      >
+      <br /><br />
+      <a
+        class="aboutInfo"
+        href="http://www.dima.uniroma1.it/dima/"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><i class="fa fa-link mr-1"></i>Sapienza Department of Mechanical and Aerospace Engineering</a
+      >
+    </div>
+    <br /><br /><br />
+    <div class="about">
+      <p>
+        SASA - Sapienza Aerospace Student Association
+      </p>
+      <p>
+        C.F. 97722950587
+      </p>
+      <p>
+        Via Enrico Toti, 21 Marino (RM) 00049 Italia
+      </p>
+    </div>
+    <br /><br />
   </body>
 </html>
