@@ -1,0 +1,29 @@
+<?php
+
+	$connetion = mysqli_connect("localhost", "root", "") or die(mysqli_error($connetion));
+	mysqli_select_db($connetion, "sasa") or die(mysqli_error($connetion));
+
+	else{
+	
+		$query = mysqli_query($connetion, "SELECT * FROM ground_station");
+		while ($row = mysqli_fetch_array($query)) {
+			echo '<span style="color:#000;text-align:center;">';
+			echo "Rover ID: ";
+			echo $row['roverID'];
+			echo "<br>Speed: ";
+			echo $row['speed'];
+			echo "<br>Coords x: ";
+			echo $row['coordsx'];
+			echo "<br>Coords y: ";
+			echo $row['coordsy'];
+			echo "<br>Camera Tilt: ";
+			echo $row['cameraTilt'];
+			echo "<br>Mode: ";
+			echo $row['mode'];
+			echo "<br>Timestamp: ";
+			echo $row['timestamp'];
+			echo "<br><br>";
+			echo '</span>';
+		}
+	}
+?>
