@@ -4,6 +4,7 @@
 //https://stackoverflow.com/questions/26509475/button-required-to-start-stop-javascript
 //https://www.w3schools.com/php/php_ajax_database.asp
 //https://www.youtube.com/watch?v=crtwSmleWMA
+//https://stackoverflow.com/questions/23740548/how-do-i-pass-variables-and-data-from-php-to-javascript
 
 var bool=0;
 
@@ -31,17 +32,20 @@ var speed = document.getElementById("speedRT");
 var battery = document.getElementById("batteryRT");
 var xCoords = document.getElementById("xCoordsRT");
 var yCoords = document.getElementById("yCoordsRT");
+var tilt = document.getElementById("cameraTiltRT");
 
-// Attitude update
+// Status initialized
+
+
+// Attitude initialized
 attitude.setRoll(10 * Math.sin(increment / 2));
 attitude.setPitch(10 * Math.sin(increment / 4));
 
-// Altimeter update
+// Altimeter initialized
 altimeter.setAltitude(10 * increment);
 altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
 
 function roverData() {
-  document.getElementById("status").innerHTML = "Running (auto)";
 
   // Battery update
   maxBattery = maxBattery - 0.05;
@@ -62,6 +66,11 @@ function roverData() {
   randomY = Math.round(randomY * 1000000) / 1000000;
   yCoords.innerHTML = randomY;
 
+  // camera tilt update
+  var randomTilt = Math.random() * (+maxTilt - +minTilt) + +minTilt;
+  randomTilt = Math.round(randomTilt * 1) / 1;
+  tilt.innerHTML = randomTilt + "°";
+
   // Attitude update
   attitude.setRoll(10 * Math.sin(increment / 2));
   attitude.setPitch(10 * Math.sin(increment / 4));
@@ -78,18 +87,16 @@ function roverAuto(bool) {
   while (bool==1) {
     roverData();
     document.getElementById("autoRover01").disabled=true;
-    if(bool=0)
+    window.localStorage.setItem('rover01status', 'Running (auto)');
+    document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
+    updateMap()
+    if(bool==0)
+      window.localStorage.setItem('rover01status', 'Idle');
+      document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
       break;
   }
 }
 
-function updateMap() {
-  var x = parseFloat(document.getElementById("xCoordsRT"), 10);
-  var y = parseFloat(document.getElementById("yCoordsRT"), 10);
-  myLatlng = new google.maps.LatLng(x, y);
-  marker.setPosition(myLatlng);
-  map.setCenter(myLatlng);
-}
 
 /*var condition01, mysqli = require('mysqli');
 var connection = mysqli.createConnection({

@@ -29,6 +29,24 @@
       font-weight: 300;
     }
   </style>
+  <script>
+    function roverStart() {
+      window.localStorage.removeItem('dot01');
+      window.localStorage.setItem('dot01', 'green');
+      window.localStorage.setItem('rover01status', 'Idle'); 
+      document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
+      roverAuto(1);
+    }
+  </script>
+  <script>
+    function roverStop() {
+      window.localStorage.removeItem('dot01');
+      window.localStorage.setItem('dot01', 'red');
+      window.localStorage.setItem('rover01status', 'Offline');
+      document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
+      roverAuto(0);
+    }
+  </script>
 </head>
 
 <body>
@@ -40,7 +58,7 @@
   $row = mysqli_fetch_array($query)
   ?>
   <div class="container2">
-    <h1>Real time data</h1>
+    <h1>Ground Station data</h1>
     <div class="row">
       <div class="col-md-6">
         <br />
@@ -48,29 +66,30 @@
         <!--if speed >0 Running else Stopped or if not online Power Off-->
         <label class="contact-form__label" for="velocity">Rover status:
         </label>
-        <span style="margin-left: 10px;" name="roverStatus">Stopped</span>
+        <span style="margin-left: 10px;" id="rover01status" name="roverStatus">Stopped</span>
         <br />
         <i class="fa fa-battery-three-quarters mr-1"></i>
         <label class="contact-form__label" for="velocity">Battery level:
         </label>
-        <span style="margin-left: 10px;" name="batteryData">0%</span>
+        <span style="margin-left: 10px;" name="batteryData"><?php echo $row['battery']; ?></span>
+        <label class="contact-form__label" for="velocity">%</label>
         <br />
         <i style="margin-left: 7px;" class="fa fa-angle-double-right mr-1"></i>
         <label class="contact-form__label" for="velocity"> Speed: </label>
-        <span style="margin-left: 10px;" name="speedData">0.00</span>
+        <span style="margin-left: 10px;" name="speedData"><?php echo $row['speed']; ?></span>
+        <label class="contact-form__label" for="velocity">km/h</label>
         <br />
         <i style="margin-left: 9px;" class="fa fa-map-marker-alt mr-1"></i>
         <label class="contact-form__label" for="velocity">X-coords:</label>
-        <span style="margin-left: 10px;" name="xData">0.000000</span>
+        <span style="margin-left: 10px;" name="xData"><?php echo $row['coordsx']; ?></span>
         <br />
         <i style="margin-left: 9px; visibility: hidden;" class="fa fa-map-marker-alt mr-1"></i>
         <label class="contact-form__label" for="velocity">Y-coords:</label>
-        <span style="margin-left: 10px;" name="yData">0.000000</span>
+        <span style="margin-left: 10px;" name="yData"><?php echo $row['coordsy']; ?></span>
         <br />
         <i style="margin-left: 7px;" class="fa fa-crop-alt mr-1"></i>
         <label class="contact-form__label" for="velocity">Camera tilt:</label>
-        <span style="margin-left: 10px;" name="yData"><?php echo $row['cameraTilt']; ?></span>
-        <label class="contact-form__label" for="velocity">°</label>
+        <span style="margin-left: 10px;" name="yData"><?php echo $row['cameraTilt']; ?>°</span>
         <br />
         <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
         <label class="contact-form__label" for="velocity">Rover mode: </label>
@@ -78,17 +97,21 @@
         <br />
         <br /><br />
         <form class="content__form contact-form" method="post" action="php/query.php">
-          <button class="contact-form__button" type="button" name="startRover" id="loop" value="startRover">
+          <button class="contact-form__button" type="button" onclick="roverStart()" name="startRover" id="loop" value="startRover">
             Start
           </button>
-          <button class="contact-form__button" type="button" name="stopRover" id="loop" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverStop()" name="stopRover" id="loop" value="stopRover">
             Stop
           </button>
         </form>
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
+  </script>
   <br /><br />
+  <script src="js/roverData.js"></script>
 </body>
 
 </html>

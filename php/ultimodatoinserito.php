@@ -23,8 +23,3 @@ while ($row = mysqli_fetch_array($query)) {
 }
 
 ?>
-
-<div id="map-coords" style="display: none;">
-    <?php 
-        $output = $row['coordsx'];
-        echo htmlspecialchars($output);

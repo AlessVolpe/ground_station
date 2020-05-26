@@ -93,3 +93,8 @@ function initMap() {
     var markers = [];
   }
 
+  function updateMap() {
+    var x = parseFloat(document.getElementById("xCoordsRT").value, 10);
+    var y = parseFloat(document.getElementById("yCoordsRT").value, 10);
+    new google.maps.Map(document.getElementById("map").map.setCenter(new google.maps.LatLng( 45, 19 ) ));
+  }

@@ -14,7 +14,7 @@ if (isset($_POST['subtodb'])) {
     $result = mysqli_query($connetion, $query);
 
     if ($result) {
-        header("Location: ../unnamed.html#commands");
+        header("Location: ../unnamed.html#realTime");
     } else {
         echo "Error";
     }
@@ -30,7 +30,7 @@ else if (isset($_POST['start'])) {
     $result = mysqli_query($connetion, $query);
 
     if ($result) {
-        header("Location: ../unnamed.html#commands");
+        header("Location: ../unnamed.html#realTime");
     } else {
         echo "Error";
     }
@@ -46,7 +46,7 @@ else if (isset($_POST['stop'])) {
     $result = mysqli_query($connetion, $query);
 
     if ($result) {
-        header("Location: ../unnamed.html#commands");
+        header("Location: ../unnamed.html#realTime");
     } else {
         echo "Error";
     }
