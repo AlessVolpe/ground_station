@@ -32,7 +32,7 @@ session_start();
 		<th>Coords x</th>
 		<th>Coords y</th>
 		<th>Camera Tilt</th>
-		<th>Mide</th>
+		<th>Mode</th>
 
 		</tr>";
 		while ($row = mysqli_fetch_array($query)) {
