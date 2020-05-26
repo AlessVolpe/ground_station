@@ -92,3 +92,4 @@ function initMap() {
     });
     var markers = [];
   }
+

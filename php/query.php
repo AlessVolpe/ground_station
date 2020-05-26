@@ -1,5 +1,6 @@
 <?php
 if (isset($_POST['subtodb'])) {
+    $roverID = $_POST['roverID'];
     $speed = $_POST['speed'];
     $coordsx = $_POST['coordsx'];
     $coordsy = $_POST['coordsy'];
@@ -9,11 +10,11 @@ if (isset($_POST['subtodb'])) {
     $connetion = mysqli_connect("localhost", "root", "");
     mysqli_select_db($connetion, 'sasa');
 
-    $query = "INSERT into ground_station(roverID, speed, coordsx, coordsy, cameraTilt, mode) VALUES ('1', '$speed', '$coordsx',  '$coordsy',  '$cameraTilt', '$mode')";
+    $query = "INSERT into rover(roverID, speed, coordsx, coordsy, cameraTilt, mode) VALUES ('$roverID', '$speed', '$coordsx',  '$coordsy',  '$cameraTilt', '$mode')";
     $result = mysqli_query($connetion, $query);
 
     if ($result) {
-        header("Location: ../unnamed.html");
+        header("Location: ../unnamed.html#commands");
     } else {
         echo "Error";
     }
@@ -29,7 +30,7 @@ else if (isset($_POST['start'])) {
     $result = mysqli_query($connetion, $query);
 
     if ($result) {
-        header("Location: ../unnamed.html");
+        header("Location: ../unnamed.html#commands");
     } else {
         echo "Error";
     }
@@ -45,7 +46,7 @@ else if (isset($_POST['stop'])) {
     $result = mysqli_query($connetion, $query);
 
     if ($result) {
-        header("Location: ../unnamed.html");
+        header("Location: ../unnamed.html#commands");
     } else {
         echo "Error";
     }

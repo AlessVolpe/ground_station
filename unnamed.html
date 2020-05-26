@@ -115,8 +115,8 @@
                 <li>FEETECH FS90R Micro Continuous Rotation Servo</li>
                 <li>UBEC DC/DC Step-Down (Buck) Converter - 5V 3°</li>
                 <li>Dagu - Rover 5 Robot Platform</li>
-              </ul>
-            </small>
+                <a name="realTime"></ul></a>
+              </small>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
             <br>
             <i style="margin-left: 4px;" class="fa fa-power-off mr-1"></i> <!--if speed >0 Running else Stopped or if not online Power Off-->
             <label class="contact-form__label" for="velocity">Rover status: </label>
-            <span style="margin-left: 10px;" name="roverStatus">Stopped</span>
+            <span style="margin-left: 10px;" id="status" name="roverStatus">Stopped</span>
             <br>
             <i class="fa fa-battery-three-quarters mr-1"></i>
             <label class="contact-form__label"  for="velocity">Battery level: </label>
@@ -166,8 +166,9 @@
         <p class="rover_id" style="display: none;">Rover ID: unn-03</p>
         <div class="col-md-6">
           <section class="content">
-            <h1 class="results__heading">Commands:</h1>
+            <h1 class="results__heading"><a name="commands">Commands:</a></h1>
             <form class="content__form contact-form" method="post" action="php/query.php">
+              <input class="contact-form__input contact-form__input--text" style="display: none;" id="roverID" name="roverID" type="text" value="1"/>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Speed</label>
                 <input class="contact-form__input contact-form__input--text" id="speed" name="speed"
@@ -199,12 +200,11 @@
               </div>
               <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStart" name="statusStart" type="text" value="start"/>
               <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStop" name="statusStop" type="text" value="stop"/>
-
               
               <button class="contact-form__button" type="submit" name="start" onClick="roverStart()" id="startRover01">Start</button>
               <button class="contact-form__button" type="submit" name="subtodb"> Send data </button>
-              <button class="contact-form__button" type="submit" name="auto" onClick="roverAuto()" id="autoRover01">Auto</button>
-              <button class="contact-form__button" type="submit" name="stop" onClick="roverStop()" id="stopRover01">Stop</button>
+              <button class="contact-form__button" type="button" name="auto" onClick="roverAuto(1); window.location='#realTime'" id="autoRover01">Auto</button>
+              <button class="contact-form__button" type="submit" name="stop" onClick="roverAuto(0);" id="stopRover01">Stop</button>
               
             </form>
             <br>
@@ -220,22 +220,6 @@
         </div>
       </div>
       <script src="js/roverData.js"></script>
-      <script type="text/javascript">
-        var attitude = $.flightIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:200, showBox : true});
-        var altimeter = $.flightIndicator('#altimeter', 'altimeter');
-
-        var increment = 0;
-        setInterval(function() {
-            // Attitude update
-            attitude.setRoll(10*Math.sin(increment/10));
-            attitude.setPitch(10*Math.sin(increment/20));
-
-            // Altimeter update
-            altimeter.setAltitude(10*increment);
-            altimeter.setPressure(1000+3*Math.sin(increment/50));
-            increment++;
-        }, 50);  
-      </script>
       <script>
         $(document).ready(function () {
           commandUpdate();

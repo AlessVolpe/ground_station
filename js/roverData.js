@@ -5,6 +5,8 @@
 //https://www.w3schools.com/php/php_ajax_database.asp
 //https://www.youtube.com/watch?v=crtwSmleWMA
 
+var bool=0;
+
 var minBattery = 0;
 var maxBattery = 100;
 var minSpeed = 0;
@@ -16,33 +18,77 @@ var maxYcoords = 41.89764;
 var minTilt = -60;
 var maxTilt = 60;
 
+var attitude = $.flightIndicator("#attitude", "attitude", {
+  roll: 50,
+  pitch: -20,
+  size: 200,
+  showBox: true,
+});
+var altimeter = $.flightIndicator("#altimeter", "altimeter");
+var increment = 0;
+
 var speed = document.getElementById("speedRT");
 var battery = document.getElementById("batteryRT");
 var xCoords = document.getElementById("xCoordsRT");
 var yCoords = document.getElementById("yCoordsRT");
 
-function roverData() {
-  maxBattery = maxBattery-1
-  battery.innerHTML = maxBattery+' %';
+// Attitude update
+attitude.setRoll(10 * Math.sin(increment / 2));
+attitude.setPitch(10 * Math.sin(increment / 4));
 
+// Altimeter update
+altimeter.setAltitude(10 * increment);
+altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
+
+function roverData() {
+  document.getElementById("status").innerHTML = "Running (auto)";
+
+  // Battery update
+  maxBattery = maxBattery - 0.05;
+  battery.innerHTML = Math.ceil(maxBattery) + " %";
+
+  // Speed update
   var randomSpeed = Math.random() * (+maxSpeed - +minSpeed) + +minSpeed;
   randomSpeed = Math.round(randomSpeed * 100) / 100;
-  speed.innerHTML = randomSpeed+' km/h';
+  speed.innerHTML = randomSpeed + " km/h";
 
+  // x-coords update
   var randomX = Math.random() * (+maxXcoords - +minXcoords) + +minXcoords;
   randomX = Math.round(randomX * 1000000) / 1000000;
   xCoords.innerHTML = randomX;
 
+  // y-coords update
   var randomY = Math.random() * (+maxYcoords - +minYcoords) + +minYcoords;
   randomY = Math.round(randomY * 1000000) / 1000000;
   yCoords.innerHTML = randomY;
 
-  setTimeout(roverData, 5000);
+  // Attitude update
+  attitude.setRoll(10 * Math.sin(increment / 2));
+  attitude.setPitch(10 * Math.sin(increment / 4));
+
+  // Altimeter update
+  altimeter.setAltitude(10 * increment);
+  altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
+  increment++;
+
+  setTimeout(roverData, 500);
 }
 
-for(i=0; i<1; i++)
-{
-  roverData();
+function roverAuto(bool) {
+  while (bool==1) {
+    roverData();
+    document.getElementById("autoRover01").disabled=true;
+    if(bool=0)
+      break;
+  }
+}
+
+function updateMap() {
+  var x = parseFloat(document.getElementById("xCoordsRT"), 10);
+  var y = parseFloat(document.getElementById("yCoordsRT"), 10);
+  myLatlng = new google.maps.LatLng(x, y);
+  marker.setPosition(myLatlng);
+  map.setCenter(myLatlng);
 }
 
 /*var condition01, mysqli = require('mysqli');

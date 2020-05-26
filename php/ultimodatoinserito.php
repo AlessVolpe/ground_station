@@ -2,7 +2,7 @@
 $connetion = mysqli_connect("localhost", "root", "");
 mysqli_select_db($connetion, 'sasa');
 
-$query = mysqli_query($connetion, "SELECT * FROM ground_station ORDER BY id DESC LIMIT 1;");
+$query = mysqli_query($connetion, "SELECT * FROM rover ORDER BY id DESC LIMIT 1;");
 while ($row = mysqli_fetch_array($query)) {
 	echo "Id: ";
 	echo $row['id'];
@@ -21,4 +21,10 @@ while ($row = mysqli_fetch_array($query)) {
 	echo "<br>Timestamp: ";
 	echo $row['timestamp'];
 }
+
 ?>
+
+<div id="map-coords" style="display: none;">
+    <?php 
+        $output = $row['coordsx'];
+        echo htmlspecialchars($output);
