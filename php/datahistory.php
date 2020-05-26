@@ -3,6 +3,7 @@
 	$connetion = mysqli_connect("localhost", "root", "") or die(mysqli_error($connetion));
 	mysqli_select_db($connetion, "sasa") or die(mysqli_error($connetion));
 
+	
 	$query = mysqli_query($connetion, "SELECT * FROM ground_station");
 	while ($row = mysqli_fetch_array($query)) {
 		echo '<span style="color:#000;text-align:center;">';
