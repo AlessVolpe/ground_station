@@ -1,4 +1,5 @@
 <?php
+session_start();
 if (isset($_POST['send'])) {
 	$connection = mysqli_connect("localhost", "root", "") or die(mysqli_error($connection));
 	mysqli_select_db($connection, "sasa") or die(mysqli_error($connection));
@@ -11,8 +12,8 @@ if (isset($_POST['send'])) {
 	$result = mysqli_query($connection, $query);
 	$row = mysqli_num_rows($result);
 	if ($row == 1) {
-		session_start();
 		header("location: ../index.html");
+		$_SESSION['userLogin'] = 'loggato';
 	} else {
 		header("location: ../loginError.html");
 	}
