@@ -28,6 +28,20 @@
       font-weight: 300;
     }
   </style>
+  <script>
+    function roverStart() {
+      window.localStorage.removeItem('dot01'); 
+      window.localStorage.setItem('dot01', 'green'); 
+      document.getElementById('dot01').classList.remove('blinking');
+    }
+  </script>
+  <script>
+    function roverStop() {
+      window.localStorage.removeItem('dot01'); 
+      window.localStorage.setItem('dot01', 'red'); 
+      document.getElementById('dot01').classList.remove('blinking');
+    }
+  </script>
 </head>
 
 <body>
@@ -117,24 +131,24 @@
             <span style="margin-left: 10px;" name="roverStatus">Stopped</span>
             <br>
             <i class="fa fa-battery-three-quarters mr-1"></i>
-            <label class="contact-form__label" for="velocity">Battery level: </label>
-            <span style="margin-left: 10px;" name="batteryData">0%</span>
+            <label class="contact-form__label"  for="velocity">Battery level: </label>
+            <span style="margin-left: 10px;" id="batteryRT" name="batteryData">0%</span>
             <br>
             <i style="margin-left: 7px;" class="fa fa-angle-double-right mr-1"></i>
             <label class="contact-form__label" for="velocity"> Speed: </label>
-            <span style="margin-left: 10px;" name="speedData">0.00</span>
+            <span style="margin-left: 10px;" id="speedRT" name="speedData">0.00</span>
             <br>
             <i style="margin-left: 9px;" class="fa fa-map-marker-alt mr-1"></i>
             <label class="contact-form__label" for="velocity">X-coords:</label>
-            <span style="margin-left: 10px;" name="xData">0.000000</span>
+            <span style="margin-left: 10px;" id="xCoordsRT" name="xData">0.000000</span>
             <br>
             <i style="margin-left: 9px; visibility: hidden;" class="fa fa-map-marker-alt mr-1"></i>
             <label class="contact-form__label" for="velocity">Y-coords:</label>
-            <span style="margin-left: 10px;" name="yData">0.000000</span>
+            <span style="margin-left: 10px;" id="yCoordsRT" name="yData">0.000000</span>
             <br>
             <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
             <label class="contact-form__label" for="velocity">Rover mode: </label>
-            <span style="margin-left: 10px;" name="modeData">Standard</span>
+            <span style="margin-left: 10px;" id="modeRT" name="modeData">Standard</span>
             <br>
           <div><span class="attitute" id="attitude"></span></div>
         </div>
@@ -183,9 +197,15 @@
                   <option>Performance</option>
                 </select>
               </div>
-              <button class="contact-form__button" type="button" name="startRover"> Start </button>
+              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStart" name="statusStart" type="text" value="start"/>
+              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStop" name="statusStop" type="text" value="stop"/>
+
+              
+              <button class="contact-form__button" type="submit" name="start" onClick="roverStart()" id="startRover01">Start</button>
               <button class="contact-form__button" type="submit" name="subtodb"> Send data </button>
-              <button class="contact-form__button" type="button" name="stopRover"> Stop </button>
+              <button class="contact-form__button" type="submit" name="auto" onClick="roverAuto()" id="autoRover01">Auto</button>
+              <button class="contact-form__button" type="submit" name="stop" onClick="roverStop()" id="stopRover01">Stop</button>
+              
             </form>
             <br>
             <br>
@@ -199,6 +219,7 @@
           </div>
         </div>
       </div>
+      <script src="js/roverData.js"></script>
       <script type="text/javascript">
         var attitude = $.flightIndicator('#attitude', 'attitude', {roll:50, pitch:-20, size:200, showBox : true});
         var altimeter = $.flightIndicator('#altimeter', 'altimeter');
@@ -223,9 +244,9 @@
 
         function commandUpdate() {
           var command = document.getElementById("command");
-          command.innerHTML = "Velocity: " + document.getElementById("speed").value + "\nX coords: " + document
-            .getElementById("coordsx").value + "\nY coords: " + document.getElementById("coordsy").value + "\nCamera tilt: " + 
-            document.getElementById("cameraTilt").value + "\nRover Mode: " + document.getElementById("mode").value;
+          command.innerHTML = "Velocity: " + document.getElementById("speed").value + " km/h\n\nX coords: " + document
+            .getElementById("coordsx").value + "\n\nY coords: " + document.getElementById("coordsy").value + "\n\nCamera tilt: " + 
+            document.getElementById("cameraTilt").value + "\n\nRover Mode: " + document.getElementById("mode").value;
           $('.command').text(command.innerHTML);
         }
       </script>

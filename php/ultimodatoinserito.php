@@ -21,3 +21,4 @@ while ($row = mysqli_fetch_array($query)) {
 	echo "<br>Timestamp: ";
 	echo $row['timestamp'];
 }
+?>

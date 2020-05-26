@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/stylesheet.css">
 <script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
 <head>
@@ -54,9 +54,6 @@
                 <a class="nav-link" href="https://github.com/Syro98/ground_station" target="_blank"><i
                         class="fa fa-github mr-1"></i></a>
             </ul>
-            <script src="js/weather.js"></script>
-            <script src="js/clock.js"></script>
-            <script src="js/ip-address.js"></script>
         </div>
     </nav>
     <br><br><br>
@@ -67,7 +64,7 @@
             <th>
                 <a href="unnamed.html">
                     <div class="unnamed" , class="img">
-                        <span class="dot blinking"></span>
+                        <span class="dot" id="dot01"></span>
                     </div>
                 </a>
                 <br>
@@ -76,7 +73,7 @@
             <th>
                 <a href="aenea.html">
                     <div class="aenea">
-                        <span class="dot blinking"></span>
+                        <span class="dot blinking" id="dot02"></span>
                     </div>
                 </a>
                 <br>
@@ -85,7 +82,7 @@
             <th>
                 <a href="hector.html">
                     <div class="hector">
-                        <span class="dot blinking"></span>
+                        <span class="dot blinking" id="dot03"></span>
                     </div>
                 </a>
                 <br>
@@ -93,6 +90,14 @@
             </th>
         </tr>
     </table>
+    <script src="js/weather.js"></script>
+    <script src="js/clock.js"></script>
+    <script src="js/ip-address.js"></script>
+    <script src="js/roverData.js"></script>
+    <script>
+        document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
+    </script>
+    <!--<script src="js/roverData2.js"></script>
+    <script src="js/roverData3.js"></script>-->
 </body>
-
 </html>
