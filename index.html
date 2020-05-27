@@ -19,11 +19,10 @@
 
 <body>
     <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start">
-        <a class="navbar-brand d-md-none d-inline" href="">Brand</a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="nav-link"><i class="fa fa-home mr-1 hidden"></i></a>
+        <a class="nav-link" href="login.html" onclick="session_destroy();"><i class="fa fa-sign-out-alt mr-1"></i></a>
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-md-center text-left">
                 <li class="nav-item">
@@ -86,18 +85,24 @@
                     </div>
                 </a>
                 <br>
-                <p class="info">Hector</p>
+                <p id="test" class="info">Hector</p>
             </th>
         </tr>
     </table>
     <script src="js/weather.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/ip-address.js"></script>
-    <script src="js/roverData.js"></script>
     <script>
         document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
+        /*document.getElementById("test").addEventListener('storage', function(evt) {console.log('event fired')}, false);  
+        window.location.reload();
+        function reloadDot() {
+            $("#dot01").load(location.href+" #dot01>*","");
+            setTimeout(reloadDot(), 500);
+        };
+        
+        reloadDot();*/
+        
     </script>
-    <!--<script src="js/roverData2.js"></script>
-    <script src="js/roverData3.js"></script>-->
 </body>
 </html>

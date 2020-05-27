@@ -6,8 +6,6 @@
 //https://www.youtube.com/watch?v=crtwSmleWMA
 //https://stackoverflow.com/questions/23740548/how-do-i-pass-variables-and-data-from-php-to-javascript
 
-var bool=0;
-
 var minBattery = 0;
 var maxBattery = 100;
 var minSpeed = 0;
@@ -34,9 +32,6 @@ var xCoords = document.getElementById("xCoordsRT");
 var yCoords = document.getElementById("yCoordsRT");
 var tilt = document.getElementById("cameraTiltRT");
 
-// Status initialized
-
-
 // Attitude initialized
 attitude.setRoll(10 * Math.sin(increment / 2));
 attitude.setPitch(10 * Math.sin(increment / 4));
@@ -46,7 +41,6 @@ altimeter.setAltitude(10 * increment);
 altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
 
 function roverData() {
-
   // Battery update
   maxBattery = maxBattery - 0.05;
   battery.innerHTML = Math.ceil(maxBattery) + " %";
@@ -80,23 +74,60 @@ function roverData() {
   altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
   increment++;
 
+  $(document).ready(function () {
+    var roverID = 1;
+    var roverStatus = $("#rover01status").val();
+    var battery = $("#batteryRT").val();
+    var speed = $("#speedRT").val();
+    var coordsx = $("#xCoordsRT").val();
+    var coordsy = $("#yCoordsRT").val();
+    var cameraTilt = $("#cameraTiltRT").val();
+    var mode = $("#modeRT").val();
+    $.ajax({
+      url: "php/roverAuto.php",
+      type: "POST",
+      data: {
+        roverID: roverID,
+        roverStatus: roverStatus,
+        battery: battery,
+        speed: speed,
+        coordsx: coordsx,
+        coordsy: coordsy,
+        cameraTilt: cameraTilt,
+        mode: mode,
+      },
+      cache: false,
+      success: console.log("ciao grazie non sapevo"),
+    });
+  });
+
   setTimeout(roverData, 500);
 }
 
 function roverAuto(bool) {
-  while (bool==1) {
+  while (bool == 1) {
     roverData();
-    document.getElementById("autoRover01").disabled=true;
-    window.localStorage.setItem('rover01status', 'Running (auto)');
-    document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
-    updateMap()
-    if(bool==0)
-      window.localStorage.setItem('rover01status', 'Idle');
-      document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
-      break;
+    document.getElementById("autoRover01").disabled = true;
+    window.localStorage.setItem("rover01status", "Running (auto)");
+    document.getElementById(
+      "rover01status"
+    ).innerText = window.localStorage.getItem("rover01status");
+    //updateMap()
+    if (bool == 0) window.localStorage.setItem("rover01status", "Idle");
+    document.getElementById(
+      "rover01status"
+    ).innerText = window.localStorage.getItem("rover01status");
+    break;
   }
 }
 
+function startRoverAuto() {
+  roverAuto(1);
+}
+
+function startRoverAuto() {
+  roverAuto(0);
+}
 
 /*var condition01, mysqli = require('mysqli');
 var connection = mysqli.createConnection({

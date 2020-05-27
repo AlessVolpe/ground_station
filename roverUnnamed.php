@@ -31,19 +31,41 @@
   </style>
   <script>
     function roverStart() {
+      document.getElementById('on').disabled=true;
+      document.getElementById('stop').disabled=false;
+      document.getElementById('off').disabled=false;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'green');
-      window.localStorage.setItem('rover01status', 'Idle'); 
+      window.localStorage.setItem('rover01status', 'Idle');
+      window.localStorage.removeItem('commands01');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
       roverAuto(1);
     }
   </script>
   <script>
     function roverStop() {
+      document.getElementById('on').disabled=true;
+      document.getElementById('stop').disabled=false;
+      document.getElementById('off').disabled=false;
+      window.localStorage.removeItem('dot01');
+      window.localStorage.setItem('dot01', 'green');
+      window.localStorage.setItem('rover01status', 'Idle');
+      window.localStorage.removeItem('commands01');
+      document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
+      roverAuto(0);
+    }
+  </script>
+  <script>
+    function roverOff() {
+      document.getElementById('on').disabled=false;
+      document.getElementById('off').disabled=true;
+      document.getElementById('stop').disabled=true;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'red');
       window.localStorage.setItem('rover01status', 'Offline');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
+      window.localStorage.removeItem('commands01');
+      window.localStorage.setItem('commands01', 'none');
       roverAuto(0);
     }
   </script>
@@ -97,11 +119,14 @@
         <br />
         <br /><br />
         <form class="content__form contact-form" method="post" action="php/query.php">
-          <button class="contact-form__button" type="button" onclick="roverStart()" name="startRover" id="loop" value="startRover">
-            Start
+          <button class="contact-form__button" type="button" onclick="roverStart()" name="startRover" id="on" value="startRover">
+            On
           </button>
-          <button class="contact-form__button" type="button" onclick="roverStop()" name="stopRover" id="loop" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverStop()" name="stopRover" id="stop" value="stopRover">
             Stop
+          </button>
+          <button class="contact-form__button" type="button" onclick="roverOff(); document.getElementById('stop').disabled=true; document.getElementById('off').disabled=true; document.getElementById('on').disabled=false;" name="stopRover" id="off" value="stopRover">
+            Off
           </button>
         </form>
       </div>
@@ -110,8 +135,12 @@
   <script>
     document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
   </script>
-  <br /><br />
-  <script src="js/roverData.js"></script>
+  <!--<script>
+    var onButton=document.getElementById("on");
+    onButton.addEventListener('click', function(evt) {window.localStorage.setItem('dot01', 'green');});
+    </script>-->
+    <br /><br />
+    <script src="js/roverData.js"></script>
 </body>
 
 </html>
