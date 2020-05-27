@@ -15,7 +15,7 @@ $query = "INSERT into rover(roverID, roverStatus, battery, speed, coordsx, coord
 $result = mysqli_query($connetion, $query);
 
 if ($result) {
-    echo("yes");
+    echo"yes";
 } else {
     echo "Error";
 }
