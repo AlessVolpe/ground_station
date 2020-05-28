@@ -1,6 +1,4 @@
 <?php
-session_start();
-if($_SESSION['userLogin'] == 'loggato'){
 	if (isset($_POST['subtodb'])) {
 		$roverID = $_POST['roverID'];
 		$speed = $_POST['speed'];
@@ -53,9 +51,5 @@ if($_SESSION['userLogin'] == 'loggato'){
 			echo "Error";
 		}
 	}
-}
 
-else{
-	header("Location: login.html");
-}
 ?>
