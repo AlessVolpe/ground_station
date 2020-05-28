@@ -3,9 +3,7 @@
 <meta charset="utf-8" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" />
-<link rel="stylesheet" href="css/nav-menu.css" />
-<link rel="stylesheet" href="css/stylesheet.css" />
-<link rel="stylesheet" type="text/css" href="css/flightindicators.css" />
+<link rel="stylesheet" href="../css/stylesheet.css" />
 <script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.flightindicators.js"></script>
@@ -14,6 +12,10 @@
 <head>
   <title>Unnamed Ground Vehicle</title>
   <style>
+    body {
+      overflow-y: hidden;
+    }
+    
     #map {
       height: 400px;
       width: 540px;

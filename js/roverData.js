@@ -1,6 +1,3 @@
-//https://stackoverflow.com/questions/21809815/change-content-of-a-div-on-another-page
-//https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
-//window.localStorage.getItem("dot01start");
 //https://stackoverflow.com/questions/26509475/button-required-to-start-stop-javascript
 //https://www.w3schools.com/php/php_ajax_database.asp
 //https://www.youtube.com/watch?v=crtwSmleWMA
@@ -120,24 +117,3 @@ function roverAuto(bool) {
     break;
   }
 }
-
-function startRoverAuto() {
-  roverAuto(1);
-}
-
-function startRoverAuto() {
-  roverAuto(0);
-}
-
-/*var condition01, mysqli = require('mysqli');
-var connection = mysqli.createConnection({
-  host: "localhost",
-  database: "sasa"
-})
-connection.connect(function(err) {
-  if (err) throw err;
-  var result = con.query("SELECT roverID, status FROM rover ORDER BY id DESC LIMIT 1;");
-  if (err) throw err;
-  if (result == "stop") condition01 = false;
-  else condition01 = true; 
-})*/
