@@ -36,6 +36,7 @@
       document.getElementById('off').disabled = false;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'green');
+      window.localStorage.setItem('dot01blink', 'no');
       window.localStorage.setItem('rover01status', 'Idle');
       window.localStorage.removeItem('commands01');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
@@ -48,6 +49,7 @@
       document.getElementById('off').disabled = false;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'green');
+      window.localStorage.setItem('dot01blink', 'no');
       window.localStorage.setItem('rover01status', 'Idle');
       window.localStorage.removeItem('commands01');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
@@ -61,6 +63,7 @@
       document.getElementById('stop').disabled = true;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'red');
+      window.localStorage.setItem('dot01blink', 'no');
       window.localStorage.setItem('rover01status', 'Offline');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
       window.localStorage.removeItem('commands01');
