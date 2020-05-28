@@ -31,42 +31,41 @@
   </style>
   <script>
     function roverStart() {
-      document.getElementById('on').disabled=true;
-      document.getElementById('stop').disabled=false;
-      document.getElementById('off').disabled=false;
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = false;
+      document.getElementById('off').disabled = false;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'green');
       window.localStorage.setItem('rover01status', 'Idle');
       window.localStorage.removeItem('commands01');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
-      roverAuto(1);
     }
   </script>
   <script>
     function roverStop() {
-      document.getElementById('on').disabled=true;
-      document.getElementById('stop').disabled=false;
-      document.getElementById('off').disabled=false;
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = false;
+      document.getElementById('off').disabled = false;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'green');
       window.localStorage.setItem('rover01status', 'Idle');
       window.localStorage.removeItem('commands01');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
-      roverAuto(0);
+      window.localStorage.setItem('roverAuto', '0');
     }
   </script>
   <script>
     function roverOff() {
-      document.getElementById('on').disabled=false;
-      document.getElementById('off').disabled=true;
-      document.getElementById('stop').disabled=true;
+      document.getElementById('on').disabled = false;
+      document.getElementById('off').disabled = true;
+      document.getElementById('stop').disabled = true;
       window.localStorage.removeItem('dot01');
       window.localStorage.setItem('dot01', 'red');
       window.localStorage.setItem('rover01status', 'Offline');
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
       window.localStorage.removeItem('commands01');
       window.localStorage.setItem('commands01', 'none');
-      roverAuto(0);
+      window.localStorage.setItem('roverAuto', '0');
     }
   </script>
 </head>
@@ -88,7 +87,7 @@
         <!--if speed >0 Running else Stopped or if not online Power Off-->
         <label class="contact-form__label" for="velocity">Rover status:
         </label>
-        <span style="margin-left: 10px;" id="rover01status" name="roverStatus">Stopped</span>
+        <span style="margin-left: 10px;" id="rover01status" name="roverStatus"></span>
         <br />
         <i class="fa fa-battery-three-quarters mr-1"></i>
         <label class="contact-form__label" for="velocity">Battery level:
@@ -119,13 +118,13 @@
         <br />
         <br /><br />
         <form class="content__form contact-form" method="post" action="php/query.php">
-          <button class="contact-form__button" type="button" onclick="roverStart()" name="startRover" id="on" value="startRover">
+          <button class="contact-form__button" type="button" onclick="roverStart();" name="startRover" id="on" value="startRover">
             On
           </button>
-          <button class="contact-form__button" type="button" onclick="roverStop()" name="stopRover" id="stop" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverStop();" name="stopRover" id="stop" value="stopRover">
             Stop
           </button>
-          <button class="contact-form__button" type="button" onclick="roverOff(); document.getElementById('stop').disabled=true; document.getElementById('off').disabled=true; document.getElementById('on').disabled=false;" name="stopRover" id="off" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverOff();" name="stopRover" id="off" value="stopRover">
             Off
           </button>
         </form>
@@ -133,14 +132,31 @@
     </div>
   </div>
   <script>
-    document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
+    document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
+
+    var status = window.localStorage.getItem('rover01status');
+    if (status == 'Running (Manual)' || status == 'Running (Auto)') {
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = false;
+      document.getElementById('off').disabled = false;
+    }
+    if (status == 'Idle') {
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = true;
+      document.getElementById('off').disabled = false;
+    }
+    if (status == 'Offline') {
+      document.getElementById('on').disabled = false;
+      document.getElementById('stop').disabled = true;
+      document.getElementById('off').disabled = true;
+    }
+
+    window.addEventListener("storage", function(e) {
+      document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
+    }, true);
   </script>
-  <!--<script>
-    var onButton=document.getElementById("on");
-    onButton.addEventListener('click', function(evt) {window.localStorage.setItem('dot01', 'green');});
-    </script>-->
-    <br /><br />
-    <script src="js/roverData.js"></script>
+  <br /><br />
+  <script src="js/roverData.js"></script>
 </body>
 
 </html>

@@ -153,7 +153,10 @@
           <div><span class="attitute" id="attitude"></span></div>
           <script>
             document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
-        </script>
+            window.addEventListener("storage",function(e) {
+             document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
+            },true);
+          </script>
         </div>
         <div class="col-md-6">
           <div id="map"></div>
@@ -205,8 +208,8 @@
               <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStop" name="statusStop" type="text" value="stop"/>
               <!--<button class="contact-form__button" type="submit" name="start" onClick="roverStart()" id="startRover01">Start</button>-->
               <button class="contact-form__button" type="submit" name="subtodb" onclick="window.localStorage.setItem('rover01status', 'Running (manual)'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');" id="manualRover01"> Send data </button>
-              <a href="#realTime"><button class="contact-form__button" type="button" name="auto" onClick="autoButton(); roverAuto(1)" id="autoRover01">Auto</button></a>
-              <button class="contact-form__button" type="submit" name="stop" onClick="stopButton(); roverAuto(0); window.localStorage.setItem('rover01status', 'Idle'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status')" id="stopRover01">Stop</button>
+              <a href="#realTime"><button class="contact-form__button" type="button" name="auto" onClick="autoButton(); roverData(1);" id="autoRover01">Auto</button></a>
+              <button class="contact-form__button" type="submit" name="stop" onClick="stopButton(); roverData(0); window.localStorage.setItem('rover01status', 'Idle'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status')" id="stopRover01">Stop</button>
             </form>
             <br>
             <br>
@@ -220,131 +223,7 @@
           </div>
         </div>
       </div>
-      <script>
-        var minBattery = 0;
-        var maxBattery = 100;
-        var minSpeed = 0;
-        var maxSpeed = 8;
-        var minXcoords = 12.504315;
-        var maxXcoords = 12.5722932;
-        var minYcoords = 41.7656441;
-        var maxYcoords = 41.89764;
-        var minTilt = -60;
-        var maxTilt = 60;
-
-        var attitude = $.flightIndicator("#attitude", "attitude", {
-          roll: 50,
-          pitch: -20,
-          size: 200,
-          showBox: true,
-        });
-        var altimeter = $.flightIndicator("#altimeter", "altimeter");
-        var increment = 0;
-
-        var speed = document.getElementById("speedRT");
-        var battery = document.getElementById("batteryRT");
-        var xCoords = document.getElementById("xCoordsRT");
-        var yCoords = document.getElementById("yCoordsRT");
-        var tilt = document.getElementById("cameraTiltRT");
-
-        // Attitude initialized
-        attitude.setRoll(10 * Math.sin(increment / 2));
-        attitude.setPitch(10 * Math.sin(increment / 4));
-
-        // Altimeter initialized
-        altimeter.setAltitude(10 * increment);
-        altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
-
-        function roverData() {
-          // Battery update
-          maxBattery = maxBattery - 0.05;
-          battery.innerHTML = Math.ceil(maxBattery) + " %";
-
-          // Speed update
-          var randomSpeed = Math.random() * (+maxSpeed - +minSpeed) + +minSpeed;
-          randomSpeed = Math.round(randomSpeed * 100) / 100;
-          speed.innerHTML = randomSpeed + " km/h";
-
-          // x-coords update
-          var randomX = Math.random() * (+maxXcoords - +minXcoords) + +minXcoords;
-          randomX = Math.round(randomX * 1000000) / 1000000;
-          xCoords.innerHTML = randomX;
-
-          // y-coords update
-          var randomY = Math.random() * (+maxYcoords - +minYcoords) + +minYcoords;
-          randomY = Math.round(randomY * 1000000) / 1000000;
-          yCoords.innerHTML = randomY;
-
-          // camera tilt update
-          var randomTilt = Math.random() * (+maxTilt - +minTilt) + +minTilt;
-          randomTilt = Math.round(randomTilt * 1) / 1;
-          tilt.innerHTML = randomTilt + "°";
-
-          // Attitude update
-          attitude.setRoll(10 * Math.sin(increment / 2));
-          attitude.setPitch(10 * Math.sin(increment / 4));
-
-          // Altimeter update
-          altimeter.setAltitude(10 * increment);
-          altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
-          increment++;
-
-          $(document).ready(function () {
-            var roverID = 1;
-            var roverStatus = $("#rover01status").val();
-            var battery = $("#batteryRT").val();
-            var speed = $("#speedRT").val();
-            var coordsx = $("#xCoordsRT").val();
-            var coordsy = $("#yCoordsRT").val();
-            var cameraTilt = $("#cameraTiltRT").val();
-            var mode = $("#modeRT").val();
-            $.ajax({
-              url: "http://localhost/ground_station/php/roverAuto.php",
-              type: "POST",
-              data: {
-                roverID: roverID,
-                roverStatus: roverStatus,
-                battery: battery,
-                speed: speed,
-                coordsx: coordsx,
-                coordsy: coordsy,
-                cameraTilt: cameraTilt,
-                mode: mode,
-              },
-              cache: false,
-              success: console.log("ciao grazie non sapevo"),
-            });
-          });
-
-          setTimeout(roverData, 500);
-        }
-
-        function roverAuto(bool) {
-          while (bool == 1) {
-            roverData();
-            document.getElementById("autoRover01").disabled = true;
-            window.localStorage.setItem("rover01status", "Running (auto)");
-            document.getElementById(
-              "rover01status"
-            ).innerText = window.localStorage.getItem("rover01status");
-            //updateMap()
-            if (bool == 0) window.localStorage.setItem("rover01status", "Idle");
-            document.getElementById(
-              "rover01status"
-            ).innerText = window.localStorage.getItem("rover01status");
-            break;
-          }
-        }
-
-        function startRoverAuto() {
-          roverAuto(1);
-        }
-
-        function startRoverAuto() {
-          roverAuto(0);
-        }
-
-      </script>
+      <script src="js/roverData.js"></script>
       <script>
         $(document).ready(function () {
           commandUpdate();
@@ -361,7 +240,16 @@
       </script>
       <script>
         document.getElementById("commands01").style.display = window.localStorage.getItem('commands01');
+        window.addEventListener("storage",function(e) {
+          document.getElementById("commands01").style.display = window.localStorage.getItem('commands01');
+        },true);
     </script>
+    <!--<script>
+      window.addEventListener("storage", function(e) {
+        var bool = parseInt(window.localStorage.getItem('roverAuto')); 
+        roverAuto(bool);
+      }, true);
+    </script>-->
     </div>
   </div>
 </body>

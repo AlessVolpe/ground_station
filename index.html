@@ -94,15 +94,13 @@
     <script src="js/ip-address.js"></script>
     <script>
         document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
-        /*document.getElementById("test").addEventListener('storage', function(evt) {console.log('event fired')}, false);  
-        window.location.reload();
-        function reloadDot() {
-            $("#dot01").load(location.href+" #dot01>*","");
-            setTimeout(reloadDot(), 500);
-        };
-        
-        reloadDot();*/
-        
+        document.getElementById("dot02").style.backgroundColor = window.localStorage.getItem('dot02');
+        document.getElementById("dot03").style.backgroundColor = window.localStorage.getItem('dot03');
+        window.addEventListener("storage",function(e) {
+            document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
+            document.getElementById("dot02").style.backgroundColor = window.localStorage.getItem('dot02');
+            document.getElementById("dot03").style.backgroundColor = window.localStorage.getItem('dot03');
+        },true);
     </script>
 </body>
 </html>

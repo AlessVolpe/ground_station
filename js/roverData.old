@@ -1,10 +1,9 @@
-//https://stackoverflow.com/questions/21809815/change-content-of-a-div-on-another-page
-//https://blog.logrocket.com/the-complete-guide-to-using-localstorage-in-javascript-apps-ba44edb53a36/
-//window.localStorage.getItem("dot01start");
 //https://stackoverflow.com/questions/26509475/button-required-to-start-stop-javascript
 //https://www.w3schools.com/php/php_ajax_database.asp
 //https://www.youtube.com/watch?v=crtwSmleWMA
 //https://stackoverflow.com/questions/23740548/how-do-i-pass-variables-and-data-from-php-to-javascript
+
+var bool = 0;
 
 var minBattery = 0;
 var maxBattery = 100;
@@ -40,7 +39,13 @@ attitude.setPitch(10 * Math.sin(increment / 4));
 altimeter.setAltitude(10 * increment);
 altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
 
-function roverData() {
+function roverData(bool) {
+
+  if (bool == 0) {
+    //console.log("bool=0");
+    return;
+  }
+
   // Battery update
   maxBattery = maxBattery - 0.05;
   battery.innerHTML = Math.ceil(maxBattery) + " %";
@@ -100,36 +105,51 @@ function roverData() {
       success: console.log("ciao grazie non sapevo"),
     });
   });*/
-
-  setTimeout(roverData, 500);
+  //console.log("bool=1");
+  setTimeout(roverData(bool), 1000);
 }
 
+/*
 function roverAuto(bool) {
+  setTimeout(10000);
   while (bool == 1) {
-    roverData();
-    document.getElementById("autoRover01").disabled = true;
-    window.localStorage.setItem("rover01status", "Running (auto)");
-    document.getElementById(
-      "rover01status"
-    ).innerText = window.localStorage.getItem("rover01status");
-    //updateMap()
-    if (bool == 0) window.localStorage.setItem("rover01status", "Idle");
-    document.getElementById(
-      "rover01status"
-    ).innerText = window.localStorage.getItem("rover01status");
-    break;
+    setTimeout(roverData(), 10000);
+    console.log("sono nel ciclo");
   }
 }
 
-function startRoverAuto() {
-  roverAuto(1);
+
+function startStop() {
+  loop = !loop
+  document.getElementById('autoRover01').value = loop ? 'STOP LOOP' : 'START LOOP';
+  roverData();
 }
 
-function startRoverAuto() {
-  roverAuto(0);
+
+
+function roverAuto(bool) {
+  while (bool == 1) {
+    setTimeout(roverData(), 10000);
+    document.getElementById("autoRover01").disabled = true;
+    //window.localStorage.setItem("rover01status", "Running (auto)");
+    document.getElementById(
+      "rover01status"
+    ).innerText = window.localStorage.getItem("rover01status");
+    console.log('bool=1')
+    if (bool == 0) {
+      window.localStorage.setItem("rover01status", "Idle");
+      document.getElementById(
+        "rover01status"
+      ).innerText = window.localStorage.getItem("rover01status");
+      console.log('bool=0')
+      break;
+    }
+  }
 }
 
-/*var condition01, mysqli = require('mysqli');
+
+
+var condition01, mysqli = require('mysqli');
 var connection = mysqli.createConnection({
   host: "localhost",
   database: "sasa"

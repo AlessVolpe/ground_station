@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if($_SESSION['userLogin'] == 'loggato'){
+if ($_SESSION['userLogin'] == 'loggato') {
 	$roverID = $_POST['roverID'];
 	$roverStatus = $_POST['roverStatus'];
 	$battery = $_POST['battery'];
@@ -18,11 +18,10 @@ if($_SESSION['userLogin'] == 'loggato'){
 	$result = mysqli_query($connetion, $query);
 
 	if ($result) {
-		echo"yes";
+		echo "yes";
 	} else {
 		echo "Error";
 	}
-else{
+} else {
 	header("Location: login.html");
 }
-?>
