@@ -63,7 +63,7 @@
             <th>
                 <a href="unnamed.html">
                     <div class="unnamed" , class="img">
-                        <span class="dot" id="dot01"></span>
+                        <span class="dot blinking" id="dot01"></span>
                     </div>
                 </a>
                 <br>
@@ -93,13 +93,24 @@
     <script src="js/clock.js"></script>
     <script src="js/ip-address.js"></script>
     <script>
+        //document.getElementById("dot01").classList.remove("blinking");
         document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
         document.getElementById("dot02").style.backgroundColor = window.localStorage.getItem('dot02');
         document.getElementById("dot03").style.backgroundColor = window.localStorage.getItem('dot03');
+        var isBlink = window.localStorage.getItem('dot01blink');
+            if(isBlink == 'no') 
+                document.getElementById("dot01").classList.remove("blinking");
+            if(isBlink == 'yes') 
+                document.getElementById("dot01").classList.add("blinking");
         window.addEventListener("storage",function(e) {
             document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
             document.getElementById("dot02").style.backgroundColor = window.localStorage.getItem('dot02');
             document.getElementById("dot03").style.backgroundColor = window.localStorage.getItem('dot03');
+            var isBlink = window.localStorage.getItem('dot01blink');
+            if(isBlink == 'no') 
+                document.getElementById("dot01").classList.remove("blinking");
+            if(isBlink == 'yes') 
+                document.getElementById("dot01").classList.add("blinking");
         },true);
     </script>
 </body>
