@@ -32,19 +32,14 @@ _Visual Studio Code_ with the following addons:
 4. In the top navbar, choose 'Import', then 'Choose File' and select '[sasa.sql](sasa.sql)'.
    
 5. Then simply go to the [login page](http://localhost/ground_station/login.html) and insert the following credentials:
- ```sh
- Username: sasa
+   ```sh
+    Username: sasa
+    Password: sttAdmin
+   ```
 
- Password: sttAdmin
- ```
-
-## Link utili:
-* Google Drive: https://drive.google.com/drive/folder/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing
-* Gruppo Telegram: https://t.me/joinchat/CQmP3k_3_pCB3ROPgERu3g
-* Guida HTML: https://www.html.it/guide/guida-html/
-* Guida CCS: https://www.html.it/guide/guida-css-di-base/
-* Guida JS: https://www.html.it/guide/guida-javascript-di-base/
-* Guida Python: https://www.html.it/guide/guida-python/
-* Guida PHP: https://www.html.it/guide/guida-php-di-base/
-* Guida Node: https://www.w3schools.com/nodejs/
-* Sintassi JSON: http://json.com/
+## Useful links:
+* [Google Drive](https://drive.google.com/drive/folder/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing)
+* [Technology Team GitHub access request](https://docs.google.com/forms/d/10V5uqQn2qPgG7m-5lRCC1-ds0YnW81FwWZ_rECNMQao/edit?usp=drive_open)
+* [SASA Aerospace website](https://www.sasa-aerospace.it/)
+* [Sapienza Aerospace Engineering Area Council](http://www.ingaero.uniroma1.it/)
+* [Sapienza Department of Mechanical and Aerospace Engineering](http://www.dima.uniroma1.it/dima/)
