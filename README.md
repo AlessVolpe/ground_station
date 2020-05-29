@@ -16,23 +16,6 @@ This repository contains the **Ground Station** (controller) of all the rover we
 *   **Deborah Farruggio** - farruggio.1801595@studenti.uniroma1.it - [GitHub](https://github.com/DebFarruggio)
 *   **Giovanni Roma** - roma.1808340@studenti.uniroma1.it - [GitHub](https://github.com/JoGist) - [LinkedIn](https://www.linkedin.com/in/giovanni-roma-a95a32127/)
 
-###  Suggested IDE: 
-_Visual Studio Code_, and we also suggest you get the following addons (optional):
-
-* _Beautify_
-* _Color Picker_
-* _Debugger for Chrome_
-* _Debugger for Firefox_ 
-* _ESLint_
-* _HTML CSS Support_
-* _jshint_
-* _Live Server_
-* _Live Share_
-* _Path Autocomplete_
-* _PHP Debug_
-* _PHP IntelliSense_
-* _PHP Server_
-* _Visual Studio IntelliCode_
 
 ## Setup 
 1. First of all, the only requirement for the repo is XAMPP, which you can easily download from [here](https://www.apachefriends.org/it/download.html).
@@ -49,6 +32,24 @@ _Visual Studio Code_, and we also suggest you get the following addons (optional
     Username: sasa
     Password: sttAdmin
    ```
+###  Suggested IDE: 
+_[Visual Studio Code](https://code.visualstudio.com/)_ with the following extensions:
+* _Debugger for [your browser]_
+* _[HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)_
+* _[PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug)_
+* _[PHP Server](https://marketplace.visualstudio.com/items?itemName=brapifra.phpserver)_
+
+ We also recommend these optional extensions:
+ * _[Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)_
+ * _[Color Picker](https://marketplace.visualstudio.com/items?itemName=anseki.vscode-color)_
+ * _[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)_
+ * _[jshint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.jshint)_
+ * _[Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)_
+ * _[Live Share](https://marketplace.visualstudio.com/items?itemName=MS-vsliveshare.vsliveshare)_
+ * _[Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)_
+ * _[PHP IntelliSense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)_
+ * _[Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)_
+
 
 ## Useful links:
 * [Google Drive](https://drive.google.com/drive/folder/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing)
