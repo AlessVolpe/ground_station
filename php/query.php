@@ -24,7 +24,7 @@
 			header("Location: ../unnamed.html#realTime"); /*If result==true, OK*/
 		} else {
 			echo "Error"; /*Error*/
-		
+		}
 	}
 	
 	/*If the user push 'start' button*/
