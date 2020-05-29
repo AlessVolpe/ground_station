@@ -123,17 +123,17 @@ footer {
   box-shadow: 0 0 3pt 2pt #af3549;
 }
 
-.aenea {
+.aeneas {
   width: 300px;
   height: 300px;
   border-radius: 10px;
-  background: url("../img/aenea.jpg");
+  background: url("../img/aeneas.jpg");
   border-radius: 5%;
   transition: 0.2s;
   border: 0px solid rgba(255, 255, 255, 0);
 }
 
-.aenea:hover {
+.aeneas:hover {
   opacity: 0.6;
   border-radius: 5%;
   box-shadow: 0 0 3pt 2pt #af3549;

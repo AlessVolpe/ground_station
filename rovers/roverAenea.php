@@ -10,7 +10,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
 <head>
-  <title>Aenea</title>
+  <title>Aeneas</title>
   <style>
     body {
       overflow-y: hidden;
