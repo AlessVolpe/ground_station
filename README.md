@@ -17,9 +17,22 @@ This repository contains the **Ground Station** (controller) of all the rover we
 *   **Giovanni Roma** - roma.1808340@studenti.uniroma1.it - [GitHub](https://github.com/JoGist) - [LinkedIn](https://www.linkedin.com/in/giovanni-roma-a95a32127/)
 
 ###  Suggested IDE: 
-_Visual Studio Code_ with the following addons:
+_Visual Studio Code_, and we also suggest you get the following addons (optional):
 
-* _XAMPP 7.2.31_
+* _Beautify_
+* _Color Picker_
+* _Debugger for Chrome_
+* _Debugger for Firefox_ 
+* _ESLint_
+* _HTML CSS Support_
+* _jshint_
+* _Live Server_
+* _Live Share_
+* _Path Autocomplete_
+* _PHP Debug_
+* _PHP IntelliSense_
+* _PHP Server_
+* _Visual Studio IntelliCode_
 
 ## Setup 
 1. First of all, the only requirement for the repo is XAMPP, which you can easily download from [here](https://www.apachefriends.org/it/download.html).
@@ -31,7 +44,7 @@ _Visual Studio Code_ with the following addons:
 
 4. In the top navbar, choose 'Import', then 'Choose File' and select '[sasa.sql](sasa.sql)'.
    
-5. Then simply go to [http://localhost/ground_station/login.html](http://localhost/ground_station/login.html) and insert the following credentials:
+5. Then simply go to http://localhost/ground_station/login.html and insert the following credentials:
    ```sh
     Username: sasa
     Password: sttAdmin
