@@ -1,3 +1,4 @@
+// this file just creates an XMLHTTP Request to a specific url and gets your public ip address
 var theUrl = "https://ipinfo.io/json?token=46cee73b6661ae";
 
 function httpGet() {

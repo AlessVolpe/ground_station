@@ -1,3 +1,4 @@
+// this file is similar to the ip-address one, just makes a XMLHTTP Request to the openwearthermap API
 var theUrl = "http://api.openweathermap.org/data/2.5/weather?q=Rome,IT&units=metric&appid=4149ce2d7232486f803ca6a89957b638";
 
 function httpGet() {

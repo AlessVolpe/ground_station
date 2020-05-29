@@ -1,10 +1,3 @@
-/* 
- * jQuery Flight Indicators plugin
- * By Sébastien Matton (seb_matton@hotmail.com)
- * Published under GPLv3 License.
- * 
- * https://github.com/sebmatton/jQuery-Flight-Indicators
- */
 (function ($) {
 	function FlightIndicator(placeholder, type, options) {
 		// Initial configuration

@@ -1,3 +1,4 @@
+// this files contains the functions that initialize and display the map, using google APIs
 function initMap() {
   var coords = {
     lat: 41.8933181,

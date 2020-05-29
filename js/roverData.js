@@ -1,8 +1,6 @@
-//https://stackoverflow.com/questions/26509475/button-required-to-start-stop-javascript
-//https://www.w3schools.com/php/php_ajax_database.asp
-//https://www.youtube.com/watch?v=crtwSmleWMA
-//https://stackoverflow.com/questions/23740548/how-do-i-pass-variables-and-data-from-php-to-javascript
+// this is a proof-of-concept script, it will be used just to display Real Time data on the HTML page
 
+// a set of variables used as a range for random values
 var minBattery = 0;
 var maxBattery = 100;
 var minSpeed = 0;
@@ -23,6 +21,7 @@ var attitude = $.flightIndicator("#attitude", "attitude", {
 var altimeter = $.flightIndicator("#altimeter", "altimeter");
 var increment = 0;
 
+// variables initialized for code clarity
 var speed = document.getElementById("speedRT");
 var battery = document.getElementById("batteryRT");
 var xCoords = document.getElementById("xCoordsRT");
@@ -40,7 +39,8 @@ altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
 function roverData() {
   // Battery update
   maxBattery = maxBattery - 0.05;
-  battery.innerHTML = Math.ceil(maxBattery) + " %";
+  if (maxBattery > minBattery) battery.innerHTML = Math.ceil(maxBattery) + " %";
+  else roverAuto(0);
 
   // Speed update
   var randomSpeed = Math.random() * (+maxSpeed - +minSpeed) + +minSpeed;
@@ -71,49 +71,28 @@ function roverData() {
   altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
   increment++;
 
-  /*$(document).ready(function () {
-    var roverID = 1;
-    var roverStatus = $("#rover01status").val();
-    var battery = $("#batteryRT").val();
-    var speed = $("#speedRT").val();
-    var coordsx = $("#xCoordsRT").val();
-    var coordsy = $("#yCoordsRT").val();
-    var cameraTilt = $("#cameraTiltRT").val();
-    var mode = $("#modeRT").val();
-    $.ajax({
-      url: "php/roverAuto.php",
-      type: "POST",
-      data: {
-        roverID: roverID,
-        roverStatus: roverStatus,
-        battery: battery,
-        speed: speed,
-        coordsx: coordsx,
-        coordsy: coordsy,
-        cameraTilt: cameraTilt,
-        mode: mode,
-      },
-      cache: false,
-      success: console.log("ciao grazie non sapevo"),
-    });
-  });*/
-
   setTimeout(roverData, 500);
 }
 
+// this function gets called from the buttons in the HTML page
 function roverAuto(bool) {
   while (bool == 1) {
     roverData();
-    document.getElementById("autoRover01").disabled = true;
+    document.getElementById("autoRover01").disabled = true; // disables auto button
+
+    // sets a localStorage variable an then puts it into the rover status span
     window.localStorage.setItem("rover01status", "Running (auto)");
     document.getElementById(
       "rover01status"
     ).innerText = window.localStorage.getItem("rover01status");
-    //updateMap()
-    if (bool == 0) window.localStorage.setItem("rover01status", "Idle");
-    document.getElementById(
-      "rover01status"
-    ).innerText = window.localStorage.getItem("rover01status");
-    break;
+
+    // this stops the automatic script
+    if (bool == 0) {
+      window.localStorage.setItem("rover01status", "Idle");
+      document.getElementById(
+        "rover01status"
+      ).innerText = window.localStorage.getItem("rover01status");
+      break;
+    }
   }
 }
