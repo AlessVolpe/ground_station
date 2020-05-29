@@ -12,7 +12,7 @@ We are the **Sapienza Technology Team (STT)**, born initially with the aim of pr
 This repository contains the **Ground Station** (controller) of all the rover we have developed, ready to use and easy to adapt to other rovers.
 
 ## Authors
-*   **Alessandro Volpe** - volpe.1794197@studenti.uniroma1.it - [GitHub](https://github.com/Syro98)
+*   **Alessandro Volpe** - volpe.1794197@studenti.uniroma1.it - [GitHub](https://github.com/Syro98) - [LinkedIn](https://www.linkedin.com/in/alessandro-volpe-00795218a/)
 *   **Deborah Farruggio** - farruggio.1801595@studenti.uniroma1.it - [GitHub](https://github.com/DebFarruggio)
 *   **Giovanni Roma** - roma.1808340@studenti.uniroma1.it - [GitHub](https://github.com/JoGist) - [LinkedIn](https://www.linkedin.com/in/giovanni-roma-a95a32127/)
 
