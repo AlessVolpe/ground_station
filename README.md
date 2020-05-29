@@ -1,6 +1,7 @@
 # Ground Station
-
-![img/STT_logo.png](img/STT_logo.png)
+<div align="center">
+<img src="img/STT_logo.png">
+</div>
 
 ## About
 **NOTE:** Rigth now, parts of the project is only a proof-of-concept, and it will be updated and fully implemented in the following months with the actual integration of the rovers' hardware.
