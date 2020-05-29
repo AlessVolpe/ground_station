@@ -5,4 +5,3 @@
 	//setcookie ("ID_my_site", "", time() - 3600);
 	header('location: ../login.html');
 	exit();
-?>

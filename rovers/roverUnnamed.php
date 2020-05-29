@@ -15,7 +15,7 @@
     body {
       overflow-y: hidden;
     }
-    
+
     #map {
       height: 400px;
       width: 540px;

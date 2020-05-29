@@ -28,7 +28,8 @@
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="nav-link" href="php\logout.php" onclick="session_destroy();"><i href="logout.php" class="fa fa-sign-out-alt mr-1"></i></a>
+        <a class="nav-link" href="php\logout.php" onclick="session_destroy();"><i href="logout.php"
+                class="fa fa-sign-out-alt mr-1"></i></a>
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-md-center text-left">
                 <li class="nav-item">
@@ -106,22 +107,22 @@
         var isBlink02 = window.localStorage.getItem('dot02blink');
         var isBlink03 = window.localStorage.getItem('dot03blink');
 
-        if(isBlink01 == 'no') 
+        if (isBlink01 == 'no')
             document.getElementById("dot01").classList.remove("blinking");
-        if(isBlink01 == 'yes') 
+        if (isBlink01 == 'yes')
             document.getElementById("dot01").classList.add("blinking");
 
-        if(isBlink02 == 'no') 
+        if (isBlink02 == 'no')
             document.getElementById("dot02").classList.remove("blinking");
-        if(isBlink02 == 'yes') 
+        if (isBlink02 == 'yes')
             document.getElementById("dot02").classList.add("blinking");
 
-        if(isBlink03 == 'no') 
+        if (isBlink03 == 'no')
             document.getElementById("dot03").classList.remove("blinking");
-        if(isBlink03 == 'yes') 
+        if (isBlink03 == 'yes')
             document.getElementById("dot03").classList.add("blinking");
 
-        window.addEventListener("storage",function(e) {
+        window.addEventListener("storage", function (e) {
             document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
             document.getElementById("dot02").style.backgroundColor = window.localStorage.getItem('dot02');
             document.getElementById("dot03").style.backgroundColor = window.localStorage.getItem('dot03');
@@ -129,21 +130,22 @@
             var isBlink02 = window.localStorage.getItem('dot02blink');
             var isBlink03 = window.localStorage.getItem('dot03blink');
 
-            if(isBlink01 == 'no') 
+            if (isBlink01 == 'no')
                 document.getElementById("dot01").classList.remove("blinking");
-            if(isBlink01 == 'yes') 
+            if (isBlink01 == 'yes')
                 document.getElementById("dot01").classList.add("blinking");
 
-            if(isBlink02 == 'no') 
+            if (isBlink02 == 'no')
                 document.getElementById("dot02").classList.remove("blinking");
-            if(isBlink02 == 'yes') 
+            if (isBlink02 == 'yes')
                 document.getElementById("dot02").classList.add("blinking");
 
-            if(isBlink03 == 'no') 
+            if (isBlink03 == 'no')
                 document.getElementById("dot03").classList.remove("blinking");
-            if(isBlink03 == 'yes') 
+            if (isBlink03 == 'yes')
                 document.getElementById("dot03").classList.add("blinking");
-        },true);
+        }, true);
     </script>
 </body>
+
 </html>

@@ -9,6 +9,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.flightindicators.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
 <head>
   <title>Unnamed Ground Vehicle</title>
   <style>
@@ -66,7 +67,8 @@
     </div>
   </nav>
   <br><br><br>
-  <h1 style="color: white; margin-left: 10%;">Data history for Unnamed rover</h1> <!--ROVER NAME HAS TO CHANGE-->
+  <h1 style="color: white; margin-left: 10%;">Data history for Unnamed rover</h1>
+  <!--ROVER NAME HAS TO CHANGE-->
   <br>
   <div style="float: right; margin-right: 10%;">
     <form method="post" action="">
@@ -75,22 +77,23 @@
       <input type="submit" name="reset" value="Reset" formnovalidate>
     </form>
   </div>
-  <?php include ('php\datahistory.php'); ?> 
-  
-  <script>
-	var today = new Date();
-	var dd = today.getDate();
-	var mm = today.getMonth()+1; //Gennaio = 0
-	var yyyy = today.getFullYear();
-	 if(dd<10){
-			dd='0'+dd
-		} 
-		if(mm<10){
-			mm='0'+mm
-		} 
+  <?php include ('php\datahistory.php'); ?>
 
-	today = yyyy+'-'+mm+'-'+dd;
-	document.getElementById("datefield").setAttribute("max", today);
-</script>
+  <script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //Gennaio = 0
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("datefield").setAttribute("max", today);
+  </script>
 </body>
+
 </html>

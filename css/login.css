@@ -3,26 +3,31 @@
 :before {
   box-sizing: border-box;
 }
+
 :root {
   --d: 700ms;
   --e: cubic-bezier(0.19, 1, 0.22, 1);
   --sidebar-width: 12em;
 }
+
 body,
 html {
   height: 100%;
   background-color: #212121;
   font-family: Roboto;
 }
+
 a {
   text-decoration: none;
   color: #812535;
   -webkit-transition: 0.5s ease;
   transition: 0.5s ease;
 }
+
 a:hover {
   color: #661d29;
 }
+
 .form {
   background-color: #111;
   padding: 40px;
@@ -31,19 +36,23 @@ a:hover {
   border-radius: 4px;
   box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
 }
-.tab-content > div:last-child {
+
+.tab-content>div:last-child {
   display: none;
 }
+
 h1 {
   color: #fff;
   font-weight: 300;
 }
+
 h3 {
   text-align: center;
   color: #fff;
   font-weight: 300;
   margin: 0 0 40px;
 }
+
 label {
   position: absolute;
   -webkit-transform: translateY(6px);
@@ -55,6 +64,7 @@ label {
   pointer-events: none;
   font-size: 22px;
 }
+
 input {
   font-size: 22px;
   display: block;
@@ -69,14 +79,17 @@ input {
   -webkit-transition: border-color 0.25s ease, box-shadow 0.25s ease;
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
 }
+
 input:focus {
   outline: 0;
   border-color: #812535;
 }
+
 .field-wrap {
   position: relative;
   margin-bottom: 40px;
 }
+
 .button {
   border: 0;
   outline: 0;
@@ -92,38 +105,46 @@ input:focus {
   transition: all 0.5s ease;
   -webkit-appearance: none;
 }
+
 .button:focus,
 .button:hover {
   background: #661d29;
 }
+
 .button-block {
   display: block;
   width: 100%;
 }
+
 .forgot {
   margin-top: -20px;
   text-align: center;
 }
+
 body {
   display: grid;
   place-items: center;
   margin: 0;
   padding: 0;
 }
-.content > * + * {
+
+.content>*+* {
   margin-top: 1rem;
 }
+
 .title {
   font-size: 1.3rem;
   font-weight: 700;
   line-height: 1.2;
 }
+
 @media (hover: hover) and (min-width: 600px) {
   .content {
     -webkit-transform: translateY(calc(100% - 4.5rem));
     transform: translateY(calc(100% - 4.5rem));
   }
-  .content > :not(.title) {
+
+  .content> :not(.title) {
     opacity: 0;
     -webkit-transform: translateY(1rem);
     transform: translateY(1rem);
@@ -135,10 +156,12 @@ body {
       -webkit-transform var(--d) var(--e);
   }
 }
+
 * {
   outline: 0;
   box-sizing: border-box;
 }
+
 .img-small {
   display: block;
   margin-left: auto;

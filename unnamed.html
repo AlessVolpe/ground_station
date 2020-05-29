@@ -15,6 +15,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="js/jquery.flightindicators.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
 <head>
   <title>Unnamed Ground Vehicle</title>
   <style>
@@ -35,12 +36,13 @@
   </style>
   <script>
     function autoButton() {
-      document.getElementById("manualRover01").disabled=true;
+      document.getElementById("manualRover01").disabled = true;
     }
-  </script><script>
+  </script>
+  <script>
     function stopButton() {
-      document.getElementById("autoRover01").disabled=false;
-      document.getElementById("manualRover01").disabled=false;
+      document.getElementById("autoRover01").disabled = false;
+      document.getElementById("manualRover01").disabled = false;
     }
   </script>
 </head>
@@ -114,8 +116,9 @@
                 <li>Raspberry Pi 4 - 4GB RAM </li>
                 <li>UBEC DC/DC Step-Down (Buck) Converter - 5V 3°</li>
                 <li>Dagu - Rover 5 Robot Platform</li>
-                <a name="realTime"></ul></a>
-              </small>
+                <a name="realTime">
+              </ul></a>
+            </small>
           </div>
         </div>
       </div>
@@ -124,41 +127,42 @@
       <h1>Real-time info</h1>
       <div class="row">
         <div class="col-md-6">
-            <br>
-            <i style="margin-left: 4px;" class="fa fa-power-off mr-1"></i> <!--if speed >0 Running else Stopped or if not online Power Off-->
-            <label class="contact-form__label" for="velocity">Rover status: </label>
-            <span style="margin-left: 10px;" id="rover01status" name="roverStatus"></span>
-            <br>
-            <i class="fa fa-battery-three-quarters mr-1"></i>
-            <label class="contact-form__label"  for="velocity">Battery level: </label>
-            <span style="margin-left: 10px;" id="batteryRT" name="batteryData">0%</span>
-            <br>
-            <i style="margin-left: 7px;" class="fa fa-angle-double-right mr-1"></i>
-            <label class="contact-form__label" for="velocity"> Speed: </label>
-            <span style="margin-left: 10px;" id="speedRT" name="speedData">0.00</span>
-            <br>
-            <i style="margin-left: 9px;" class="fa fa-map-marker-alt mr-1"></i>
-            <label class="contact-form__label" for="velocity">X-coords:</label>
-            <span style="margin-left: 10px;" id="xCoordsRT" name="xData">0.000000</span>
-            <br>
-            <i style="margin-left: 9px; visibility: hidden;" class="fa fa-map-marker-alt mr-1"></i>
-            <label class="contact-form__label" for="velocity">Y-coords:</label>
-            <span style="margin-left: 10px;" id="yCoordsRT" name="yData">0.000000</span>
-            <br>
-            <i style="margin-left: 4px;" class="fa fa-crop-alt mr-1"></i>
-            <label class="contact-form__label" for="velocity">Camera tilt:</label>
-            <span style="margin-left: 10px;" id="cameraTiltRT" name="camTiltData">0°</span>
-            <br>
-            <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
-            <label class="contact-form__label" for="velocity">Rover mode: </label>
-            <span style="margin-left: 10px;" id="modeRT" name="modeData">Standard</span>
-            <br>
+          <br>
+          <i style="margin-left: 4px;" class="fa fa-power-off mr-1"></i>
+          <!--if speed >0 Running else Stopped or if not online Power Off-->
+          <label class="contact-form__label" for="velocity">Rover status: </label>
+          <span style="margin-left: 10px;" id="rover01status" name="roverStatus"></span>
+          <br>
+          <i class="fa fa-battery-three-quarters mr-1"></i>
+          <label class="contact-form__label" for="velocity">Battery level: </label>
+          <span style="margin-left: 10px;" id="batteryRT" name="batteryData">0%</span>
+          <br>
+          <i style="margin-left: 7px;" class="fa fa-angle-double-right mr-1"></i>
+          <label class="contact-form__label" for="velocity"> Speed: </label>
+          <span style="margin-left: 10px;" id="speedRT" name="speedData">0.00</span>
+          <br>
+          <i style="margin-left: 9px;" class="fa fa-map-marker-alt mr-1"></i>
+          <label class="contact-form__label" for="velocity">X-coords:</label>
+          <span style="margin-left: 10px;" id="xCoordsRT" name="xData">0.000000</span>
+          <br>
+          <i style="margin-left: 9px; visibility: hidden;" class="fa fa-map-marker-alt mr-1"></i>
+          <label class="contact-form__label" for="velocity">Y-coords:</label>
+          <span style="margin-left: 10px;" id="yCoordsRT" name="yData">0.000000</span>
+          <br>
+          <i style="margin-left: 4px;" class="fa fa-crop-alt mr-1"></i>
+          <label class="contact-form__label" for="velocity">Camera tilt:</label>
+          <span style="margin-left: 10px;" id="cameraTiltRT" name="camTiltData">0°</span>
+          <br>
+          <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
+          <label class="contact-form__label" for="velocity">Rover mode: </label>
+          <span style="margin-left: 10px;" id="modeRT" name="modeData">Standard</span>
+          <br>
           <div><span class="attitute" id="attitude"></span></div>
           <script>
             document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
-            window.addEventListener("storage",function(e) {
-             document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
-            },true);
+            window.addEventListener("storage", function (e) {
+              document.getElementById("rover01status").innerText = window.localStorage.getItem('rover01status');
+            }, true);
           </script>
         </div>
         <div class="col-md-6">
@@ -177,7 +181,8 @@
           <section class="content">
             <h1 class="results__heading"><a name="commands">Commands:</a></h1>
             <form class="content__form contact-form" method="post" action="php/query.php">
-              <input class="contact-form__input contact-form__input--text" style="display: none;" id="roverID" name="roverID" type="text" value="1"/>
+              <input class="contact-form__input contact-form__input--text" style="display: none;" id="roverID"
+                name="roverID" type="text" value="1" />
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Speed</label>
                 <input class="contact-form__input contact-form__input--text" id="speed" name="speed"
@@ -186,12 +191,12 @@
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="coords">X-Coordinates</label>
-                <input class="contact-form__input contact-form__input--text"  id="coordsx" name="coordsx" type="text"
-                  value=" 12.4932009"/>
+                <input class="contact-form__input contact-form__input--text" id="coordsx" name="coordsx" type="text"
+                  value=" 12.4932009" />
               </div>
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="coords">Y-Coordinates</label>
-                <input class="contact-form__input contact-form__input--text"  id="coordsy" name="coordsy" type="text"
+                <input class="contact-form__input contact-form__input--text" id="coordsy" name="coordsy" type="text"
                   value=" 41.8933181" />
               </div>
               <div class="contact-form__input-group">
@@ -207,12 +212,19 @@
                   <option>Performance</option>
                 </select>
               </div>
-              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStart" name="statusStart" type="text" value="start"/>
-              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStop" name="statusStop" type="text" value="stop"/>
+              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStart"
+                name="statusStart" type="text" value="start" />
+              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStop"
+                name="statusStop" type="text" value="stop" />
               <!--<button class="contact-form__button" type="submit" name="start" onClick="roverStart()" id="startRover01">Start</button>-->
-              <button class="contact-form__button" type="submit" name="subtodb" onclick="window.localStorage.setItem('rover01status', 'Running (manual)'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');" id="manualRover01"> Send data </button>
-              <a href="#realTime"><button class="contact-form__button" type="button" name="auto" onClick="autoButton(); roverData(1);" id="autoRover01">Auto</button></a>
-              <button class="contact-form__button" type="submit" name="stop" onClick="stopButton(); roverData(0); window.localStorage.setItem('rover01status', 'Idle'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status')" id="stopRover01">Stop</button>
+              <button class="contact-form__button" type="submit" name="subtodb"
+                onclick="window.localStorage.setItem('rover01status', 'Running (manual)'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');"
+                id="manualRover01"> Send data </button>
+              <a href="#realTime"><button class="contact-form__button" type="button" name="auto"
+                  onClick="autoButton(); roverData(1);" id="autoRover01">Auto</button></a>
+              <button class="contact-form__button" type="submit" name="stop"
+                onClick="stopButton(); roverData(0); window.localStorage.setItem('rover01status', 'Idle'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status')"
+                id="stopRover01">Stop</button>
             </form>
             <br>
             <br>
@@ -236,18 +248,19 @@
         function commandUpdate() {
           var command = document.getElementById("command");
           command.innerHTML = "Velocity: " + document.getElementById("speed").value + " km/h\n\nX coords: " + document
-            .getElementById("coordsx").value + "\n\nY coords: " + document.getElementById("coordsy").value + "\n\nCamera tilt: " + 
+            .getElementById("coordsx").value + "\n\nY coords: " + document.getElementById("coordsy").value +
+            "\n\nCamera tilt: " +
             document.getElementById("cameraTilt").value + "\n\nRover Mode: " + document.getElementById("mode").value;
           $('.command').text(command.innerHTML);
         }
       </script>
       <script>
         document.getElementById("commands01").style.display = window.localStorage.getItem('commands01');
-        window.addEventListener("storage",function(e) {
+        window.addEventListener("storage", function (e) {
           document.getElementById("commands01").style.display = window.localStorage.getItem('commands01');
-        },true);
-    </script>
-    <!--<script>
+        }, true);
+      </script>
+      <!--<script>
       window.addEventListener("storage", function(e) {
         var bool = parseInt(window.localStorage.getItem('roverAuto')); 
         roverAuto(bool);
@@ -256,4 +269,5 @@
     </div>
   </div>
 </body>
+
 </html>
