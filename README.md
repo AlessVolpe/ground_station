@@ -22,22 +22,21 @@ _Visual Studio Code_ with the following addons:
 * _XAMPP 7.2.31_
 
 ## Setup 
-1. First of all, the only requirement for the repo is XAMPP, which you can easily download from [here].  (https://www.apachefriends.org/it/download.html)
+1. First of all, the only requirement for the repo is XAMPP, which you can easily download from [here] (https://www.apachefriends.org/it/download.html).
   
 2. Once it's installed, run the XAMPP Control Panel and check if the Apache and MySQL modules are running.
   
-3. Next, go to:
-  http://localhost/phpmyadmin/
+3. Next, go to the phpMyAdmin dashboard:
+   http://localhost/phpmyadmin/
 
-4. Build and install all required Gems included in Gemfile:
-  ```sh
-  Bundle install
-  ```
-  
-  * Build and install all required Gems included in Gemfile:
-  ```sh
-  Bundle install
-  ```
+4. In the top navbar, choose 'Import', then 'Choose File' and select '[sasa.sql](sasa.sql)'.
+   
+5. Then simply go to the [login page](http://localhost/ground_station/login.html) and insert the following credentials:
+ ```sh
+ Username: sasa
+
+ Password: sttAdmin
+ ```
 
 ## Link utili:
 * Google Drive: https://drive.google.com/drive/folder/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing
