@@ -1,7 +1,10 @@
 <?php
-	session_start();
-	session_unset();
-	session_destroy();
-	//setcookie ("ID_my_site", "", time() - 3600);
-	header('location: ../login.html');
-	exit();
+/*Welcome to the php logout*/
+	session_start(); /*Start the session*/
+	session_unset(); /*Free all the session variables*/
+	session_destroy(); /*Destroy the session*/
+	
+	header('location: ../login.html'); /*Redirect to the login html*/
+	exit(); /*end*/
+
+?>

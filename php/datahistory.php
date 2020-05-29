@@ -1,16 +1,23 @@
 <?php
+/*Welcome to the php of datahistory*/
 
 session_start();
 
+/*Check if the user is logged*/
 if ($_SESSION['userLogin'] == 'loggato') {
-	$connetion = mysqli_connect("localhost", "root", "") or die(mysqli_error($connetion));
-	mysqli_select_db($connetion, "sasa") or die(mysqli_error($connetion));
+	$connetion = mysqli_connect("localhost", "root", "") or die(mysqli_error($connetion)); /*try to connect to localhost*/
+	mysqli_select_db($connetion, "sasa") or die(mysqli_error($connetion)); /*try to select the db of sasa*/
+	
+	/*If the user push the 'invia' button*/
 
 	if (isset($_REQUEST['invia'])) {
-		$date = $_POST['date'];
+		$date = $_POST['date']; /*Save the date from input*/
 		$query = mysqli_query($connetion, "SELECT * FROM rover WHERE CAST(timestamp as DATE) = '$date' AND roverID=1 ORDER BY id DESC");
-		$newDate = date("d/m/Y", strtotime($date));
-		echo "<h4 style='color: white; margin-left: 10%; margin-top: 10px;'>Showing database entries for " . $newDate . ".</h4>";
+		
+		/*Query: select all the columns where the date extract from timestamp == $date and roverID=1; the order is decrescent*/
+		
+		$newDate = date("d/m/Y", strtotime($date)); /*Change the format of date*/
+		echo "<h4 style='color: white; margin-left: 10%; margin-top: 10px;'>Showing database entries for " . $newDate . ".</h4>"; /*simple print*/
 		echo "<br>";
 		echo "<center><table>
 			<tr>
@@ -23,8 +30,11 @@ if ($_SESSION['userLogin'] == 'loggato') {
 			<th class='head'>Camera Tilt</th>
 			<th class='head'>Mode</th>
 			</tr>";
-
+			
+		/*Start to costruct the table; show the name of the all columns*/
+		
 		while ($row = mysqli_fetch_array($query)) {
+		/*The result is in a array; while the function find a row:*/
 			echo "<tr>";
 			echo "<th>" . $row['timestamp'] . "</th>";
 			echo "<th>" . $row['status'] . "</th>";
@@ -35,11 +45,17 @@ if ($_SESSION['userLogin'] == 'loggato') {
 			echo "<th>" . $row['cameraTilt'] . "</th>";
 			echo "<th>" . $row['mode'] . "</th>";
 			echo '</tr>';
+		/*print all the elements*/
 		}
-		echo "</table></center>";
+		echo "</table></center>"; /*end of the html*/
+		
+	/*This is what the user can view in the datahistory without select a date*/
 	} else {
 		$query = mysqli_query($connetion, "SELECT * FROM rover WHERE roverID=1 ORDER BY id DESC");
-		echo "<h4 style='color: white; margin-left: 10%; margin-top: 10px;'>Showing all database entries.</h4>";
+		
+		/*Select all the row where roverID=1; the order is decrescent*/
+		
+		echo "<h4 style='color: white; margin-left: 10%; margin-top: 10px;'>Showing all database entries.</h4>"; /*simple print*/
 		echo "<br>";
 		echo "<center><table>
 			<tr>
@@ -52,8 +68,13 @@ if ($_SESSION['userLogin'] == 'loggato') {
 			<th class='head'>Camera Tilt</th>
 			<th class='head'>Mode</th>
 			</tr>";
+		
+		/*Start to costruct the table; show the name of the all columns*/
 
 		while ($row = mysqli_fetch_array($query)) {
+			
+		/*The result is in a array; while the function find a row:*/
+		
 			echo "<tr>";
 			echo "<th>" . $row['timestamp'] . "</th>";
 			echo "<th>" . $row['status'] . "</th>";
@@ -64,12 +85,15 @@ if ($_SESSION['userLogin'] == 'loggato') {
 			echo "<th>" . $row['cameraTilt'] . "</th>";
 			echo "<th>" . $row['mode'] . "</th>";
 			echo '</tr>';
+		/*print all the elements*/
 		}
-		echo "</table></center>";
+		echo "</table></center>"; /*end of html*/
 	}
 } else {
-	header("Location: login.html");
+	header("Location: login.html"); /*if not login, redirect to the login page*/
 }
+
+/*CSS*/
 ?>
 
 <style>
