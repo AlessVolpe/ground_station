@@ -1,28 +1,33 @@
-# Ground_Station
+# Ground Station
 
-## Obiettivi:
-* Comprensione dell'attuale funzionamento
-* Ricezione dati da Communication Team:
-    * Camera, posizione, orientamento, sensori
-* Invio dati al rover:
-    * Spostamento
-* Visualizzazione a schermo
+![img/STT_logo.png](img/STT_logo.png)
 
-## Scaletta:
-* Comprensione funzionamento basilare della struttura attualmente in uso
-* Concept grafico e definizione delle funzionalità previste
-* Sviluppo dell’interfaccia grafica
-* Elaborazione e gestione dati del Communication Team
-* Visualizzazione dati a schermo
-* *Preparazione dati da inviare (l’invio è compito del CT)
+## About
+The project is
 
-## Linguaggi necessari:
-* JavaScript 
-* HTML
-* CSS
-* PHP
-* Python (eventuale)
-* Angular (in futuro)
+## Authors
+*   **Alessandro Volpe** - volpe.1794197@studenti.uniroma1.it - [GitHub](https://github.com/Syro98)
+*   **Deborah Farruggio** - farruggio.1801595@studenti.uniroma1.it - [GitHub](https://github.com/DebFarruggio)
+*   **Giovanni Roma** - roma.1808340@studenti.uniroma1.it - [GitHub](https://github.com/JoGist) - [LinkedIn](https://www.linkedin.com/in/giovanni-roma-a95a32127/)
+
+## Minimum requirements
+* _XAMPP 7.2.31_ - https://www.apachefriends.org/it/download.html
+
+###  Suggested IDE: 
+_Visual Studio Code_ with the following addons:
+
+* _XAMPP 7.2.31_
+
+## Setup 
+* Build and install all required Gems included in Gemfile:
+  ```sh
+  Bundle install
+  ```
+  
+  * Build and install all required Gems included in Gemfile:
+  ```sh
+  Bundle install
+  ```
 
 ## Link utili:
 * Google Drive: https://drive.google.com/drive/folder/1CdLYinhpcl-M3200LMf5Zi44O_Dg48hR?usp=sharing
