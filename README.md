@@ -22,7 +22,7 @@ _Visual Studio Code_ with the following addons:
 * _XAMPP 7.2.31_
 
 ## Setup 
-1. First of all, the only requirement for the repo is XAMPP, which you can easily download from [here] (https://www.apachefriends.org/it/download.html).
+1. First of all, the only requirement for the repo is XAMPP, which you can easily download from [here](https://www.apachefriends.org/it/download.html).
   
 2. Once it's installed, run the XAMPP Control Panel and check if the Apache and MySQL modules are running.
   
