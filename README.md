@@ -5,7 +5,7 @@
 </div>
 
 ## About
-**NOTE:** Rigth now, parts of the project is only a proof-of-concept, and it will be updated and fully implemented in the following months with the actual integration of the rovers' hardware.
+**NOTE:** Rigth now, many parts of the project are only a proof-of-concept, and they will be updated and/or fully developed and implemented in the following months with the actual integration of the rovers.
 
 **SASA** - Sapienza Aerospace Student Association is an open student association, whose objectives are the promotion and dissemination of aerospace culture, as well as the improvement of university teaching through practical activities and simulations of work experiences. The Associationis subdivided into different teams, everyone with different purposes. 
 
