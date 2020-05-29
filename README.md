@@ -31,7 +31,7 @@ _Visual Studio Code_ with the following addons:
 
 4. In the top navbar, choose 'Import', then 'Choose File' and select '[sasa.sql](sasa.sql)'.
    
-5. Then simply go to the [login page](http://localhost/ground_station/login.html) and insert the following credentials:
+5. Then simply go to [http://localhost/ground_station/login.html](http://localhost/ground_station/login.html) and insert the following credentials:
    ```sh
     Username: sasa
     Password: sttAdmin
