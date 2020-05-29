@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="css/flightindicators.css" />
+<script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="js/jquery.flightindicators.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+
+<head>
+  <title>Unnamed Ground Vehicle</title>
+</head>
+
+<body>
+  <!--topnav bar div-->
+  <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start">
+    <a class="navbar-brand d-md-none d-inline" href=""></a>
+    <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="nav-link" href="index.html"><i class="fa fa-home mr-1"></i></a>
+    <a class="nav-link" href="hector.html"><i class="fa fa-arrow-left mr-1"></i></a>
+    <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
+      <ul class="navbar-nav mx-auto text-md-center text-left">
+        <li class="nav-item">
+          <a class="nav-link digital-clock"> 00:00:00</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="weather" target="_blank"> weather not available </a>
+        </li>
+        <li class="nav-item2">
+          <img id="weather_icon"></img>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
+        <a class="nav-link" href="https://www.facebook.com/SapienzaAerospaceStudentAssociation" target="_blank"><i
+            class="fa fa-facebook-square mr-1"></i></a>
+        <a class="nav-link" href="https://www.instagram.com/sapienza_technology_team/" target="_blank"><i
+            class="fa fa-instagram mr-1"></i></a>
+        <a class="nav-link" href="https://github.com/Syro98/ground_station" target="_blank"><i
+            class="fa fa-github mr-1"></i></a>
+      </ul>
+      <!--topnav bar scripts-->
+      <script src="js/weather.js"></script>
+      <script src="js/clock.js"></script>
+    </div>
+  </nav>
+  <br><br><br>
+  <!--here starts the actual page content-->
+  <h1 style="color: white; margin-left: 10%;">Data history for Hector rover</h1>
+  <br>
+  <div style="float: right; margin-right: 10%;">
+    <form method="post" action="">
+      <input id="roverID" style="display: none;" type='text' value="03"></input>
+      <input id="datefield" type='date' min='1899-01-01' max='2000-13-13' name="date" required></input>
+      <input type="submit" name="invia" value="Set">
+      <input type="submit" name="reset" value="Reset" formnovalidate>
+    </form>
+  </div>
+  <!--PHP file included for the returning the table from the db-->
+  <?php include ('php\datahistory.php'); ?>
+  <br><br>
+  <!--script for generating max date output in the date picker, let you choose any date from yesterday-->
+  <script>
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January = 0
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("datefield").setAttribute("max", today);
+  </script>
+</body>
+
+</html>

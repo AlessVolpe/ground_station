@@ -12,25 +12,10 @@
 
 <head>
   <title>Unnamed Ground Vehicle</title>
-  <style>
-    #map {
-      height: 400px;
-      width: 540px;
-      margin: 0;
-      margin-top: -40px;
-      border-radius: 2%;
-      border: 2px solid #812535;
-    }
-
-    #description {
-      font-family: Roboto;
-      font-size: 15px;
-      font-weight: 300;
-    }
-  </style>
 </head>
 
 <body>
+  <!--topnav bar div-->
   <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start">
     <a class="navbar-brand d-md-none d-inline" href=""></a>
     <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
@@ -58,31 +43,31 @@
         <a class="nav-link" href="https://github.com/Syro98/ground_station" target="_blank"><i
             class="fa fa-github mr-1"></i></a>
       </ul>
+      <!--topnav bar scripts-->
       <script src="js/weather.js"></script>
       <script src="js/clock.js"></script>
-      <script src="js/map.js"></script>
-      <script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbYZOtMzWFR_9TrZ7lH_CFMgJJdHn2oZ0&libraries=places&callback=initMap">
-      </script>
     </div>
   </nav>
   <br><br><br>
+  <!--here starts the actual page content-->
   <h1 style="color: white; margin-left: 10%;">Data history for Unnamed rover</h1>
-  <!--ROVER NAME HAS TO CHANGE-->
   <br>
   <div style="float: right; margin-right: 10%;">
     <form method="post" action="">
+      <input id="roverID" style="display: none;" type='text' value="01"></input>
       <input id="datefield" type='date' min='1899-01-01' max='2000-13-13' name="date" required></input>
       <input type="submit" name="invia" value="Set">
       <input type="submit" name="reset" value="Reset" formnovalidate>
     </form>
   </div>
+  <!--PHP file included for the returning the table from the db-->
   <?php include ('php\datahistory.php'); ?>
-
+  <br><br>
+  <!--script for generating max date output in the date picker, let you choose any date from yesterday-->   
   <script>
     var today = new Date();
     var dd = today.getDate();
-    var mm = today.getMonth() + 1; //Gennaio = 0
+    var mm = today.getMonth() + 1; //January = 0
     var yyyy = today.getFullYear();
     if (dd < 10) {
       dd = '0' + dd

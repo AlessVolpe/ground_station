@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<!--PHP file included for the session controller-->
 <?php 
 	session_start();
 	if($_SESSION['userLogin'] != 'loggato'){
 		header("Location: login.html");
 	}
 ?>
+
 <html lang="en">
 <meta charset="utf-8" />
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
@@ -16,6 +18,7 @@
 
 <head>
     <title>Ground Station</title>
+    <!--inline CSS styling-->
     <style>
         body {
             overflow-y: hidden;
@@ -24,6 +27,7 @@
 </head>
 
 <body>
+    <!--topnav bar div-->
     <nav class="navbar navbar-dark navbar-expand-md bg-dark justify-content-md-center justify-content-start">
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
@@ -38,9 +42,6 @@
                 <li class="nav-item">
                     <a class="nav-link digital-clock"> 00:00:00</a>
                 </li>
-                <!--<li class="nav-item my-auto">
-                      <a class="nav-link navbar-brand mx-0 d-none d-md-inline" href="">Unnamed rover</a>
-                  </li>-->
                 <li class="nav-item">
                     <a class="nav-link" id="weather" target="_blank"> weather not available </a>
 
@@ -63,13 +64,16 @@
         </div>
     </nav>
     <br><br><br>
+    <!--here starts the actual page content-->
     <div class="title">Ground Station - Home</div>
     <br>
+    <!--table with rover selector-->
     <table class="rover-selector">
         <tr>
             <th>
                 <a href="unnamed.html">
                     <div class="unnamed" , class="img">
+                        <!--dot-->
                         <span class="dot blinking" id="dot01"></span>
                     </div>
                 </a>
@@ -79,6 +83,7 @@
             <th>
                 <a href="aeneas.html">
                     <div class="aeneas">
+                        <!--dot-->
                         <span class="dot blinking" id="dot02"></span>
                     </div>
                 </a>
@@ -88,6 +93,7 @@
             <th>
                 <a href="hector.html">
                     <div class="hector">
+                        <!--dot-->
                         <span class="dot blinking" id="dot03"></span>
                     </div>
                 </a>
@@ -96,9 +102,11 @@
             </th>
         </tr>
     </table>
+    <!--topnav bar scripts-->
     <script src="js/weather.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/ip-address.js"></script>
+    <!--local storage listeners script for dots color and blinking animation-->
     <script>
         document.getElementById("dot01").style.backgroundColor = window.localStorage.getItem('dot01');
         document.getElementById("dot02").style.backgroundColor = window.localStorage.getItem('dot02');

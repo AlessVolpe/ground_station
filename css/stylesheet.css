@@ -97,6 +97,7 @@ footer {
   padding-top: -12em;
 }
 
+/* dot animation for index */
 .blinking {
   animation: blinkingText 1s infinite;
 }
@@ -723,35 +724,6 @@ address {
   margin-right: 10px;
 }
 
-.bg-dark {
-  background-color: #000 !important;
-}
-
-.nav-item {
-  display: block;
-  padding-left: 3rem;
-}
-
-.nav-item2 {
-  display: block;
-  padding-left: 0rem;
-  margin-top: -5px;
-  margin-left: -10px;
-}
-
-.nav-social {
-  display: block;
-  padding-left: 0.5rem;
-}
-
-.nav-link {
-  color: #fff;
-}
-
-.nav-link:hover {
-  color: #812535;
-}
-
 .infoRover {
   margin-top: -25px;
 }
@@ -801,4 +773,34 @@ address {
   text-align: justify;
   margin-left: 10px;
   margin-right: 25px;
+}
+
+/* overriding of the Bootstrap CSS classes for the topnav bar */
+.bg-dark {
+  background-color: #000 !important;
+}
+
+.nav-item {
+  display: block;
+  padding-left: 3rem;
+}
+
+.nav-item2 {
+  display: block;
+  padding-left: 0rem;
+  margin-top: -5px;
+  margin-left: -10px;
+}
+
+.nav-social {
+  display: block;
+  padding-left: 0.5rem;
+}
+
+.nav-link {
+  color: #fff;
+}
+
+.nav-link:hover {
+  color: #812535;
 }

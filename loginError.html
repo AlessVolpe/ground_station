@@ -1,45 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/login.css" />
+<script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
 <head>
   <meta charset="UTF-8" />
   <title>Log in - Ground Station</title>
+  <!--inline CSS styling for hiding overflow and overlay styling-->
   <style>
     body {
       overflow-y: hidden;
     }
-  </style>
-  <link rel="icon" href="res/favicon.png" />
-  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
-  <link rel="stylesheet" href="css/login.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-</head>
 
-<body>
-  <div class="form">
-    <div class="tab-content">
-      <div id="login">
-        <img class="img-small" src="img/STT_logo.png" />
-        <h1 style="text-align: center; margin-top: -10px; margin-bottom: 30px;">
-          Welcome, please Log In
-        </h1>
-        <form action="php/login.php" method="post">
-          <div class="field-wrap">
-            <label for="user"> </label>
-            <input type="text" name="username" placeholder="Username" required autocomplete="username" />
-          </div>
-          <div class="field-wrap">
-            <label for="password"> </label>
-            <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
-          </div>
-          <input style="cursor: pointer;" type="submit" name="send" value="Log In" class="button button-block" />
-        </form>
-      </div>
-      <div></div>
-    </div>
-  </div>
-  <style type="text/css">
     #overlay {
       position: fixed;
       top: 0;
@@ -112,6 +88,35 @@
       cursor: pointer;
     }
   </style>
+</head>
+
+<body>
+  <!--here starts the actual page content-->
+  <div class="form">
+    <div class="tab-content">
+      <div id="login">
+        <img class="img-small" src="img/STT_logo.png" />
+        <h1 style="text-align: center; margin-top: -10px; margin-bottom: 30px;">
+          Welcome, please Log In
+        </h1>
+        <!--login form-->
+        <form action="php/login.php" method="post">
+          <div class="field-wrap">
+            <label for="user"> </label>
+            <input type="text" name="username" placeholder="Username" required autocomplete="username" />
+          </div>
+          <div class="field-wrap">
+            <label for="password"> </label>
+            <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
+          </div>
+          <!--form login button-->
+          <input style="cursor: pointer;" type="submit" name="send" value="Log In" class="button button-block" />
+        </form>
+      </div>
+      <div></div>
+    </div>
+  </div>
+  <!--overlay JavaScript function-->
   <script type="text/javascript">
     $(function () {
       var overlay = $('<div id="overlay"></div>');
@@ -129,6 +134,7 @@
       });
     });
   </script>
+  <!--actual HTML for the overlay-->
   <div class="popup">
     <div class="cnt223">
       <h1>Error</h1>
