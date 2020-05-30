@@ -110,14 +110,6 @@
         <i style="margin-left: 9px; visibility: hidden;" class="fa fa-map-marker-alt mr-1"></i>
         <label class="contact-form__label" for="velocity">Y-coords:</label>
         <span style="margin-left: 10px;" name="yData"><?php echo $row['coordsy']; ?></span>
-        <br />
-        <i style="margin-left: 7px;" class="fa fa-crop-alt mr-1"></i>
-        <label class="contact-form__label" for="velocity">Camera tilt:</label>
-        <span style="margin-left: 10px;" name="yData"><?php echo $row['cameraTilt']; ?>°</span>
-        <br />
-        <i style="margin-left: 5px;" class="fa fa-rocket mr-1"></i>
-        <label class="contact-form__label" for="velocity">Rover mode: </label>
-        <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
         <br /><br /><br />
         <!--a form with buttons, to send the corresponding rover state to the db-->
         <form class="content__form contact-form" method="post" action="php/query.php">

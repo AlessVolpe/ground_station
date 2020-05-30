@@ -59,6 +59,3 @@ _[Visual Studio Code](https://code.visualstudio.com/)_ with the following extens
 * [SASA Aerospace website](https://www.sasa-aerospace.it/)
 * [Sapienza Aerospace Engineering Area Council](http://www.ingaero.uniroma1.it/)
 * [Sapienza Department of Mechanical and Aerospace Engineering](http://www.dima.uniroma1.it/dima/)
-
-## Credits:
-The artificial horizon indicator in the rover pages is a customized version of this set created by Sebmatton, [available here](https://github.com/sebmatton/jQuery-Flight-Indicators).
