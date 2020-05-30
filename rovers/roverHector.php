@@ -119,7 +119,7 @@
         <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
         <br /><br /><br />
         <!--a form with buttons, to send the corresponding rover state to the db-->
-        <form class="content__form contact-form" method="post" action="php/query.php">
+        <form class="content__form contact-form" method="post" action="">
           <button class="contact-form__button" type="button" onclick="roverStart();" name="on03" value="startRover">
             On
           </button>
@@ -129,6 +129,19 @@
           <button class="contact-form__button" type="button" onclick="roveroff();" name="off03" value="stopRover">
             03
           </button>
+		  <?php if(isset($_POST['on03'])){
+			  echo "<br>";
+			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'on')");
+			}	
+			else if(isset($_POST['stop03'])){
+			  echo "<br>";
+			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'stop')");
+			}	
+			else if (isset($_POST['off03'])){
+			  echo "<br>";
+			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'off')");
+			}	
+		 ?>
         </form>
       </div>
     </div>

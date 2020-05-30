@@ -112,7 +112,7 @@
         <span style="margin-left: 10px;" name="yData"><?php echo $row['coordsy']; ?></span>
         <br /><br /><br />
         <!--a form with buttons, to send the corresponding rover state to the db-->
-        <form class="content__form contact-form" method="post" action="php/query.php">
+        <form class="content__form contact-form" method="post" action="">
           <button class="contact-form__button" type="button" onclick="roverStart();" name="on02" value="startRover">
             On
           </button>
@@ -122,6 +122,19 @@
           <button class="contact-form__button" type="button" onclick="roverOff();" name="off02" value="stopRover">
             Off
           </button>
+			<?php if(isset($_POST['on02'])){
+			  echo "<br>";
+			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'on')");
+			}	
+			else if(isset($_POST['stop02'])){
+			  echo "<br>";
+			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'stop')");
+			}	
+			else if (isset($_POST['off02'])){
+			  echo "<br>";
+			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'off')");
+			}	
+		  ?>
         </form>
       </div>
     </div>
