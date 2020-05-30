@@ -37,16 +37,24 @@
       font-weight: 300;
     }
   </style>
-  <!--button initial setup-->
+  <!--function called in form buttons, change the roverStatus and which buttons are enabled and which not-->
+  <script>
+    function manualButton() {
+    window.localStorage.setItem('rover01status', 'Running (manual)'); 
+    document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status'); 
+    }
+  </script>
   <script>
     function autoButton() {
-      document.getElementById("manualRover02").disabled = true;
+      document.getElementById("manualRover01").disabled = true;
     }
   </script>
   <script>
     function stopButton() {
-      document.getElementById("autoRover02").disabled = false;
-      document.getElementById("manualRover02").disabled = false;
+      document.getElementById("autoRover01").disabled = false;
+      document.getElementById("manualRover01").disabled = false;
+      window.localStorage.setItem('rover01status', 'Idle'); 
+      document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
     }
   </script>
 </head>
@@ -195,18 +203,16 @@
                   value=" 41.8933181" />
               </div>
               <!--rover commands form buttons-->
-              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStart"
-                name="statusStart" type="text" value="start" />
-              <input class="contact-form__input contact-form__input--text" style="display: none;" id="statusStop"
-                name="statusStop" type="text" value="stop" />
+              <!--Running (Manual) button-->
               <button class="contact-form__button" type="submit" name="subtodb"
-                onclick="window.localStorage.setItem('rover02status', 'Running (manual)'); document.getElementById('rover02status').innerText = window.localStorage.getItem('rover02status');"
-                id="manualRover02"> Send data </button>
-              <a href="#realTime"><button class="contact-form__button" type="button" name="auto"
-                  onClick="autoButton(); roverData(1);" id="autoRover02">Auto</button></a>
-              <a href="#realTime"><button class="contact-form__button" type="submit" name="stop"
-                onClick="stopButton(); roverData(0); window.localStorage.setItem('rover02status', 'Idle'); document.getElementById('rover02status').innerText = window.localStorage.getItem('rover02status')"
-                id="stopRover02">Stop</button></a>
+                onclick="manualButton()"
+                id="manualRover01"> Send data </button>
+              <!--Running (Auto) button-->
+              <a href="#realTime"><button class="contact-form__button" type="submit" name="auto"
+                onClick="autoButton(); roverAuto(1);" id="autoRover01"> Auto </button></a>
+              <!--Stop button-->
+              <button class="contact-form__button" type="submit" name="stop"
+                onClick="stopButton(); roverAuto(0); " id="stopRover01"> Stop </button>
             </form>
             <br>
             <br>

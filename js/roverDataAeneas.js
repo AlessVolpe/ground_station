@@ -9,8 +9,6 @@ var minXcoords = 12.504315;
 var maxXcoords = 12.5722932;
 var minYcoords = 41.7656441;
 var maxYcoords = 41.89764;
-var minTilt = -60;
-var maxTilt = 60;
 
 var attitude = $.flightIndicator("#attitude", "attitude", {
   roll: 50,
@@ -26,7 +24,6 @@ var speed = document.getElementById("speedRT");
 var battery = document.getElementById("batteryRT");
 var xCoords = document.getElementById("xCoordsRT");
 var yCoords = document.getElementById("yCoordsRT");
-var tilt = document.getElementById("cameraTiltRT");
 
 // Attitude initialized
 attitude.setRoll(10 * Math.sin(increment / 2));
