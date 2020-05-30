@@ -170,14 +170,14 @@
       <br>
       <!--rover commands div-->
       <div id="commands02" class="row">
-        <p style="display: none;">Rover ID: unn-03</p>
+        <p style="display: none;">Rover ID: unn-02</p>
         <div class="col-md-6">
           <section class="content">
             <h1 class="results__heading"><a name="commands">Commands:</a></h1>
             <!--rover commands form div-->
             <form class="content__form contact-form" method="post" action="php/queryaeneas.php">
               <input class="contact-form__input contact-form__input--text" style="display: none;" id="roverID"
-                name="roverID" type="text" value="1" />
+                name="roverID" type="text" value="2" />
               <div class="contact-form__input-group">
                 <label class="contact-form__label" for="velocity">Speed</label>
                 <input class="contact-form__input contact-form__input--text" id="speed" name="speed"
@@ -204,9 +204,9 @@
                 id="manualRover02"> Send data </button>
               <a href="#realTime"><button class="contact-form__button" type="button" name="auto"
                   onClick="autoButton(); roverData(1);" id="autoRover02">Auto</button></a>
-              <button class="contact-form__button" type="submit" name="stop"
+              <a href="#realTime"><button class="contact-form__button" type="submit" name="stop"
                 onClick="stopButton(); roverData(0); window.localStorage.setItem('rover02status', 'Idle'); document.getElementById('rover02status').innerText = window.localStorage.getItem('rover02status')"
-                id="stopRover02">Stop</button>
+                id="stopRover02">Stop</button></a>
             </form>
             <br>
             <br>
@@ -222,7 +222,7 @@
         </div>
       </div>
       <!--JavaScript for generating real time informations-->
-      <script src="js/roverData.js"></script>
+      <script src="js/roverDataAeneas.js"></script>
       <!--script for generating output of the commands-->
       <script>
         $(document).ready(function () {
