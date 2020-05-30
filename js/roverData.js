@@ -76,23 +76,18 @@ function roverData() {
 
 // this function gets called from the buttons in the HTML page
 function roverAuto(bool) {
-  while (bool == 1) {
+  if (bool == 1) {
     roverData();
     document.getElementById("autoRover01").disabled = true; // disables auto button
-
     // sets a localStorage variable an then puts it into the rover status span
     window.localStorage.setItem("rover01status", "Running (auto)");
     document.getElementById(
       "rover01status"
     ).innerText = window.localStorage.getItem("rover01status");
-
-    // this stops the automatic script
-    if (bool == 0) {
+  } else if (bool == 0) { // this stops the automatic script
       window.localStorage.setItem("rover01status", "Idle");
       document.getElementById(
         "rover01status"
       ).innerText = window.localStorage.getItem("rover01status");
-      break;
     }
-  }
 }

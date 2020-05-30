@@ -235,9 +235,9 @@
                 onclick="window.localStorage.setItem('rover01status', 'Running (manual)'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');"
                 id="manualRover01"> Send data </button>
               <a href="#realTime"><button class="contact-form__button" type="button" name="auto"
-                  onClick="autoButton(); roverData(1);" id="autoRover01">Auto</button></a>
+                  onClick="autoButton(); roverAuto(1);" id="autoRover01">Auto</button></a>
               <button class="contact-form__button" type="submit" name="stop"
-                onClick="stopButton(); roverData(0); window.localStorage.setItem('rover01status', 'Idle'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status')"
+                onClick="stopButton(); roverAuto(0); window.localStorage.setItem('rover01status', 'Idle'); document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status')"
                 id="stopRover01">Stop</button>
             </form>
             <br>
