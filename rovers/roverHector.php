@@ -119,7 +119,7 @@
         <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
         <br /><br /><br />
         <!--a form with buttons, to send the corresponding rover state to the db-->
-        <form class="content__form contact-form" method="post" action="php/query.php">
+        <form class="content__form contact-form" method="post" action="../php/queryhector.php">
           <button class="contact-form__button" type="button" onclick="roverStart();" name="on03" value="startRover">
             On
           </button>
