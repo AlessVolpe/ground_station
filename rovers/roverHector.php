@@ -22,9 +22,9 @@
       div in the Ground Station-->
   <script>
     function roverStart() {
-      document.getElementByName('on03').disabled = true;
-      document.getElementByName('stop03').disabled = false;
-      document.getElementByName('off03').disabled = false;
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = false;
+      document.getElementById('off').disabled = false;
       window.localStorage.removeItem('dot03');
       window.localStorage.setItem('dot03', 'green');
       window.localStorage.setItem('dot03blink', 'no');
@@ -37,9 +37,9 @@
       waiting for commands from the Ground Station-->
   <script>
     function roverStop() {
-      document.getElementByName('on03').disabled = true;
-      document.getElementByName('stop03').disabled = false;
-      document.getElementByName('off03').disabled = false;
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = false;
+      document.getElementById('off').disabled = false;
       window.localStorage.removeItem('dot03');
       window.localStorage.setItem('dot03', 'green');
       window.localStorage.setItem('dot03blink', 'no');
@@ -49,18 +49,18 @@
       window.localStorage.setItem('roverAuto', '0');
     }
   </script>
-  <!--JavaScript function when the rover is turned 03, set the corresponding dot to red, 
-      restore the blinking animation, set the rover status to Power 03 and remove the
+  <!--JavaScript function when the rover is turned off, set the corresponding dot to red, 
+      restore the blinking animation, set the rover status to Power Off and remove the
       commands div from the Ground Station-->
   <script>
-    function rover03() {
-      document.getElementByName('on03').disabled = false;
-      document.getElementByName('off03').disabled = true;
-      document.getElementByName('stop03').disabled = true;
+    function roverOff() {
+      document.getElementById('on').disabled = false;
+      document.getElementById('off').disabled = true;
+      document.getElementById('stop').disabled = true;
       window.localStorage.removeItem('dot03');
       window.localStorage.setItem('dot03', 'red');
       window.localStorage.setItem('dot03blink', 'no');
-      window.localStorage.setItem('rover03status', '03line');
+      window.localStorage.setItem('rover03status', 'Offline');
       document.getElementById('rover03status').innerText = window.localStorage.getItem('rover03status');
       window.localStorage.removeItem('commands03');
       window.localStorage.setItem('commands03', 'none');
@@ -85,8 +85,8 @@
     <div class="row">
       <div class="col-md-6">
         <br />
-        <i style="margin-left: 4px;" class="fa fa-power-03 mr-1"></i>
-        <!--if speed >0 Running, else Stopped or if not online Power 03-->
+        <i style="margin-left: 4px;" class="fa fa-power-off mr-1"></i>
+        <!--if speed >0 Running, else Stopped or if not online Power Off-->
         <label class="contact-form__label" for="velocity">Rover status:
         </label>
         <span style="margin-left: 10px;" id="rover03status" name="roverStatus"></span>
@@ -119,30 +119,16 @@
         <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
         <br /><br /><br />
         <!--a form with buttons, to send the corresponding rover state to the db-->
-        <form class="content__form contact-form" method="post" action="">
-          <button class="contact-form__button" type="button" onclick="roverStart();" name="on03" value="startRover">
+        <form class="content__form contact-form" method="post" action="php/query.php">
+          <button class="contact-form__button" type="button" onclick="roverStart();" name="startRover" id="on" value="startRover">
             On
           </button>
-          <button class="contact-form__button" type="button" onclick="roverStop();" name="stop03" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverStop();" name="stopRover" id="stop" value="stopRover">
             Stop
           </button>
-          <button class="contact-form__button" type="button" onclick="roveroff();" name="off03" value="stopRover">
-            03
+          <button class="contact-form__button" type="button" onclick="roverOff();" name="stopRover" id="off" value="stopRover">
+            Off
           </button>
-		  <!--- php for the buttons-->
-		  <?php if(isset($_POST['on03'])){
-			  echo "<br>";
-			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'on')");
-			}	
-			else if(isset($_POST['stop03'])){
-			  echo "<br>";
-			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'stop')");
-			}	
-			else if (isset($_POST['off03'])){
-			  echo "<br>";
-			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'off')");
-			}	
-		 ?>
         </form>
       </div>
     </div>
@@ -153,19 +139,19 @@
 
     var status = window.localStorage.getItem('rover03status');
     if (status == 'Running (Manual)' || status == 'Running (Auto)') {
-      document.getElementByName('on03').disabled = true;
-      document.getElementByName('stop').disabled = false;
-      document.getElementByName('off03').disabled = false;
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = false;
+      document.getElementById('off').disabled = false;
     }
     if (status == 'Idle') {
-      document.getElementByName('on03').disabled = true;
-      document.getElementByName('stop03').disabled = true;
-      document.getElementByName('off03').disabled = false;
+      document.getElementById('on').disabled = true;
+      document.getElementById('stop').disabled = true;
+      document.getElementById('off').disabled = false;
     }
-    if (status == '03line') {
-      document.getElementByName('on03').disabled = false;
-      document.getElementByName('stop03').disabled = true;
-      document.getElementByName('off03').disabled = true;
+    if (status == 'Offline') {
+      document.getElementById('on').disabled = false;
+      document.getElementById('stop').disabled = true;
+      document.getElementById('off').disabled = true;
     }
 
     window.addEventListener("storage", function(e) {
