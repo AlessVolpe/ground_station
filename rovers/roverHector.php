@@ -129,6 +129,7 @@
           <button class="contact-form__button" type="button" onclick="roveroff();" name="off03" value="stopRover">
             03
           </button>
+		  <!--- php for the buttons-->
 		  <?php if(isset($_POST['on03'])){
 			  echo "<br>";
 			  $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'on')");
