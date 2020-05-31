@@ -119,7 +119,7 @@
           <button class="contact-form__button stop" type="submit" onclick="roverStop();" name="stopRover">
             Stop
           </button>
-          <button class="contact-form__button off" type="submit" onclick="roverOff();" name="offover">
+          <button class="contact-form__button off" type="submit" onclick="roverOff();" name="offRover">
             Off
           </button>
 		    <?php
