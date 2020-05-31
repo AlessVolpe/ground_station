@@ -1,152 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/login.css" />
-<script src="https://kit.fontawesome.com/d21c2ccf9a.js" crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/login.css" />
+  <script
+    src="https://kit.fontawesome.com/d21c2ccf9a.js"
+    crossorigin="anonymous"
+  ></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, user-scalable=no"
+  />
 
-<head>
-  <meta charset="UTF-8" />
-  <title>Log in - Ground Station</title>
-  <!--inline CSS styling for hiding overflow and overlay styling-->
-  <style>
-    body {
-      overflow-y: hidden;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <title>Log in - Ground Station</title>
+    <!--inline CSS styling for hiding overflow and overlay styling-->
+    <style>
+      body {
+        overflow-y: hidden;
+      }
 
-    #overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #000;
-      filter: alpha(opacity=70);
-      -moz-opacity: 0.7;
-      -khtml-opacity: 0.7;
-      opacity: 0.7;
-      z-index: 100;
-      display: none;
-    }
+      #overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        filter: alpha(opacity=70);
+        -moz-opacity: 0.7;
+        -khtml-opacity: 0.7;
+        opacity: 0.7;
+        z-index: 100;
+        display: none;
+      }
 
-    h1 {
-      text-align: center;
-      color: #fff;
-      font-weight: 500
-    }
+      h1 {
+        text-align: center;
+        color: #812535;
+        font-weight: 500;
+      }
 
-    .cnt223 a {
-      text-decoration: none;
-    }
+      .cnt223 a {
+        text-decoration: none;
+      }
 
-    .popup {
-      width: 100%;
-      margin: 0 auto;
-      display: none;
-      position: fixed;
-      z-index: 101;
-    }
+      .popup {
+        width: 100%;
+        margin: 10% auto;
+        display: none;
+        position: fixed;
+        z-index: 101;
+      }
 
-    .cnt223 {
-      min-width: 400px;
-      width: 400px;
-      min-height: 150px;
-      margin: 100px auto;
-      background: #121212;
-      position: relative;
-      z-index: 103;
-      padding: 15px 35px;
-      border-radius: 5px;
-      box-shadow: 0 2px 5px #000;
-    }
+      .cnt223 {
+        min-width: 400px;
+        width: 400px;
+        min-height: 150px;
+        margin: 100px auto;
+        background: #121212;
+        position: relative;
+        z-index: 103;
+        padding: 15px 35px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #000;
+      }
 
-    .cnt223 p {
-      clear: both;
-      color: #fff;
-      text-align: center;
-      font-size: 20px;
-    }
+      .cnt223 p {
+        clear: both;
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
+      }
 
-    .cnt223 p a {
-      color: #812535;
-      font-weight: 900;
-      font-size: 120%;
-    }
+      .cnt223 p a {
+        color: #812535;
+        font-weight: 900;
+        font-size: 120%;
+      }
 
-    .cnt223 .x {
-      float: right;
-      height: 35px;
-      left: 22px;
-      position: relative;
-      top: -25px;
-      width: 34px;
-    }
+      .cnt223 .x {
+        float: right;
+        height: 35px;
+        left: 22px;
+        position: relative;
+        top: -25px;
+        width: 34px;
+      }
 
-    .cnt223 .x:hover {
-      cursor: pointer;
-    }
-  </style>
-</head>
+      .cnt223 .x:hover {
+        cursor: pointer;
+      }
 
-<body>
-  <!--here starts the actual page content-->
-  <div class="form">
-    <div class="tab-content">
-      <div id="login">
-        <img class="img-small" src="img/STT_logo.png" />
-        <h1 style="text-align: center; margin-top: -10px; margin-bottom: 30px;">
-          Welcome, please Log In
-        </h1>
-        <!--login form-->
-        <form action="php/login.php" method="post">
-          <div class="field-wrap">
-            <label for="user"> </label>
-            <input type="text" name="username" placeholder="Username" required autocomplete="username" />
-          </div>
-          <div class="field-wrap">
-            <label for="password"> </label>
-            <input type="password" name="password" placeholder="Password" required autocomplete="current-password" />
-          </div>
-          <!--form login button-->
-          <input style="cursor: pointer;" type="submit" name="send" value="Log In" class="button button-block" />
-        </form>
+      .close {
+        text-shadow: -0px -0px #812535;
+      }
+      
+      .close:hover {
+        color: #4b0f19;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <!--here starts the actual page content-->
+    <div class="form">
+      <div class="tab-content">
+        <div id="login">
+          <img class="img-small" src="img/STT_logo.png" />
+          <h1
+            style="text-align: center; margin-top: -10px; margin-bottom: 30px;"
+          >
+            Welcome, please Log In
+          </h1>
+          <!--login form-->
+          <form action="php/login.php" method="post">
+            <div class="field-wrap">
+              <label for="user"> </label>
+              <input
+                type="text"
+                name="username"
+                placeholder="Username"
+                required
+                autocomplete="username"
+              />
+            </div>
+            <div class="field-wrap">
+              <label for="password"> </label>
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                required
+                autocomplete="current-password"
+              />
+            </div>
+            <!--form login button-->
+            <input
+              style="cursor: pointer;"
+              type="submit"
+              name="send"
+              value="Log In"
+              class="button button-block"
+            />
+          </form>
+          <br>
+          <a href="about.html"><h5 style="text-align: center; margin-bottom: -10px">About us</h5></a>
+        </div>
+        <div></div>
       </div>
-      <div></div>
     </div>
-  </div>
-  <!--overlay JavaScript function-->
-  <script type="text/javascript">
-    $(function () {
-      var overlay = $('<div id="overlay"></div>');
-      overlay.show();
-      overlay.appendTo(document.body);
-      $(".popup").show();
-      $(".close").click(function () {
-        window.location.href = "login.html";
-        return false;
+    <!--overlay JavaScript function which redirect to login when close button is pressed-->
+    <script
+      type="text/javascript"
+      src="https://code.jquery.com/jquery-1.8.2.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        var overlay = $('<div id="overlay"></div>');
+        overlay.show();
+        overlay.appendTo(document.body);
+        $(".popup").show();
+        $(".close").click(function () {
+          window.location.href = "login.html";
+          return false;
+        });
+        $(".x").click(function () {
+          window.location.href = "login.html";
+          overlay.appendTo(document.body).remove();
+          return false;
+        });
       });
-      $(".x").click(function () {
-        $(".popup").hide();
-        overlay.appendTo(document.body).remove();
-        return false;
-      });
-    });
-  </script>
-  <!--actual HTML for the overlay-->
-  <div class="popup">
-    <div class="cnt223">
-      <h1>Error</h1>
-      <p>
-        Invalid credentials, please try again.
-        <br />
-        <br />
-        <br />
-        <a href="" class="close">CLOSE</a>
-      </p>
+    </script>
+    <!--actual HTML for the overlay-->
+    <div class="popup">
+      <div class="cnt223">
+        <h1>Error</h1>
+        <p>
+          Invalid credentials, please try again.
+          <br />
+          <br />
+          <br />
+          <a href="" class="close">CLOSE</a>
+        </p>
+        <br>
+      </div>
     </div>
-  </div>
-</body>
-
+  </body>
 </html>

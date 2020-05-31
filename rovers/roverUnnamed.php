@@ -119,14 +119,14 @@
         <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
         <br /><br /><br />
         <!--a form with buttons, to send the corresponding rover state to the db-->
-        <form class="content__form contact-form" method="post" action="php/query.php">
-          <button class="contact-form__button" type="button" onclick="roverStart();" name="startRover" id="on" value="startRover">
+        <form class="content__form contact-form" method="post" action="../php/queryunnamed.php">
+          <button class="contact-form__button" type="button" onclick="roverStart();" name="startRover" id="on">
             On
           </button>
-          <button class="contact-form__button" type="button" onclick="roverStop();" name="stopRover" id="stop" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverStop();" name="stopRover" id="stop">
             Stop
           </button>
-          <button class="contact-form__button" type="button" onclick="roverOff();" name="stopRover" id="off" value="stopRover">
+          <button class="contact-form__button" type="button" onclick="roverOff();" name="stopRover" id="off">
             Off
           </button>
         </form>
