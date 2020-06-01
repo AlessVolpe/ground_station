@@ -22,9 +22,6 @@
       div in the Ground Station-->
   <script>
     function roverStart() {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = false;
-      document.getElementsByClassName('off').disabled = false;
       window.localStorage.removeItem('dot03');
       window.localStorage.setItem('dot03', 'green');
       window.localStorage.setItem('dot03blink', 'no');
@@ -37,9 +34,6 @@
       waiting for commands from the Ground Station-->
   <script>
     function roverStop() {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = false;
-      document.getElementsByClassName('off').disabled = false;
       window.localStorage.removeItem('dot03');
       window.localStorage.setItem('dot03', 'green');
       window.localStorage.setItem('dot03blink', 'no');
@@ -54,9 +48,6 @@
       commands div from the Ground Station-->
   <script>
     function roverOff() {
-      document.getElementsByClassName('on').disabled = false;
-      document.getElementsByClassName('off').disabled = true;
-      document.getElementsByClassName('stop').disabled = true;
       window.localStorage.removeItem('dot03');
       window.localStorage.setItem('dot03', 'red');
       window.localStorage.setItem('dot03blink', 'no');
@@ -118,6 +109,7 @@
         <label class="contact-form__label" for="velocity">Rover mode: </label>
         <span style="margin-left: 10px;" name="modeData"><?php echo $row['mode']; ?></span>
         <br /><br /><br />
+        
         <!--a form with buttons, to send the corresponding rover state to the db-->
         <form class="content__form contact-form" method="post" action="">
           <button class="contact-form__button on" type="submit" onclick="roverStart();" name="startRover">
@@ -129,17 +121,19 @@
           <button class="contact-form__button off" type="submit" onclick="roverOff();" name="offRover">
             Off
           </button>
+
+          <!--PHP section, insert into db last button pressed status-->
 		    <?php
-			if(isset($_POST['startRover'])){
-				$query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'On')");
-			}
-			else if(isset($_POST['stopRover'])){
-				$query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'Idle')");
-			}
-			else if(isset($_POST['offRover'])){
-				$query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'Off')");
-			}
-		   ?>
+          if(isset($_POST['startRover'])){
+            $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'On')");
+          }
+          else if(isset($_POST['stopRover'])){
+            $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'Idle')");
+          }
+          else if(isset($_POST['offRover'])){
+            $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (3, 'Off')");
+          }
+        ?>
         </form>
       </div>
     </div>
@@ -150,19 +144,19 @@
 
     var status = window.localStorage.getItem('rover03status');
     if (status == 'Running (Manual)' || status == 'Running (Auto)') {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = false;
-      document.getElementsByClassName('off').disabled = false;
+      document.getElementsByClassName('contact-form__button on')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button stop')[0].disabled = false;
+      document.getElementsByClassName('contact-form__button off')[0].disabled = false;
     }
     if (status == 'Idle') {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = true;
-      document.getElementsByClassName('off').disabled = false;
+      document.getElementsByClassName('contact-form__button on')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button stop')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button off')[0].disabled = false;
     }
     if (status == 'Offline') {
-      document.getElementsByClassName('on').disabled = false;
-      document.getElementsByClassName('stop').disabled = true;
-      document.getElementsByClassName('off').disabled = true;
+      document.getElementsByClassName('contact-form__button on')[0].disabled = false;
+      document.getElementsByClassName('contact-form__button stop')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button off')[0].disabled = true;
     }
 
     window.addEventListener("storage", function(e) {

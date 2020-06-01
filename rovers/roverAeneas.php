@@ -16,16 +16,12 @@
     body {
       overflow-y: hidden;
     }
-  
   </style>
   <!--JavaScript function when the rover is turned on, set the corresponding dot to green, 
       remove the blinking animation, set the rover status to Idle, and restore the commands
       div in the Ground Station-->
   <script>
     function roverStart() {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = false;
-      document.getElementsByClassName('off').disabled = false;
       window.localStorage.removeItem('dot02');
       window.localStorage.setItem('dot02', 'green');
       window.localStorage.setItem('dot02blink', 'no');
@@ -38,9 +34,6 @@
       waiting for commands from the Ground Station-->
   <script>
     function roverStop() {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = false;
-      document.getElementsByClassName('off').disabled = false;
       window.localStorage.removeItem('dot02');
       window.localStorage.setItem('dot02', 'green');
       window.localStorage.setItem('dot02blink', 'no');
@@ -55,9 +48,6 @@
       commands div from the Ground Station-->
   <script>
     function roverOff() {
-      document.getElementsByClassName('on').disabled = false;
-      document.getElementsByClassName('off').disabled = true;
-      document.getElementsByClassName('stop').disabled = true;
       window.localStorage.removeItem('dot02');
       window.localStorage.setItem('dot02', 'red');
       window.localStorage.setItem('dot02blink', 'no');
@@ -111,6 +101,7 @@
         <label class="contact-form__label" for="velocity">Y-coords:</label>
         <span style="margin-left: 10px;" name="yData"><?php echo $row['coordsy']; ?></span>
         <br /><br /><br />
+
         <!--a form with buttons, to send the corresponding rover state to the db-->
         <form class="content__form contact-form" method="post" action="">
           <button class="contact-form__button on" type="submit" onclick="roverStart();" name="startRover">
@@ -122,17 +113,19 @@
           <button class="contact-form__button off" type="submit" onclick="roverOff();" name="offRover">
             Off
           </button>
-		    <?php
-			if(isset($_POST['startRover'])){
-				$query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'On')");
-			}
-			else if(isset($_POST['stopRover'])){
-				$query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'Idle')");
-			}
-			else if(isset($_POST['offRover'])){
-				$query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'Off')");
-			}
-		   ?>
+          
+          <!--PHP section, insert into db last button pressed status-->
+          <?php
+            if(isset($_POST['startRover'])){
+              $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'On')");
+            }
+            else if(isset($_POST['stopRover'])){
+              $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'Idle')");
+            }
+            else if(isset($_POST['offRover'])){
+              $query = mysqli_query($connetion, "INSERT into rover(roverID, status) VALUES (2, 'Off')");
+            }
+          ?>
         </form>
       </div>
     </div>
@@ -143,19 +136,19 @@
 
     var status = window.localStorage.getItem('rover02status');
     if (status == 'Running (Manual)' || status == 'Running (Auto)') {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = false;
-      document.getElementsByClassName('off').disabled = false;
+      document.getElementsByClassName('contact-form__button on')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button stop')[0].disabled = false;
+      document.getElementsByClassName('contact-form__button off')[0].disabled = false;
     }
     if (status == 'Idle') {
-      document.getElementsByClassName('on').disabled = true;
-      document.getElementsByClassName('stop').disabled = true;
-      document.getElementsByClassName('off').disabled = false;
+      document.getElementsByClassName('contact-form__button on')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button stop')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button off')[0].disabled = false;
     }
     if (status == 'Offline') {
-      document.getElementsByClassName('on').disabled = false;
-      document.getElementsByClassName('stop').disabled = true;
-      document.getElementsByClassName('off').disabled = true;
+      document.getElementsByClassName('contact-form__button on')[0].disabled = false;
+      document.getElementsByClassName('contact-form__button stop')[0].disabled = true;
+      document.getElementsByClassName('contact-form__button off')[0].disabled = true;
     }
 
     window.addEventListener("storage", function(e) {

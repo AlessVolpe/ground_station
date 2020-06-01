@@ -40,19 +40,21 @@
     function manualButton() {
     window.localStorage.setItem('rover01status', 'Running (manual)'); 
     document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status'); 
+    document.getElementById("autoRover01").disabled = false;
     }
   </script>
   <script>
     function autoButton() {
-      document.getElementById("manualRover01").disabled = true;
+      window.localStorage.setItem("rover01status", "Running (auto)");
+      document.getElementById("rover01status").innerText = window.localStorage.getItem("rover01status");
+      document.getElementById("autoRover01").disabled = true;
     }
   </script>
   <script>
     function stopButton() {
-      document.getElementById("autoRover01").disabled = false;
-      document.getElementById("manualRover01").disabled = false;
       window.localStorage.setItem('rover01status', 'Idle'); 
       document.getElementById('rover01status').innerText = window.localStorage.getItem('rover01status');
+      document.getElementById("autoRover01").disabled = false;
     }
   </script>
 </head>
@@ -237,10 +239,9 @@
               <!--rover commands form buttons-->
               <!--Running (Manual) button-->
               <button class="contact-form__button" type="submit" name="subtodb"
-                onclick="manualButton()"
-                id="manualRover01"> Send data </button>
+                onclick="manualButton()" id="manualRover01"> Send data </button>
               <!--Running (Auto) button-->
-              <a href="#realTime"><button class="contact-form__button" type="submit" name="auto"
+              <a href="#realTime"><button class="contact-form__button" type="button" name="auto"
                 onClick="autoButton(); roverAuto(1);" id="autoRover01"> Auto </button></a>
               <!--Stop button-->
               <button class="contact-form__button" type="submit" name="stop"
@@ -277,7 +278,7 @@
           $('.command').text(command.innerHTML);
         }
       </script>
-      <!--local storage listener script for hiding commands section if the rover is offline-->
+      <!--local storage listener script for hiding commands section if the rover is offline and set buttons basend on rover status-->
       <script>
         document.getElementById("commands01").style.display = window.localStorage.getItem('commands01');
         window.addEventListener("storage", function (e) {

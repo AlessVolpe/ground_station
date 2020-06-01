@@ -38,13 +38,6 @@ altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
 
 function roverData() {
 
-  document.getElementById("autoRover03").disabled = true; // disables auto button
-    // sets a localStorage variable an then puts it into the rover status span
-    window.localStorage.setItem("rover03status", "Running (auto)");
-    document.getElementById(
-      "rover03status"
-    ).innerText = window.localStorage.getItem("rover03status");
-
   // Battery update
   maxBattery = maxBattery - 0.05;
   if (maxBattery > minBattery) battery.innerHTML = Math.ceil(maxBattery) + " %";
@@ -82,15 +75,8 @@ function roverData() {
   setTimeout(roverData, 500);
 }
 
-// this function gets called from the buttons in the HTML page
+// this function gets called from the buttons in the HTML page, only if bool==1 the loop is executed
 function roverAuto(bool) {
-  if (bool == 1) {
+  if (bool == 1) 
     roverData();
-  } else if (bool == 0) { 
-      // this stops the automatic script
-      window.localStorage.setItem("rover03status", "Idle");
-      document.getElementById(
-        "rover03status"
-      ).innerText = window.localStorage.getItem("rover03status");
-    }
 }

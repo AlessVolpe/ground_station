@@ -24,6 +24,7 @@ var speed = document.getElementById("speedRT");
 var battery = document.getElementById("batteryRT");
 var xCoords = document.getElementById("xCoordsRT");
 var yCoords = document.getElementById("yCoordsRT");
+var tilt = document.getElementById("cameraTiltRT");
 
 // Attitude initialized
 attitude.setRoll(10 * Math.sin(increment / 2));
@@ -34,13 +35,6 @@ altimeter.setAltitude(10 * increment);
 altimeter.setPressure(1000 + 3 * Math.sin(increment / 50));
 
 function roverData() {
-
-  document.getElementById("autoRover02").disabled = true; // disables auto button
-    // sets a localStorage variable an then puts it into the rover status span
-    window.localStorage.setItem("rover02status", "Running (auto)");
-    document.getElementById(
-      "rover02status"
-    ).innerText = window.localStorage.getItem("rover02status");
 
   // Battery update
   maxBattery = maxBattery - 0.05;
@@ -74,15 +68,8 @@ function roverData() {
   setTimeout(roverData, 500);
 }
 
-// this function gets called from the buttons in the HTML page
+// this function gets called from the buttons in the HTML page, only if bool==1 the loop is executed
 function roverAuto(bool) {
-  if (bool == 1) {
+  if (bool == 1) 
     roverData();
-  } else if (bool == 0) { 
-      // this stops the automatic script
-      window.localStorage.setItem("rover02status", "Idle");
-      document.getElementById(
-        "rover02status"
-      ).innerText = window.localStorage.getItem("rover02status");
-    }
 }

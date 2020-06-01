@@ -1,7 +1,7 @@
 <?php
 /*Welcome to the php page of rover*/
 
-/*If the user push the 'send data' button:*/
+/*If the user push the 'send data' button, send to db current rover status to "Running(M)"*/
 	if (isset($_POST['subtodb'])) {
 		$roverID = $_POST['roverID'];
 		$status = $_POST['status'];
@@ -19,7 +19,7 @@
 		$query = "INSERT into rover(roverID, status, speed, coordsx, coordsy, cameraTilt, mode) VALUES ('$roverID', 'Running(M)', '$speed', '$coordsx',  '$coordsy',  '$cameraTilt', '$mode')";
 		$result = mysqli_query($connetion, $query);
 		
-	/*Query: insert all the input in the table rover*/
+	/*Query: insert all inputs in the table rover*/
 	
 		if ($result) {
 			header("Location: ../unnamed.html#realTime"); /*If result==true, OK*/
@@ -28,7 +28,7 @@
 		}
 	}
 
-	/*if the user push 'stop' button*/
+	/*if the user push 'stop' button, send to db current rover status to "Idle"*/
 
 	else if (isset($_POST['stop'])) {
 
@@ -38,7 +38,7 @@
 		$query = "INSERT into rover(roverID, status) VALUES ('1', 'Idle')";
 		$result = mysqli_query($connetion, $query);
 		
-		/*Query: insert input and roverID=1 in the rover table*/
+		/*Query: insert rover status and roverID=1 in the rover table*/
 
 		if ($result) {
 			header("Location: ../unnamed.html#realTime"); /*If result==True, OK*/
