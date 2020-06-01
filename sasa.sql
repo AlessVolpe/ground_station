@@ -24,23 +24,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `ground_station`
---
-
-CREATE TABLE `ground_station` (
-  `id` int(3) NOT NULL,
-  `roverID` int(3) NOT NULL,
-  `speed` double NOT NULL,
-  `coordsx` varchar(255) NOT NULL,
-  `coordsy` varchar(255) NOT NULL,
-  `cameraTilt` int(3) NOT NULL,
-  `mode` varchar(50) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
 -- Struttura della tabella `rover`
 --
 
@@ -77,10 +60,6 @@ INSERT INTO `users` (`username`, `password`, `email`) VALUES
 ('sasa', 'sttAdmin', 'sasa@sasa');
 
 --
--- Indici per le tabelle scaricate
---
-
---
 -- Indici per le tabelle `ground_station`
 --
 ALTER TABLE `ground_station`
@@ -98,10 +77,6 @@ ALTER TABLE `rover`
 ALTER TABLE `users`
   ADD PRIMARY KEY (`username`),
   ADD UNIQUE KEY `email` (`email`);
-
---
--- AUTO_INCREMENT per le tabelle scaricate
---
 
 --
 -- AUTO_INCREMENT per la tabella `ground_station`
